@@ -1,170 +1,285 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>BASE64 | xiaocai</title><meta name="author" content="xiaocai"><meta name="copyright" content="xiaocai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="BASE64 12345678910ZG&#x3D;&#x3D;YY&#x3D;&#x3D;aW&#x3D;&#x3D;ZF&#x3D;&#x3D;cm&#x3D;&#x3D;aM&#x3D;&#x3D;b2&#x3D;&#x3D;dc&#x3D;&#x3D;c2&#x3D;&#x3D;Zf&#x3D;&#x3D;  解码得到 daidrhouse，然而编码得到 12345678910ZA&#x3D;&#x3D;YQ&#x3D;&#x3D;aQ&#x3D;&#x3D;ZA&#x3D;&#x3D;cg&#x3D;&#x3D;aA&#x3D;&#x3D;bw&#x3D;&#x3D;dQ&#x3D;&#x3D;cw&#x3D;&#x3D;ZQ&#x3D;&#x3D;  发现每一串的第二位都发生了改变，但是结果没变。 base64原理顾名思义，base64编码就是用64个ascii字符作为基础来编">
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xiaocai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="BASE64 12345678910ZG&#x3D;&#x3D;YY&#x3D;&#x3D;aW&#x3D;&#x3D;ZF&#x3D;&#x3D;cm&#x3D;&#x3D;aM&#x3D;&#x3D;b2&#x3D;&#x3D;dc&#x3D;&#x3D;c2&#x3D;&#x3D;Zf&#x3D;&#x3D;  解码得到 daidrhouse，然而编码得到 12345678910ZA&#x3D;&#x3D;YQ&#x3D;&#x3D;aQ&#x3D;&#x3D;ZA&#x3D;&#x3D;cg&#x3D;&#x3D;aA&#x3D;&#x3D;bw&#x3D;&#x3D;dQ&#x3D;&#x3D;cw&#x3D;&#x3D;ZQ&#x3D;&#x3D;  发现每一串的第二位都发生了改变，但是结果没变。 base64原理顾名思义，base64编码就是用64个ascii字符作为基础来编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BASE64">
-<meta property="og:url" content="http://example.com/2023/10/20/BASE64/index.html">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/20/BASE64/index.html">
 <meta property="og:site_name" content="xiaocai">
 <meta property="og:description" content="BASE64 12345678910ZG&#x3D;&#x3D;YY&#x3D;&#x3D;aW&#x3D;&#x3D;ZF&#x3D;&#x3D;cm&#x3D;&#x3D;aM&#x3D;&#x3D;b2&#x3D;&#x3D;dc&#x3D;&#x3D;c2&#x3D;&#x3D;Zf&#x3D;&#x3D;  解码得到 daidrhouse，然而编码得到 12345678910ZA&#x3D;&#x3D;YQ&#x3D;&#x3D;aQ&#x3D;&#x3D;ZA&#x3D;&#x3D;cg&#x3D;&#x3D;aA&#x3D;&#x3D;bw&#x3D;&#x3D;dQ&#x3D;&#x3D;cw&#x3D;&#x3D;ZQ&#x3D;&#x3D;  发现每一串的第二位都发生了改变，但是结果没变。 base64原理顾名思义，base64编码就是用64个ascii字符作为基础来编">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/NK23ZzryPj9YBpi-16977914930905.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/ZBpPwsz5OeaH3FG-16977914969667.png">
 <meta property="article:published_time" content="2023-10-20T08:43:23.000Z">
 <meta property="article:modified_time" content="2023-10-20T08:45:00.671Z">
 <meta property="article:author" content="xiaocai">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/20/BASE64/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/NK23ZzryPj9YBpi-16977914930905.png">
+  
+  
+  
+  <title>BASE64 - xiaocai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  }
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'BASE64',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2023-10-20 16:45:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+
+
   
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+
+  <header>
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiaocai&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="BASE64"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="xiaocai"><span class="site-name">xiaocai</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">BASE64</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-10-20T08:43:23.000Z" title="Created 2023-10-20 16:43:23">2023-10-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-10-20T08:45:00.671Z" title="Updated 2023-10-20 16:45:00">2023-10-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BASE64"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>BASE64</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ZG</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">YY</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">aW</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">ZF</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">cm</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">aM</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">b2</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">dc</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">c2</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">Zf</span><span class="operator">=</span><span class="operator">=</span></span><br></pre></td></tr></table></figure>
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-20 16:43" pubdate>
+          October 20, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">BASE64</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>BASE64</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">ZG</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">YY</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">aW</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">ZF</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">cm</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">aM</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">b2</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">dc</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">c2</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">Zf</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
 
 <p>解码得到 daidrhouse，然而编码得到</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ZA</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">YQ</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">aQ</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">ZA</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">cg</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">aA</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">bw</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">dQ</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">cw</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="attribute">ZQ</span><span class="operator">=</span><span class="operator">=</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">ZA</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">YQ</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">aQ</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">ZA</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">cg</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">aA</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">bw</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">dQ</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">cw</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br><span class="hljs-attribute">ZQ</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
 
 <p>发现每一串的第二位都发生了改变，但是结果没变。</p>
 <h4 id="base64原理"><a href="#base64原理" class="headerlink" title="base64原理"></a>base64原理</h4><p>顾名思义，base64编码就是用64个ascii字符作为基础来编码二进制内容的一种编码方式。相信各位一定在网页中看到过base64编码的内嵌图片，甚至QQ音乐传输歌词文件时，也采用了base64编码。将二进制编码为ascii字符，使数据在某些场景下更便于阅读、便于传输。当然，将所有二进制「浓缩」到区区64个字符来表示，一定会在体积上作出妥协。字符在编码完成后，会增大1&#x2F;3倍。</p>
@@ -347,8 +462,8 @@
 </tbody></table>
 <p>有时为了防止混淆（比如链接），会使用 <code>.</code> <code>_</code> 来代替索引表中的 <code>+</code> <code>/</code> 。</p>
 <h4 id="隐写原理"><a href="#隐写原理" class="headerlink" title="隐写原理"></a>隐写原理</h4><p>base64在解码的时候，会按照字符串末尾的 <code>=</code> 数量来删除相应字节数。或许你已经发现了，当一组字符的数量为1字节或2字节的时候，会有4位或2位二进制在解码时被忽略</p>
-<p><img src="/../images/NK23ZzryPj9YBpi-16977914930905.png" alt="NK23ZzryPj9YBpi"></p>
-<p><img src="/../images/ZBpPwsz5OeaH3FG-16977914969667.png" alt="ZBpPwsz5OeaH3FG"></p>
+<p><img src="/../images/NK23ZzryPj9YBpi-16977914930905.png" srcset="/img/loading.gif" lazyload alt="NK23ZzryPj9YBpi"></p>
+<p><img src="/../images/ZBpPwsz5OeaH3FG-16977914969667.png" srcset="/img/loading.gif" lazyload alt="ZBpPwsz5OeaH3FG"></p>
 <p>即解码时：</p>
 <p>解密的时候首先把”&#x3D;”删去，然后写出二进制数串，然后从左往右每8位一组，剩余的不足8位丢掉，然后根据转换表获得相应字符</p>
 <p>然后每8位一组，剩余不足的丢弃，</p>
@@ -356,9 +471,350 @@
 <p>解密得到的明文是不变的，那么你重新按照正确的加密流程计算一遍，如果发现结果不一样，那么就说明隐藏进了信息。</p>
 <p>CTF题目中出现一大堆base64编码字符串的时候，更需要考虑base64隐写。</p>
 <p>base64的脚本</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">b64chars = <span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ccc.txt为待解密的base64隐写字符串所在的文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;base.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">base64str = f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># pattern2用于匹配两个等号情况时，等号前的一个字符</span></span><br><span class="line"><span class="comment"># pattern2用于匹配一个等号情况时，等号前的一个字符</span></span><br><span class="line">pattern2 = <span class="string">r&#x27;(\S)==$&#x27;</span></span><br><span class="line">pattern1 = <span class="string">r&#x27;(\S)=$&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取后的隐写二进制字符加入binstring中</span></span><br><span class="line">binstring = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 逐行读取待解密的base64隐写字符串，逐行处理</span></span><br><span class="line"><span class="keyword">while</span>(base64str):</span><br><span class="line">    <span class="comment"># 先匹配两个等号的情况，如果匹配不上，再配置一个等号的情况</span></span><br><span class="line">    <span class="comment"># 如果无等号，则没有隐藏，无需处理</span></span><br><span class="line">    <span class="keyword">if</span> re.<span class="built_in">compile</span>(pattern2).findall(base64str):</span><br><span class="line">        <span class="comment"># mstr为等号前的一个字符，该字符为隐写二进制信息所在的字符</span></span><br><span class="line">        mstr = re.<span class="built_in">compile</span>(pattern2).findall(base64str)[<span class="number">0</span>]</span><br><span class="line">        <span class="comment"># 确认mstr字符对应的base64二进制数，赋值给mbin</span></span><br><span class="line">        mbin = <span class="built_in">bin</span>(b64chars.find(mstr))</span><br><span class="line">        <span class="comment"># mbin格式如0b100，mbin[0:2]为0b</span></span><br><span class="line">        <span class="comment"># mbin[2:].zfill(6)为将0b后面的二进制数前面补0，使0b后面的长度为6</span></span><br><span class="line">        mbin2 = mbin[<span class="number">0</span>:<span class="number">2</span>] + mbin[<span class="number">2</span>:].zfill(<span class="number">6</span>)</span><br><span class="line">        <span class="comment"># 两个等号情况隐写了4位二进制数，所以提取mbin2的后4bit</span></span><br><span class="line">        <span class="comment"># 赋值给stegobin，这就是隐藏的二进制信息</span></span><br><span class="line">        stegobin = mbin2[-<span class="number">4</span>:]</span><br><span class="line">        binstring += stegobin</span><br><span class="line">    <span class="keyword">elif</span> re.<span class="built_in">compile</span>(pattern1).findall(base64str):</span><br><span class="line">        mstr = re.<span class="built_in">compile</span>(pattern1).findall(base64str)[<span class="number">0</span>]</span><br><span class="line">        mbin = <span class="built_in">bin</span>(b64chars.find(mstr))</span><br><span class="line">        mbin2 = mbin[<span class="number">0</span>:<span class="number">2</span>] + mbin[<span class="number">2</span>:].zfill(<span class="number">6</span>)</span><br><span class="line">        <span class="comment"># 一个等号情况隐写了2位二进制数，所以提取mbin2的后2bit</span></span><br><span class="line">        stegobin = mbin2[-<span class="number">2</span>:]</span><br><span class="line">        binstring += stegobin</span><br><span class="line">    base64str = f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># stegobin将各行隐藏的二进制字符拼接在一起</span></span><br><span class="line"><span class="comment"># 从第0位开始，8bit、8bit处理，所以range的步进为8</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(binstring),<span class="number">8</span>):</span><br><span class="line">    <span class="comment"># int(xxx,2)，将二进制字符串转换为10进制的整数，再用chr()转为字符</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">int</span>(binstring[i:i+<span class="number">8</span>],<span class="number">2</span>)),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> base64<br><br>b64chars = <span class="hljs-string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><br><br><span class="hljs-comment"># ccc.txt为待解密的base64隐写字符串所在的文件</span><br>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;base.txt&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>)<br>base64str = f.readline()<br><br><span class="hljs-comment"># pattern2用于匹配两个等号情况时，等号前的一个字符</span><br><span class="hljs-comment"># pattern2用于匹配一个等号情况时，等号前的一个字符</span><br>pattern2 = <span class="hljs-string">r&#x27;(\S)==$&#x27;</span><br>pattern1 = <span class="hljs-string">r&#x27;(\S)=$&#x27;</span><br><br><span class="hljs-comment"># 提取后的隐写二进制字符加入binstring中</span><br>binstring = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-comment"># 逐行读取待解密的base64隐写字符串，逐行处理</span><br><span class="hljs-keyword">while</span>(base64str):<br>    <span class="hljs-comment"># 先匹配两个等号的情况，如果匹配不上，再配置一个等号的情况</span><br>    <span class="hljs-comment"># 如果无等号，则没有隐藏，无需处理</span><br>    <span class="hljs-keyword">if</span> re.<span class="hljs-built_in">compile</span>(pattern2).findall(base64str):<br>        <span class="hljs-comment"># mstr为等号前的一个字符，该字符为隐写二进制信息所在的字符</span><br>        mstr = re.<span class="hljs-built_in">compile</span>(pattern2).findall(base64str)[<span class="hljs-number">0</span>]<br>        <span class="hljs-comment"># 确认mstr字符对应的base64二进制数，赋值给mbin</span><br>        mbin = <span class="hljs-built_in">bin</span>(b64chars.find(mstr))<br>        <span class="hljs-comment"># mbin格式如0b100，mbin[0:2]为0b</span><br>        <span class="hljs-comment"># mbin[2:].zfill(6)为将0b后面的二进制数前面补0，使0b后面的长度为6</span><br>        mbin2 = mbin[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>] + mbin[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">6</span>)<br>        <span class="hljs-comment"># 两个等号情况隐写了4位二进制数，所以提取mbin2的后4bit</span><br>        <span class="hljs-comment"># 赋值给stegobin，这就是隐藏的二进制信息</span><br>        stegobin = mbin2[-<span class="hljs-number">4</span>:]<br>        binstring += stegobin<br>    <span class="hljs-keyword">elif</span> re.<span class="hljs-built_in">compile</span>(pattern1).findall(base64str):<br>        mstr = re.<span class="hljs-built_in">compile</span>(pattern1).findall(base64str)[<span class="hljs-number">0</span>]<br>        mbin = <span class="hljs-built_in">bin</span>(b64chars.find(mstr))<br>        mbin2 = mbin[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>] + mbin[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">6</span>)<br>        <span class="hljs-comment"># 一个等号情况隐写了2位二进制数，所以提取mbin2的后2bit</span><br>        stegobin = mbin2[-<span class="hljs-number">2</span>:]<br>        binstring += stegobin<br>    base64str = f.readline()<br><br><span class="hljs-comment"># stegobin将各行隐藏的二进制字符拼接在一起</span><br><span class="hljs-comment"># 从第0位开始，8bit、8bit处理，所以range的步进为8</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(binstring),<span class="hljs-number">8</span>):<br>    <span class="hljs-comment"># int(xxx,2)，将二进制字符串转换为10进制的整数，再用chr()转为字符</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">int</span>(binstring[i:i+<span class="hljs-number">8</span>],<span class="hljs-number">2</span>)),end=<span class="hljs-string">&#x27;&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
 
 <h4 id="NewstarCtf-2023"><a href="#NewstarCtf-2023" class="headerlink" title="NewstarCtf 2023"></a>NewstarCtf 2023</h4><h5 id="base"><a href="#base" class="headerlink" title="base!"></a>base!</h5><p>脚本解码得到</p>
 <p>iDMb6ZMnTFMtFuouYZHwPTYAoWjC7Hjca8</p>
 <p>即flag{b4se_1s_4_g0od_c0d3}</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">xiaocai</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/10/20/BASE64/">http://example.com/2023/10/20/BASE64/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/21/Integer-Overflow-and-Underflow/" title="Integer Overflow and Underflow"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Integer Overflow and Underflow</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/19/Re-Entrancy/" title="Re-Entrancy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Re-Entrancy</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xiaocai</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#base64%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">base64原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">索引表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%86%99%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">隐写原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NewstarCtf-2023"><span class="toc-number">4.</span> <span class="toc-text">NewstarCtf 2023</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#base"><span class="toc-number">4.1.</span> <span class="toc-text">base!</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/24/Airdrop-Hunting/" title="Airdrop Hunting">Airdrop Hunting</a><time datetime="2023-10-24T03:04:23.000Z" title="Created 2023-10-24 11:04:23">2023-10-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/23/Pyjail/" title="Pyjail">Pyjail</a><time datetime="2023-10-23T08:49:53.000Z" title="Created 2023-10-23 16:49:53">2023-10-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/22/Randomness/" title="Randomness">Randomness</a><time datetime="2023-10-22T06:29:20.000Z" title="Created 2023-10-22 14:29:20">2023-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/21/Integer-Overflow-and-Underflow/" title="Integer Overflow and Underflow">Integer Overflow and Underflow</a><time datetime="2023-10-21T02:24:12.000Z" title="Created 2023-10-21 10:24:12">2023-10-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/20/BASE64/" title="BASE64">BASE64</a><time datetime="2023-10-20T08:43:23.000Z" title="Created 2023-10-20 16:43:23">2023-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By xiaocai</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>BASE64</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/20/BASE64/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>xiaocai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 20, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/21/Integer-Overflow-and-Underflow/" title="Integer Overflow and Underflow">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Integer Overflow and Underflow</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/19/Re-Entrancy/" title="Re-Entrancy">
+                        <span class="hidden-mobile">Re-Entrancy</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
