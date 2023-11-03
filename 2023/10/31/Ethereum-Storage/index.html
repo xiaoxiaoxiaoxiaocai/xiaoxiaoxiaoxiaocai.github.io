@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xiaocai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="插槽以太坊数据存储会为合约的每项数据指定一个可计算的存储位置，存放在一个容量为2^256超级数组中，数组每个元素为插槽，初始为0. 1234567891011121314151617# 插槽式数组存储----------------------------------|               0                |     # slot 0-------------------">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum Storage">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/31/Ethereum-Storage/index.html">
+<meta property="og:site_name" content="xiaocai">
+<meta property="og:description" content="插槽以太坊数据存储会为合约的每项数据指定一个可计算的存储位置，存放在一个容量为2^256超级数组中，数组每个元素为插槽，初始为0. 1234567891011121314151617# 插槽式数组存储----------------------------------|               0                |     # slot 0-------------------">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-31T09:20:37.000Z">
+<meta property="article:modified_time" content="2023-11-01T12:16:54.205Z">
+<meta property="article:author" content="xiaocai">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Ethereum Storage - xiaocai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiaocai&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ethereum Storage"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-31 17:20" pubdate>
+          October 31, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.1k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ethereum Storage</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h3><p>以太坊数据存储会为合约的每项数据指定一个可计算的存储位置，存放在一个容量为2^256超级数组中，数组每个元素为插槽，初始为0.</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section"># 插槽式数组存储</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|               0                |     # slot 0</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|               1                |     # slot 1</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|               2                |     # slot 2</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|              ...               |     # ...</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|              ...               |     # 每个插槽 32 字节</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|              ...               |     # ...</span><br><span class="hljs-section">----------------------------------</span><br><span class="hljs-section">|            2^256-1             |     # slot 2^256-1</span><br><span class="hljs-section">----------------------------------</span><br><br></code></pre></td></tr></table></figure>
+
+<p>当数据长度是已知时，其具体的存储位置将在编译时指定，而对于长度不确定的类型（如动态数组、映射），则会按一定规则计算存储位置。以下是对不同类型变量的储存模型的具体分析。</p>
+<h4 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h4><p>除映射和动态数组之外的所有类型，其数据长度都是已知的，如定长整型 (<code>int</code>&#x2F;<code>uint</code>&#x2F;…), 地址 (<code>address</code>), 定长浮点型 (<code>fixed</code>&#x2F;<code>ufixed</code>&#x2F;…), 定长字节数组 (<code>bytes1</code>-<code>bytes32</code>)，编译时将严格根据字段排序顺序，从位置 0 开始连续放置在存储中。如果可能的话，大小少于 32 字节的多个变量会被打包到一个插槽中，而当某项数据超过 32 字节，则需要占用多个连续插槽（<code>data.length / 32</code>）。规则如下：</p>
+<ul>
+<li>存储插槽的第一项会以低位对齐（即右对齐）的方式储存。</li>
+<li>基本类型仅使用存储它们所需的字节。</li>
+<li>如果存储插槽中的剩余空间不足以储存一个基本类型，那么它会被移入下一个存储插槽。</li>
+<li>结构和数组数据总是会占用一整个新插槽（但结构或数组中的各项，都会以这些规则进行打包）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.0;<br><br>contract C &#123;<br>    address a;      // 0（20）<br>    uint8 b;        // 0（1）<br>    uint256 c;      // 1（32）<br>    bytes24 d;      // 2（24）<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-code">| unused (11) | b (1) |            a (20)           | &lt;- slot 0</span><br><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-section">|                       c (32)                      | &lt;- slot 1</span><br><span class="hljs-section">-----------------------------------------------------</span><br>| unused (8) |                d (24)                | &lt;- slot 2<br></code></pre></td></tr></table></figure>
+
+<h4 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h4><p>对于形如 <code>mapping(address =&gt; uint) a;</code> 的映射类型变量，就无法简单仿照值类型按顺序储存了。对于映射，其会根据上节提到的规则占据位置 <code>p</code> 处的一个插槽，但该插槽不会被真正使用。映射中的键 <code>k</code> 所对应的值会位于 <code>keccak256(k . p)</code>， 其中 <code>.</code> 是连接符。如果该值同时是一个非基本类型，则将 <code>keccak256(k . p)</code> 作为偏移量来找到具体的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.0;<br><br>contract C &#123;<br>    mapping(address =&gt; uint) a;      // 0<br>    uint256 b;                       // 1<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs soliditrty">-----------------------------------------------------<br>|                    reserved (a)                   | &lt;- slot 0<br>-----------------------------------------------------<br>|                      b (32)                       | &lt;- slot 1<br>-----------------------------------------------------<br>|                        ...                        |   ......<br>-----------------------------------------------------<br>|                     a[addr] (32)                  | &lt;- slot `keccak256(addr . 0)`<br>-----------------------------------------------------<br>|                        ...                        |   ......<br>-----------------------------------------------------<br><br></code></pre></td></tr></table></figure>
+
+<p>即 p为所存储的插槽的位置。</p>
+<h4 id="动态数组"><a href="#动态数组" class="headerlink" title="动态数组"></a>动态数组</h4><p>对于形如 <code>uint[] b;</code> 的动态数组，其同样会占用对应位置 <code>p</code> 处的插槽，用以储存数组的长度，而数组真正的起始点会位于 <code>keccak256(p)</code> 处</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.0;<br><br>contract C &#123;<br>    uint256 a;      // 0<br>    uint[] b;       // 1<br>    uint256 c;      // 2<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-code">|                      a (32)                       | &lt;- slot 0</span><br><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-section">|                    b.length (32)                  | &lt;- slot 1</span><br><span class="hljs-section">-----------------------------------------------------</span><br><span class="hljs-section">|                      c (32)                       | &lt;- slot 2</span><br><span class="hljs-section">-----------------------------------------------------</span><br><span class="hljs-section">|                        ...                        |   ......</span><br><span class="hljs-section">-----------------------------------------------------</span><br>|                      b[0] (32)                    | &lt;- slot <span class="hljs-code">`keccak256(1)`</span><br><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-code">|                      b[1] (32)                    | &lt;- slot `keccak256(1) + 1`</span><br><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-section">|                        ...                        |   ......</span><br><span class="hljs-section">-----------------------------------------------------</span><br><br></code></pre></td></tr></table></figure>
+
+<h4 id="字节数组和字符串"><a href="#字节数组和字符串" class="headerlink" title="字节数组和字符串"></a>字节数组和字符串</h4><p>如果 <code>bytes</code> 和 <code>string</code> 的数据很短，那么它们的长度也会和数据一起存储到同一个插槽。具体地说：如果数据长度小于等于 31 字节， 则它存储在高位字节（左对齐），最低位字节存储 <code>length * 2</code>。如果数据长度超出 31 字节，则在主插槽存储 <code>length * 2 + 1</code>， 数据照常存储在 <code>keccak256(slot)</code> 中。</p>
+<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>由于以太坊上的所有信息都是公开的，所以即使一个变量被声明为 <code>private</code>，我们仍能读到变量的具体值。</p>
+<p>利用 web3 提供的 <code>web3.eth.getStorageAt()</code> 方法，可以读取一个以太坊地址上指定位置的存储内容。所以只要计算出了一个变量对应的插槽位置，就可以通过调用该函数来获得该变量的具体值。</p>
+<p>调用：</p>
+<blockquote>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-comment">// web3.eth.getStorageAt(address, position [, defaultBlock] [, callback])</span><br>web3.eth.getStorageAt(<span class="hljs-string">&quot;0x407d73d8a49eeb85d32cf465507dd71d507100c1&quot;</span>, <span class="hljs-number">0</span>)<br>.then(<span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>);<br>&gt; <span class="hljs-string">&quot;0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234&quot;</span><br><br></code></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">参数：<br>address：<span class="hljs-built_in">String</span> - 要读取的地址<br>position：<span class="hljs-built_in">Number</span> - 存储中的索引编号<br>defaultBlock：<span class="hljs-built_in">Number</span>|<span class="hljs-built_in">String</span> - 可选，使用该参数覆盖 web3.eth.defaultBlock 属性值<br>callback：<span class="hljs-built_in">Function</span> - 可选的回调函数, 其第一个参数为错误对象，第二个参数为结果。<br></code></pre></td></tr></table></figure>
+
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>Balsn CTF 2019 的 Bank</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract Bank &#123;<br>    address public owner;<br>    uint randomNumber = 0;<br><br>    struct SafeBox &#123;<br>        bool done;<br>        function(uint, bytes12) internal callback;<br>        bytes12 hash;<br>        uint value;<br>    &#125;<br>    SafeBox[] safeboxes;<br><br>    struct FailedAttempt &#123;<br>        uint idx;<br>        uint time;<br>        bytes12 triedPass;<br>        address origin;<br>    &#125;<br>    mapping(address =&gt; FailedAttempt[]) failedLogs;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-code">|     unused (12)     |          owner (20)         | &lt;- slot 0</span><br><span class="hljs-code">-----------------------------------------------------</span><br><span class="hljs-section">|                 randomNumber (32)                 | &lt;- slot 1</span><br><span class="hljs-section">-----------------------------------------------------</span><br><span class="hljs-section">|               safeboxes.length (32)               | &lt;- slot 2</span><br><span class="hljs-section">-----------------------------------------------------</span><br><span class="hljs-section">|       occupied by failedLogs but unused (32)      | &lt;- slot 3</span><br><span class="hljs-section">-----------------------------------------------------</span><br><br></code></pre></td></tr></table></figure>
+
+<p>SafeBox与 FailedAttempt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity"># SafeBox <br>-----------------------------------------------------<br>| unused (11) | hash (12) | callback (8) | done (1) |<br>-----------------------------------------------------<br>|                     value (32)                    |<br>-----------------------------------------------------<br><br># FailedAttempt<br>-----------------------------------------------------<br>|                      idx (32)                     |<br>-----------------------------------------------------<br>|                     time (32)                     |<br>-----------------------------------------------------<br>|          origin (20)         |   triedPass (12)   |<br>-----------------------------------------------------<br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function read_slot(uint k) public view returns (bytes32 res) &#123;<br>    assembly &#123; res := sload(k) &#125;<br>&#125;<br><br>function cal_addr(uint k, uint p) public pure returns(bytes32 res) &#123;<br>    res = keccak256(abi.encodePacked(k, p));<br>&#125;<br><br>function cal_addr(uint p) public pure returns(bytes32 res) &#123;<br>    res = keccak256(abi.encodePacked(p));<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ethereum Storage</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/31/Ethereum-Storage/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>xiaocai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 31, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/31/Python-%E8%AF%AD%E6%B3%95%E7%9F%A5%E8%AF%86/" title="Python 语法知识">
+                        <span class="hidden-mobile">Python 语法知识</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
