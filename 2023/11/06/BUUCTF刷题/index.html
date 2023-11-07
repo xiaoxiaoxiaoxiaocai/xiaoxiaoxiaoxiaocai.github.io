@@ -16,21 +16,27 @@
   <meta name="author" content="xiaocai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+    <meta name="description" content="[SUCTF2018]single dog打开图片binwalk分析得到压缩包，得到一个文件，里面是一堆表情，发现是js加密（其实就是AAEncode加密） 在控制台粘贴代码，并删去最后一个表情得到  间谍启示录分析光盘没有发现什么，strings 搜flag，得到flag.exe foremost得到，然后双击点开，得到 机密文件.txt  隐藏的项目打开还是挺好用的 小易的U盘打开光盘文件，0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GETH 搭建私链">
-<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
+<meta property="og:title" content="BUUCTF刷题">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/06/BUUCTF%E5%88%B7%E9%A2%98/index.html">
 <meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+<meta property="og:description" content="[SUCTF2018]single dog打开图片binwalk分析得到压缩包，得到一个文件，里面是一堆表情，发现是js加密（其实就是AAEncode加密） 在控制台粘贴代码，并删去最后一个表情得到  间谍启示录分析光盘没有发现什么，strings 搜flag，得到flag.exe foremost得到，然后双击点开，得到 机密文件.txt  隐藏的项目打开还是挺好用的 小易的U盘打开光盘文件，0">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-24T08:49:14.000Z">
-<meta property="article:modified_time" content="2023-11-07T13:19:49.786Z">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-06%20175342.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/image-20231106181317878.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/00008058.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/00001858.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-07%20193437.png">
+<meta property="article:published_time" content="2023-11-06T09:50:51.000Z">
+<meta property="article:modified_time" content="2023-11-07T12:20:00.180Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-06%20175342.png">
   
   
   
-  <title>GETH 搭建私链 - xiaocai</title>
+  <title>BUUCTF刷题 - xiaocai</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="GETH 搭建私链"></span>
+            <span id="subtitle" data-typed-text="BUUCTF刷题"></span>
           
         </div>
 
@@ -207,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-24 16:49" pubdate>
-          October 24, 2023 pm
+        <time datetime="2023-11-06 17:50" pubdate>
+          November 6, 2023 pm
         </time>
       </span>
     
@@ -219,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k words
+          1.7k words
         
       </span>
     
@@ -230,7 +236,7 @@
         
         
         
-          30 mins
+          15 mins
         
       </span>
     
@@ -267,36 +273,41 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">GETH 搭建私链</h1>
+            <h1 id="seo-header">BUUCTF刷题</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-下载客户端"><a href="#1-下载客户端" class="headerlink" title="1.下载客户端"></a>1.下载客户端</h3><p>在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。</p>
-<p>这里是11.6版本。</p>
-<h3 id="2-准备创世块的配置文件"><a href="#2-准备创世块的配置文件" class="headerlink" title="2.准备创世块的配置文件"></a>2.准备创世块的配置文件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;config&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;chainId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;homesteadBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;byzantiumBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    	<span class="hljs-attr">&quot;constantinopleBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip155Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip158Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;eip150Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  		<span class="hljs-attr">&quot;eip150Hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;coinbase&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;difficulty&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x20000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;extraData&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;gasLimit&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0xffffffff&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;nonce&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000042&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;mixhash&quot;</span>    <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;parentHash&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;timestamp&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x00&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;alloc&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+                <h3 id="SUCTF2018-single-dog"><a href="#SUCTF2018-single-dog" class="headerlink" title="[SUCTF2018]single dog"></a>[SUCTF2018]single dog</h3><p>打开图片binwalk分析得到压缩包，得到一个文件，里面是一堆表情，发现是js加密（其实就是AAEncode加密）</p>
+<p>在控制台粘贴代码，并删去最后一个表情得到</p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-06%20175342.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-06 175342"></p>
+<h3 id="间谍启示录"><a href="#间谍启示录" class="headerlink" title="间谍启示录"></a>间谍启示录</h3><p>分析光盘没有发现什么，strings 搜flag，得到flag.exe foremost得到，然后双击点开，得到 机密文件.txt</p>
+<p><img src="/../images/image-20231106181317878.png" srcset="/img/loading.gif" lazyload alt="image-20231106181317878"></p>
+<p>隐藏的项目打开还是挺好用的</p>
+<h3 id="小易的U盘"><a href="#小易的U盘" class="headerlink" title="小易的U盘"></a>小易的U盘</h3><p>打开光盘文件，010查看文件头为rar文件，打开autorun.inf文件</p>
+<p>大多数病毒在入侵U盘时，都会在U盘里创建一个autorun.inf文件，再把病毒路径植入到这个程序里，然后才开始搞破坏。</p>
+<p>[AutoRun]<br>Open&#x3D;autoflag - 副本 (32)‘</p>
+<p>所以直接找该exe文件</p>
+<p>然后strings 提取</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sqf"> strings q.exe  |grep <span class="hljs-built_in">flag</span><br><span class="hljs-built_in">flag</span>&#123;<span class="hljs-number">29</span>a0vkrlek3eu10ue89yug9y4r0wdu10&#125;<br>D:/Program/<span class="hljs-built_in">flag</span>.txt<br><span class="hljs-built_in">flag</span> == <span class="hljs-number">0</span> || <span class="hljs-built_in">flag</span> == <span class="hljs-number">1</span><br>F:\autoflag\Debug\autoflag.pdb<br></code></pre></td></tr></table></figure>
 
-<h3 id="3-初始化写入创世区块"><a href="#3-初始化写入创世区块" class="headerlink" title="3.初始化写入创世区块"></a>3.初始化写入创世区块</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs geth">geth init --datadir data1 genesis.json<br></code></pre></td></tr></table></figure>
+<h3 id="HDCTF2019-你能发现什么蛛丝马迹吗"><a href="#HDCTF2019-你能发现什么蛛丝马迹吗" class="headerlink" title="[HDCTF2019]你能发现什么蛛丝马迹吗"></a>[HDCTF2019]你能发现什么蛛丝马迹吗</h3><p>volatility分析得到</p>
+<p>分析cmd进程查看 </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">/volatility -f memory.img --profile=Win2003SP1x86 cmdscan<br>Volatility Foundation Volatility Framework 2.6<br><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span>**<br>CommandProcess: csrss.exe Pid: 516<br>CommandHistory: 0x398fba8 Application: DumpIt.exe Flags: Allocated<br>CommandCount: 0 LastAdded: -1 LastDisplayed: -1<br>FirstCommand: 0 CommandCountMax: 50<br>ProcessHandle: 0x6e4<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-启动geth"><a href="#4-启动geth" class="headerlink" title="4.启动geth"></a>4.启动geth</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">geth --datadir data1 --networkid <span class="hljs-number">10</span> --http --http.<span class="hljs-property">addr</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> --http.<span class="hljs-property">port</span> <span class="hljs-number">8545</span> --http.<span class="hljs-property">corsdomain</span> <span class="hljs-string">&quot;*&quot;</span> --http.<span class="hljs-property">api</span> <span class="hljs-string">&quot;db,eth,net,web3,personal,web3&quot;</span> --port <span class="hljs-number">30305</span> -allow-insecure-unlock <span class="hljs-variable language_">console</span> <span class="hljs-number">2</span>&gt;&gt;geth.<span class="hljs-property">log</span><br></code></pre></td></tr></table></figure>
+<p>猜测DumpIt.exe有东西，dump下来</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">./volatility -f memory.img --profile=Win2003SP1x86 memdump -p 1992 -D ./<br>Volatility Foundation Volatility Framework 2.6<br><br><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><br><br>Writing explorer.exe [  1992] to 1992.dmp<br></code></pre></td></tr></table></figure>
 
-<ol>
-<li><strong>.&#x2F;geth</strong>：这是执行 Geth 客户端的命令。</li>
-<li><strong>–datadir data1</strong>：这个选项指定了数据目录的路径，Geth 将在这个目录中存储区块链数据和相关文件。</li>
-<li><strong>–networkid 10</strong>：指定私有链的网络标识符，这个值用于在不同私有链之间进行区分。</li>
-<li><strong>–http</strong>：启用 HTTP-RPC 通信接口，允许通过 HTTP 请求与 Geth 进行交互。</li>
-<li><strong>–http.addr 0.0.0.0</strong>：设置 HTTP-RPC 服务监听的地址，0.0.0.0 表示允许来自任何 IP 地址的连接。</li>
-<li><strong>–http.port 8545</strong>：指定 HTTP-RPC 服务的端口号，一般是 8545。</li>
-<li>**–http.corsdomain “*“*<em>：配置允许跨域请求的域名，设置为 “</em>“ 表示允许任何域名进行跨域请求。</li>
-<li>**–http.api “db,eth,net,web3,personal,web3”**：指定启用的 HTTP-RPC 接口，这里列出了一些常用的接口，包括数据库、以太坊操作、网络信息、Web3 功能和个人账户操作。</li>
-<li><strong>–port 30305</strong>：设置 Geth 节点的 P2P 网络端口，用于节点间的通信。</li>
-<li><strong>-allow-insecure-unlock</strong>：允许以不安全的方式解锁账户。这在测试环境中使用，允许在 HTTP-RPC 上发送解锁账户的请求，但在生产环境中不建议使用</li>
-</ol>
-<h3 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv25915543/">一步步教程：使用Geth在本地搭建私有以太坊区块链 - 哔哩哔哩 (bilibili.com)</a></p>
-<h3 id="web3的异常"><a href="#web3的异常" class="headerlink" title="web3的异常"></a>web3的异常</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> web3 <span class="hljs-keyword">import</span> Web3<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\web3\__init__.py&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_account <span class="hljs-keyword">import</span> Account  <span class="hljs-comment"># noqa: E402,</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_account\__init__.py&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_account.account <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_account\account.py&quot;</span>, line <span class="hljs-number">20</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keyfile <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keyfile\__init__.py&quot;</span>, line <span class="hljs-number">7</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keyfile.keyfile <span class="hljs-keyword">import</span> (  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keyfile\keyfile.py&quot;</span>, line <span class="hljs-number">11</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keys <span class="hljs-keyword">import</span> keys<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keys\__init__.py&quot;</span>, line <span class="hljs-number">15</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> .main <span class="hljs-keyword">import</span> (  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keys\main.py&quot;</span>, line <span class="hljs-number">3</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_utils <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\__init__.py&quot;</span>, line <span class="hljs-number">86</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> .network <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\network.py&quot;</span>, line <span class="hljs-number">49</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    networks = initialize_network_objects()<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\network.py&quot;</span>, line <span class="hljs-number">27</span>, <span class="hljs-keyword">in</span> initialize_network_objects<br>    network_data = json.load(open_file)<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\json\__init__.py&quot;</span>, line <span class="hljs-number">293</span>, <span class="hljs-keyword">in</span> load<br>    <span class="hljs-keyword">return</span> loads(fp.read(),<br>UnicodeDecodeError: <span class="hljs-string">&#x27;gbk&#x27;</span> codec can<span class="hljs-string">&#x27;t decode byte 0x88 in position 247555: illegal multibyte sequence</span><br></code></pre></td></tr></table></figure>
+<p>然后直接分离</p>
+<p>得到</p>
+<p><img src="/../images/00008058.png" srcset="/img/loading.gif" lazyload alt="00008058"></p>
+<p><img src="/../images/00001858.png" srcset="/img/loading.gif" lazyload alt="00001858"></p>
+<p>二维码得到 jfXvUoypb8p3zvmPks8kJ5Kt0vmEw0xUZyRGOicraY4&#x3D;</p>
+<p>由于有key 和 iv 所以直接AES解密 <a target="_blank" rel="noopener" href="https://tool.lmeee.com/jiami/aes">在线AES加密解密 - 拉米工具 (lmeee.com)</a></p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-07%20193437.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-07 193437"></p>
+<p>py解密</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad, unpad<br><span class="hljs-keyword">import</span> base64<br><br>password = <span class="hljs-string">b&#x27;Th1s_1s_K3y00000&#x27;</span> <span class="hljs-comment">#秘钥，b就是表示为bytes类型</span><br>text = <span class="hljs-string">b&#x27;jfXvUoypb8p3zvmPks8kJxjg3seW76u5hYVke4vgLbg=&#x27;</span> <span class="hljs-comment">#需要解密的密文，bytes类型</span><br><br>aes = AES.new(password, AES.MODE_ECB) <span class="hljs-comment">#创建一个aes对象</span><br><span class="hljs-comment"># AES.MODE_ECB 表示模式是ECB模式</span><br><br><span class="hljs-comment"># 先将 base64 编码的密文解码为 bytes 类型</span><br>text = base64.b64decode(text)<br>decrypted_text = aes.decrypt(text) <span class="hljs-comment"># 解密密文</span><br><br><span class="hljs-comment"># 使用 PKCS7 方式解除填充</span><br>unpadded_text = unpad(decrypted_text, AES.block_size)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;明文：&quot;</span>, unpadded_text.decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)) <span class="hljs-comment">#解密后的明文</span><br></code></pre></td></tr></table></figure>
 
-<p>解决方案</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44322508/article/details/134130583">https://blog.csdn.net/weixin_44322508/article/details/134130583</a></p>
 
                 
               </div>
@@ -315,7 +326,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
+  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
   
   
 
@@ -335,8 +346,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GETH 搭建私链</div>
-      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-搭建私链/</div>
+      <div>BUUCTF刷题</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/06/BUUCTF刷题/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +359,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 24, 2023</div>
+          <div>November 6, 2023</div>
         </div>
       
       
@@ -380,9 +391,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/25/Pyjail%E4%B8%8A/" title="Pyjail（上）">
+                      <a href="/2023/11/06/NSSCTF-%E5%88%B7%E9%A2%98/" title="NSSCTF 刷题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Pyjail（上）</span>
+                        <span class="hidden-mobile">NSSCTF 刷题</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -390,8 +401,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/24/Airdrop-Hunting/" title="Airdrop Hunting">
-                        <span class="hidden-mobile">Airdrop Hunting</span>
+                      <a href="/2023/10/31/Ethereum-Storage/" title="Ethereum Storage">
+                        <span class="hidden-mobile">Ethereum Storage</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
