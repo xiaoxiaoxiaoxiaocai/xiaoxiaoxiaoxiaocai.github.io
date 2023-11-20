@@ -24,8 +24,9 @@
 <meta property="og:description" content="重入攻击是智能合约的经典攻击。 原理fallback函数是一个特殊的结构，在特定情况下会被触发。 特点：  不被命名 被外部调用，不能被自己合约的函数调用 一个合约至多只有一个fallback函数 会在别的合约调用一个本合约没有的函数调用 当eth被发送给这个合约是没有calldata同时没有receive函数，fallback是会被触发，要设置为payable 可以包含自己的逻辑  下述行为消耗">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-19T07:32:23.344Z">
-<meta property="article:modified_time" content="2023-10-24T14:30:40.065Z">
+<meta property="article:modified_time" content="2023-11-09T08:22:01.290Z">
 <meta property="article:author" content="xiaocai">
+<meta property="article:tag" content="Attack">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -353,6 +354,13 @@
 
     </div>
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Attack/" class="print-no-link">#Attack</a>
+      
+    </div>
   
 </div>
 

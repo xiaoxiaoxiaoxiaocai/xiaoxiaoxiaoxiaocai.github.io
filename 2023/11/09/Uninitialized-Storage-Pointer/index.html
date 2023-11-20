@@ -16,22 +16,22 @@
   <meta name="author" content="xiaocai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="pillow图片通常使用pillow库进行操作。 常用模块Image123456789101112from PIL import Imagepic &#x3D; Image.new(RGB,(width, height), (255, 255, 255)) #新建一个图片文件#不写颜色数据则默认为(0, 0, 0)pic &#x3D; Image.open(data.png) #打开一个图片文件pic &#x3D; Image">
+    <meta name="description" content="原理未初始化的存储指针是指在EVM中未进行初始化的storage变量，这个变量会指向其他变量的区域，从而改变其他变量的值。 例子1234567891011121314151617181920212223pragma solidity ^0.4.24;contract example1&amp;#123;    uint public a;    address public b;    struct Wa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 图像处理">
-<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/30/Python-%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="Uninitialized Storage Pointer">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/09/Uninitialized-Storage-Pointer/index.html">
 <meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="pillow图片通常使用pillow库进行操作。 常用模块Image123456789101112from PIL import Imagepic &#x3D; Image.new(RGB,(width, height), (255, 255, 255)) #新建一个图片文件#不写颜色数据则默认为(0, 0, 0)pic &#x3D; Image.open(data.png) #打开一个图片文件pic &#x3D; Image">
+<meta property="og:description" content="原理未初始化的存储指针是指在EVM中未进行初始化的storage变量，这个变量会指向其他变量的区域，从而改变其他变量的值。 例子1234567891011121314151617181920212223pragma solidity ^0.4.24;contract example1&amp;#123;    uint public a;    address public b;    struct Wa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-30T10:57:44.000Z">
-<meta property="article:modified_time" content="2023-10-31T12:00:32.688Z">
+<meta property="article:published_time" content="2023-11-09T08:21:15.000Z">
+<meta property="article:modified_time" content="2023-11-09T13:56:30.397Z">
 <meta property="article:author" content="xiaocai">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Attack">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Python 图像处理 - xiaocai</title>
+  <title>Uninitialized Storage Pointer - xiaocai</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Python 图像处理"></span>
+            <span id="subtitle" data-typed-text="Uninitialized Storage Pointer"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-30 18:57" pubdate>
-          October 30, 2023 pm
+        <time datetime="2023-11-09 16:21" pubdate>
+          November 9, 2023 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          3.4k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          17 mins
+          29 mins
         
       </span>
     
@@ -268,29 +268,36 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Python 图像处理</h1>
+            <h1 id="seo-header">Uninitialized Storage Pointer</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="pillow"><a href="#pillow" class="headerlink" title="pillow"></a>pillow</h3><p>图片通常使用pillow库进行操作。</p>
-<h4 id="常用模块"><a href="#常用模块" class="headerlink" title="常用模块"></a>常用模块</h4><h5 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br>pic = Image.new(RGB,(width, height), (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>)) <span class="hljs-comment">#新建一个图片文件</span><br><span class="hljs-comment">#不写颜色数据则默认为(0, 0, 0)</span><br><br>pic = Image.<span class="hljs-built_in">open</span>(data.png) <span class="hljs-comment">#打开一个图片文件</span><br>pic = Image.<span class="hljs-built_in">open</span>(data.png).convert(L) <span class="hljs-comment">#以灰度模式打开一个图片文件</span><br><br>width, height = pic.size <span class="hljs-comment">#获取图片的宽高</span><br>pic.putpixel((x,y),(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)) <span class="hljs-comment">#对(x,y)坐标的像素点填充颜色，左上角坐标为(0, 0)</span><br><br>pic.show() <span class="hljs-comment">#用默认图片软件展示图片</span><br>pic.save() <span class="hljs-comment">#保存图片，可写路径，默认与python文件同路径</span><br></code></pre></td></tr></table></figure>
+                <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>未初始化的存储指针是指在EVM中未进行初始化的storage变量，这个变量会指向其他变量的区域，从而改变其他变量的值。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.24;<br><br>contract example1&#123;<br>    uint public a;<br>    address public b;<br><br>    struct Wallet&#123;<br>        uint value;<br>        address addr;<br>    &#125;<br><br>    function setValue(uint _a,address _b) public &#123;<br>        a = _a;<br>        b = _b;<br>    &#125;<br><br>    function attack(uint _value, address _addr) public &#123;<br>        Wallet wallet;<br>        wallet.value = _value;<br>        wallet.addr = _addr;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p>提取一部分</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs py">pic_1=pic.crop(x1,x2,y1,y2)<span class="hljs-comment">#前面为左上坐标，后边为右下角坐标</span><br><span class="hljs-comment">#一张照片分为多块保存。</span><br>a=<span class="hljs-number">30</span><br>b=<span class="hljs-number">45</span><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">80</span>):<br>    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">80</span>):<br>        box=(x*a,y*b,(x+<span class="hljs-number">1</span>)*a,(y+<span class="hljs-number">1</span>)*b)<br>        f=image.crop(box)<span class="hljs-comment">#每块碎片为30*45</span><br>        f.save()<br><br></code></pre></td></tr></table></figure>
+<p>在setValue设置（1  ,0x10aA1C20aD710B823f8c1508cfC12D5d1199117E）</p>
+<p>这时发现a，b分别为 1  ,0x10aA1C20aD710B823f8c1508cfC12D5d1199117E</p>
+<p>但是当 attack设置（3  ,0xa3b0D4BBF17F38e00F68Ce73f81D122FB1374ff6）</p>
+<p>a和b也就变为了 3  ,0xa3b0D4BBF17F38e00F68Ce73f81D122FB1374ff6</p>
+<p>这是因为在函数内部申明一个变量，通常默认是局部变量。但是Solidity的处理有些问题，在此处反直觉地默认让引用类型（Reference Type）变量，所以存储位置为storage。并且对于未初始化的storage 指针（类似传统语言中的空指针），Solidity 默认其指向 storage 的起始地址，即指向合约开头定义的状态变量。</p>
+<p>也就是说，a指向slot0，b指向slot1.同时， wallet.value指向slot0，wallet.addr指向slot1。</p>
+<p>同理，数组也有同样的问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.0;<br><br>contract C &#123;<br>    uint public someVariable;<br>    uint[] data;<br><br>    function f() public &#123;<br>        uint[] x;<br>        x.push(2);<br>        data = x;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h5 id="ImageDraw"><a href="#ImageDraw" class="headerlink" title="ImageDraw"></a><strong>ImageDraw</strong></h5><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> ImageDraw<br>pic = Image.new(RGB,(width, height),(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))<br>draw = ImageDraw.ImageDraw(pic)  <span class="hljs-comment">#创建绘画对象</span><br></code></pre></td></tr></table></figure>
+<p>x与someVariable的指向相同。</p>
+<h3 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h3><p>实际上，这个问题只存在于solidity0.5.0之前的版本，编译器版本为0.4.26的话，报的还只是一个warning，不影响deploy；在下一个版本，0.5.0里面就变成了报error：</p>
+<p>对于结构体，需要使用mapping对结构体进行初始化，并使用storage进行拷贝。</p>
+<p>在 Solidity 中，一个未初始化的结构体并不会占用存储插槽。只有在对结构体进行实例化后，它才会占用实际的存储空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.24;<br><br>contract example1&#123;<br>    uint public a;<br>    address public b;<br><br>    struct Wallet&#123;<br>        uint value;<br>        address addr;<br>    &#125;<br>    <br>    mapping (uint=&gt;Wallet)wallets;<br><br>    function setValue(uint _a,address _b) public &#123;<br>        a = _a;<br>        b = _b;<br>    &#125;<br><br>    function attack(uint _id,uint _value, address _addr) public &#123;<br>        Wallet storage wallet=wallets[_id];<br>        wallet.value = _value;<br>        wallet.addr = _addr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>参数：</p>
-<p>fill &#x3D; fillColor ，填充颜色<br>outline &#x3D; outlineColor ， 边框颜色</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs py">draw.rectangle((x1,y1,x2,y2),fill = (<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>),outline = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))<br><span class="hljs-comment">#画一个矩形，必填参数为坐标，第一第二个为起始点坐标，第三第四个为终点坐标</span><br>draw.text((<span class="hljs-number">10</span>, <span class="hljs-number">10</span>), Hello, fill=(<span class="hljs-number">255</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>), font=<span class="hljs-literal">None</span>) <span class="hljs-comment">#画文字，文本左上角为x y坐标数据</span><br><br>draw.line(((<span class="hljs-number">60</span>,<span class="hljs-number">60</span>),(<span class="hljs-number">90</span>,<span class="hljs-number">60</span>))) <span class="hljs-comment">#画一条直线</span><br>draw.line(((<span class="hljs-number">60</span>,<span class="hljs-number">60</span>),(<span class="hljs-number">90</span>,<span class="hljs-number">60</span>), (<span class="hljs-number">90</span>,<span class="hljs-number">90</span>), (<span class="hljs-number">60</span>,<span class="hljs-number">90</span>), (<span class="hljs-number">60</span>,<span class="hljs-number">60</span>))) <br><span class="hljs-comment">#画多条直线，每条线的起点坐标就是上一条线的终点坐标，此例子就是4条直线围成一个正方形</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="天翼杯-2021-rrrgggbbb"><a href="#天翼杯-2021-rrrgggbbb" class="headerlink" title="[天翼杯 2021]rrrgggbbb"></a>[天翼杯 2021]rrrgggbbb</h4><p>分别用StegSolve查看之后，发现分别r0、g0、b0通道的上方有像素点点。</p>
-<p>抽出，发现&#96;&#96;BPG<code>头，并且有</code>THE END&#96;标志</p>
-<p>需要把<code>THE END</code>标志及其之后的内容删掉</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br>r=Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;rrr.png&quot;</span>)<br>g=Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;ggg.png&quot;</span>)<br>b=Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;bbb.png&quot;</span>)<br><br>height = r.height<br>width = r.width<br><br>r_list = <span class="hljs-string">&quot;&quot;</span><br>g_list = <span class="hljs-string">&quot;&quot;</span><br>b_list = <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(height):<br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(width):<br>        r_list += <span class="hljs-built_in">bin</span>(r.getpixel((x, y))[<span class="hljs-number">0</span>])[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">8</span>)[<span class="hljs-number">7</span>]<br>        g_list += <span class="hljs-built_in">bin</span>(g.getpixel((x, y))[<span class="hljs-number">1</span>])[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">8</span>)[<span class="hljs-number">7</span>]                   <br>        b_list += <span class="hljs-built_in">bin</span>(b.getpixel((x, y))[<span class="hljs-number">2</span>])[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">8</span>)[<span class="hljs-number">7</span>]<br> <br>out=<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;out1.bpg&#x27;</span>,<span class="hljs-string">&#x27;wb&#x27;</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span> (<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(r_list), <span class="hljs-number">8</span>):    <br>    out.write(<span class="hljs-built_in">int</span>(r_list[i:i+<span class="hljs-number">8</span>],<span class="hljs-number">2</span>).to_bytes(length=<span class="hljs-number">1</span>,byteorder=<span class="hljs-string">&#x27;big&#x27;</span>))<br>    out.write(<span class="hljs-built_in">int</span>(g_list[i:i+<span class="hljs-number">8</span>],<span class="hljs-number">2</span>).to_bytes(length=<span class="hljs-number">1</span>,byteorder=<span class="hljs-string">&#x27;big&#x27;</span>))    <br>    out.write(<span class="hljs-built_in">int</span>(b_list[i:i+<span class="hljs-number">8</span>],<span class="hljs-number">2</span>).to_bytes(length=<span class="hljs-number">1</span>,byteorder=<span class="hljs-string">&#x27;big&#x27;</span>))<br>   <br>out.close()<br>r.close()<br>g.close()<br>b.close()<br></code></pre></td></tr></table></figure>
 
-<p>删去END后面的内容即可得到flag</p>
+<p>数组的修复，则是在生命变量的时候对其初始化操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.0;<br><br>contract C &#123;<br>    uint public someVariable;<br>    uint[] data;<br><br>    function f() public &#123;<br>        uint[] x=data;<br>        x.push(2);<br>        data = x;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2019-BalsnCTF-Bank"><a href="#2019-BalsnCTF-Bank" class="headerlink" title="2019 BalsnCTF Bank"></a>2019 BalsnCTF Bank</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.4.24;<br><br>contract Bank &#123;<br>    event SendEther(address addr);<br>    event SendFlag(address addr);<br><br>    address public owner;<br>    uint randomNumber = 0;<br><br>    constructor() public &#123;<br>        owner = msg.sender;<br>    &#125;<br><br>    struct SafeBox &#123;<br>        bool done;<br>        function(uint, bytes12) internal callback;<br>        bytes12 hash;<br>        uint value;<br>    &#125;<br>    SafeBox[] safeboxes;<br><br>    struct FailedAttempt &#123;<br>        uint idx;<br>        uint time;<br>        bytes12 triedPass;<br>        address origin;<br>    &#125;<br>    mapping(address =&gt; FailedAttempt[]) failedLogs;<br><br>    modifier onlyPass(uint idx, bytes12 pass) &#123;<br>        if (bytes12(sha3(pass)) != safeboxes[idx].hash) &#123;<br>            FailedAttempt info;<br>            info.idx = idx;<br>            info.time = now;<br>            info.triedPass = pass;<br>            info.origin = tx.origin;<br>            failedLogs[msg.sender].push(info);<br>        &#125;<br>        else &#123;<br>            _;<br>        &#125;<br>    &#125;<br><br>    function deposit(bytes12 hash) payable public returns(uint) &#123;<br>        SafeBox box;<br>        box.done = false;<br>        box.hash = hash;<br>        box.value = msg.value;<br>        if (msg.sender == owner) &#123;<br>            box.callback = sendFlag;<br>        &#125;<br>        else &#123;<br>            require(msg.value &gt;= 1 ether);<br>            box.value -= 0.01 ether;<br>            box.callback = sendEther;<br>        &#125;<br>        safeboxes.push(box);<br>        return safeboxes.length-1;<br>    &#125;<br><br>    function withdraw(uint idx, bytes12 pass) public payable &#123;<br>        SafeBox box = safeboxes[idx];<br>        require(!box.done);<br>        box.callback(idx, pass);<br>        box.done = true;<br>    &#125;<br><br>    function sendEther(uint idx, bytes12 pass) internal onlyPass(idx, pass) &#123;<br>        msg.sender.transfer(safeboxes[idx].value);<br>        emit SendEther(msg.sender);<br>    &#125;<br><br>    function sendFlag(uint idx, bytes12 pass) internal onlyPass(idx, pass) &#123;<br>        require(msg.value &gt;= 100000000 ether);<br>        emit SendFlag(msg.sender);<br>        selfdestruct(owner);<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -309,7 +316,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
   
   
 
@@ -324,7 +331,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/tags/Attack/" class="print-no-link">#Attack</a>
       
     </div>
   
@@ -336,8 +343,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python 图像处理</div>
-      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/30/Python-图像处理/</div>
+      <div>Uninitialized Storage Pointer</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/09/Uninitialized-Storage-Pointer/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +356,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 30, 2023</div>
+          <div>November 9, 2023</div>
         </div>
       
       
@@ -381,9 +388,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/31/Python-zip/" title="Python zip">
+                      <a href="/2023/11/09/Function-Selector-and-Argument-Encoding/" title="Function Selector and Argument Encoding">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python zip</span>
+                        <span class="hidden-mobile">Function Selector and Argument Encoding</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -391,8 +398,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/26/Delegatecall/" title="Delegatecall">
-                        <span class="hidden-mobile">Delegatecall</span>
+                      <a href="/2023/11/06/NSSCTF-%E5%88%B7%E9%A2%98/" title="NSSCTF 刷题">
+                        <span class="hidden-mobile">NSSCTF 刷题</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
