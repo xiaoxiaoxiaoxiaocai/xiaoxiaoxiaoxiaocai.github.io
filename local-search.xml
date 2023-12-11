@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>计算机网络</title>
+    <link href="/2023/12/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <url>/2023/12/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/../images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231211195837.jpg" alt="微信图片_20231211195837"></p><h3 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><h5 id="定义：地理位置不同的具有独立功能的计算机及其外部设备，通过通信线路实现资源共享"><a href="#定义：地理位置不同的具有独立功能的计算机及其外部设备，通过通信线路实现资源共享" class="headerlink" title="定义：地理位置不同的具有独立功能的计算机及其外部设备，通过通信线路实现资源共享"></a>定义：地理位置不同的具有独立功能的计算机及其外部设备，通过通信线路实现资源共享</h5><h5 id="组成：-通信子网（线路），资源子网（数据）"><a href="#组成：-通信子网（线路），资源子网（数据）" class="headerlink" title="组成： 通信子网（线路），资源子网（数据）"></a>组成： 通信子网（线路），资源子网（数据）</h5><h5 id="类型："><a href="#类型：" class="headerlink" title="类型："></a>类型：</h5><p>拓扑分类：星型，树形，总线型，环形，网状结构</p><p>范围分类： 局域网LAN ，城域网 MAN， 广域网 WAN（个人区域网 PAN ，互联网 Internet）</p><p>传输方式分类：有线网络，无线网络</p><h4 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h4><h5 id="传输方式"><a href="#传输方式" class="headerlink" title="传输方式"></a>传输方式</h5><p>传输方向区分：单工（只能收），双工（同一时间内，只允许一个方向的数据通过），全双工（双方可以进行完全的数据通信）</p><p>传输对象区分：单播（一对一）， 多播（一对多） ，广播（一个范围区间内）</p><h5 id="数据交换"><a href="#数据交换" class="headerlink" title="数据交换"></a>数据交换</h5><p>电路交换：整个报文从头到终端的传输（缺点：占用信道，效率不高）</p><p>报文交换：整个报文发送到相邻节点，全部储存下来查找转发表，再转发到下一个节点（对设备压力较大）</p><p>分组交换：将一个报文分成多个分组，传送到相邻节点，再查找转发表发送到下一个节点（传输效率最高，完整性，速度不如电路交换）</p><h5 id="通信协议和体系结构"><a href="#通信协议和体系结构" class="headerlink" title="通信协议和体系结构"></a>通信协议和体系结构</h5><h5 id="网络协议的三要素：语法，语义，时序"><a href="#网络协议的三要素：语法，语义，时序" class="headerlink" title="网络协议的三要素：语法，语义，时序"></a>网络协议的三要素：语法，语义，时序</h5><h5 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h5><p>七层（下层为上层服务）</p><p>物理层  1（介质，电流）</p><p>数据链路层  2 （节点）</p><p>网络层  3 （分组 帧 ，点到点）</p><p>传输层  4 （端到端之间的传输服务）（流量控制和操作）</p><p>会话层  5 （通信的建立和断开）</p><p>表示层  6 （数据的加密，解密，压缩）</p><p>应用层  7 （基于应用进行传输）</p><h5 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP&#x2F;IP"></a>TCP&#x2F;IP</h5><p>网络接口层</p><p>网际层</p><p>传输层</p><p>应用层</p><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><ol><li><p>Internet网络的前身ARPANET 是一种叫网络控制协议（Network Control Protocol，NCP）的网络协议</p></li><li><p>电信网、计算机网和有线电视网</p></li><li></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>专业</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ethernaut</title>
     <link href="/2023/11/27/Ethernaut/"/>
     <url>/2023/11/27/Ethernaut/</url>
