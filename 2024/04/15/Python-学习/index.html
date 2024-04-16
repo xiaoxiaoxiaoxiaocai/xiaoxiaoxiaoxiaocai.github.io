@@ -16,15 +16,15 @@
   <meta name="author" content="xiaocai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="timestruct_time代表一个时间对象，可以通过索引以及属性名来访问。 1234567891011索引	属性	值0	tm_year（年）	如：19451	tm_mon（月）	1 ~ 122	tm_mday（日）	1 ~ 313	tm_hour（时）	0 ~ 234	tm_min（分）	0 ~ 595	tm_sec（秒）	0 ~ 616	tm_wday（周）	0 ~ 67	tm_yday（一">
+    <meta name="description" content="osos.getcwd() 查看当前路径。 os.listdir(path) 返回指定目录下包含的文件和目录名列表。 os.path.abspath(path) 返回路径 path 的绝对路径。 os.path.split(path) 将路径 path 拆分为目录和文件两部分，返回结果为元组类型。 os.path.join(path, *paths) 将一个或多个 path（文件或目录） 进行拼接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 学习">
 <meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2024/04/15/Python-%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="timestruct_time代表一个时间对象，可以通过索引以及属性名来访问。 1234567891011索引	属性	值0	tm_year（年）	如：19451	tm_mon（月）	1 ~ 122	tm_mday（日）	1 ~ 313	tm_hour（时）	0 ~ 234	tm_min（分）	0 ~ 595	tm_sec（秒）	0 ~ 616	tm_wday（周）	0 ~ 67	tm_yday（一">
+<meta property="og:description" content="osos.getcwd() 查看当前路径。 os.listdir(path) 返回指定目录下包含的文件和目录名列表。 os.path.abspath(path) 返回路径 path 的绝对路径。 os.path.split(path) 将路径 path 拆分为目录和文件两部分，返回结果为元组类型。 os.path.join(path, *paths) 将一个或多个 path（文件或目录） 进行拼接">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-15T13:29:34.000Z">
-<meta property="article:modified_time" content="2024-04-16T06:36:21.224Z">
+<meta property="article:modified_time" content="2024-04-16T10:26:19.820Z">
 <meta property="article:author" content="xiaocai">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k words
+          3.1k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          24 mins
+          27 mins
         
       </span>
     
@@ -273,7 +273,23 @@
             
               <div class="markdown-body">
                 
-                <h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><h4 id="struct-time"><a href="#struct-time" class="headerlink" title="struct_time"></a>struct_time</h4><p>代表一个时间对象，可以通过索引以及属性名来访问。</p>
+                <h3 id="os"><a href="#os" class="headerlink" title="os"></a>os</h3><p>os.getcwd()</p>
+<p>查看当前路径。</p>
+<p>os.listdir(path)</p>
+<p>返回指定目录下包含的文件和目录名列表。</p>
+<p>os.path.abspath(path)</p>
+<p>返回路径 path 的绝对路径。</p>
+<p>os.path.split(path)</p>
+<p>将路径 path 拆分为目录和文件两部分，返回结果为元组类型。</p>
+<p>os.path.join(path, *paths)</p>
+<p>将一个或多个 path（文件或目录） 进行拼接。</p>
+<p>os.path.getctime(path)</p>
+<p>返回 path（文件或目录） 在系统中的创建时间。</p>
+<p>os.path.getmtime(path)</p>
+<p>返回 path（文件或目录）的最后修改时间。</p>
+<p>os.makedirs()</p>
+<p>创建多级目录。</p>
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><h4 id="struct-time"><a href="#struct-time" class="headerlink" title="struct_time"></a>struct_time</h4><p>代表一个时间对象，可以通过索引以及属性名来访问。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs py"><br>索引	属性	值<br><span class="hljs-number">0</span>	tm_year（年）	如：<span class="hljs-number">1945</span><br><span class="hljs-number">1</span>	tm_mon（月）	<span class="hljs-number">1</span> ~ <span class="hljs-number">12</span><br><span class="hljs-number">2</span>	tm_mday（日）	<span class="hljs-number">1</span> ~ <span class="hljs-number">31</span><br><span class="hljs-number">3</span>	tm_hour（时）	<span class="hljs-number">0</span> ~ <span class="hljs-number">23</span><br><span class="hljs-number">4</span>	tm_min（分）	<span class="hljs-number">0</span> ~ <span class="hljs-number">59</span><br><span class="hljs-number">5</span>	tm_sec（秒）	<span class="hljs-number">0</span> ~ <span class="hljs-number">61</span><br><span class="hljs-number">6</span>	tm_wday（周）	<span class="hljs-number">0</span> ~ <span class="hljs-number">6</span><br><span class="hljs-number">7</span>	tm_yday（一年内第几天）	<span class="hljs-number">1</span> ~ <span class="hljs-number">366</span><br><span class="hljs-number">8</span>	tm_isdst（夏时令）	-<span class="hljs-number">1</span>、<span class="hljs-number">0</span>、<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 <p>localtime()表示当前时间，返回类型为 struct_time对象</p>

@@ -40,8 +40,9 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-20%20220238.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-03-20%20220255.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/image.jpg">
+<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-16%20165539.png">
 <meta property="article:published_time" content="2023-11-06T09:50:51.000Z">
-<meta property="article:modified_time" content="2024-04-06T10:51:22.810Z">
+<meta property="article:modified_time" content="2024-04-16T13:01:50.524Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-06%20175342.png">
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8k words
+          9.8k words
         
       </span>
     
@@ -248,7 +249,7 @@
         
         
         
-          67 mins
+          82 mins
         
       </span>
     
@@ -398,6 +399,33 @@
 <p>然后破解密码。</p>
 <p>得到一个png，其实是jpg格式，修改得到图片。</p>
 <p><img src="/../images/image.jpg" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h3 id="key不在这里"><a href="#key不在这里" class="headerlink" title="key不在这里"></a>key不在这里</h3><p>给了一个二维码，解码得到</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sas">https://cn.bing.com/search?q=<span class="hljs-keyword">key</span><span class="hljs-title function_">%E4</span><span class="hljs-title function_">%B8</span>%8D<span class="hljs-title function_">%E5</span>%9C<span class="hljs-title function_">%A8</span><span class="hljs-title function_">%E8</span><span class="hljs-title function_">%BF</span>%99<span class="hljs-title function_">%E9</span>%87%8C<span class="hljs-variable">&amp;m</span>=10210897103375566531005253102975053545155505050521025256555254995410298561015151985150375568<span class="hljs-variable">&amp;qs</span>=n<span class="hljs-variable">&amp;form</span>=QBRE<span class="hljs-variable">&amp;sp</span>=-1<span class="hljs-variable">&amp;sc</span>=0-38<span class="hljs-variable">&amp;sk</span>=<span class="hljs-variable">&amp;cvid</span>=2CE15329C18147CBA4C1CA97C8E1BB8C<br></code></pre></td></tr></table></figure>
+
+<p>发现中间有一串数字</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">10210897103375566531005253102975053545155505050521025256555254995410298561015151985150375568<br></code></pre></td></tr></table></figure>
+
+<p>猜测是ascii码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> urllib.parse<br>s = <span class="hljs-string">&#x27;10210897103375566531005253102975053545155505050521025256555254995410298561015151985150375568&#x27;</span><br>tem = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(s):<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">int</span>(s[:<span class="hljs-number">3</span>])&lt;<span class="hljs-number">127</span>:<br>        tem += <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">int</span>(s[:<span class="hljs-number">3</span>]))<br>        s = s[<span class="hljs-number">3</span>:]<br>    <span class="hljs-keyword">else</span>:<br>        tem +=<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">int</span>(s[:<span class="hljs-number">2</span>]))<br>        s= s[<span class="hljs-number">2</span>:]<br><span class="hljs-comment"># print(tem)  flag%7B5d45fa256372224f48746c6fb8e33b32%7D</span><br>url = urllib.parse.unquote(tem)<br><span class="hljs-built_in">print</span>(url) <span class="hljs-comment"># flag&#123;5d45fa256372224f48746c6fb8e33b32&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="DDCTF2018-第四扩展FS"><a href="#DDCTF2018-第四扩展FS" class="headerlink" title="[DDCTF2018]第四扩展FS"></a>[DDCTF2018]第四扩展FS</h3><p>binwalk分析图片得到压缩包，再exif找到提示，打开压缩包，得到</p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-04-16%20165539.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2024-04-16 165539"></p>
+<p>看提示是词频分析</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;file.txt&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>)<span class="hljs-keyword">as</span> f:<br>    s=f.read()<br><br>result = Counter(s)<br><span class="hljs-comment">#print(result)</span><br>flag=[key <span class="hljs-keyword">for</span> key , value <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(result.items(),key=<span class="hljs-keyword">lambda</span> k:k[<span class="hljs-number">1</span>],reverse =<span class="hljs-literal">True</span> )]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#x27;</span>.join(flag)) <span class="hljs-comment"># DCTF&#123;huanwe1sik4o!&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="CTF2019-babyflash"><a href="#CTF2019-babyflash" class="headerlink" title="[*CTF2019]babyflash"></a>[*CTF2019]babyflash</h3><p>一个flash文件利用 jpexi进行分离得到 一个wav文件和一堆二维码部分</p>
+<p>二维码进行组装</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">aaa</span>(<span class="hljs-params">s</span>):<br>    image = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;frames/&quot;</span>+<span class="hljs-built_in">str</span>(i)+<span class="hljs-string">&quot;.png&quot;</span>)<br>    a,b,c,d = image.getpixel((<span class="hljs-number">50</span>,<span class="hljs-number">50</span>))<br>    <span class="hljs-keyword">return</span> a<br>data=<span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">442</span>):<br>    <span class="hljs-keyword">if</span> aaa(i)==<span class="hljs-number">0</span>:<br>        data+=<span class="hljs-string">&#x27;1&#x27;</span><br>    <span class="hljs-keyword">else</span>:<br>        data+=<span class="hljs-string">&#x27;0&#x27;</span><br><br><br>length = <span class="hljs-number">21</span><br>img = Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>, (length * <span class="hljs-number">5</span>, length * <span class="hljs-number">5</span>))<br><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(length):<br>    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(length):<br>        <span class="hljs-keyword">if</span> data[x*length+y] == <span class="hljs-string">&#x27;1&#x27;</span>:<br>            <span class="hljs-keyword">for</span> xx <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x*<span class="hljs-number">5</span>, x*<span class="hljs-number">5</span>+<span class="hljs-number">5</span>):<br>                <span class="hljs-keyword">for</span> yy <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y*<span class="hljs-number">5</span>, y*<span class="hljs-number">5</span>+<span class="hljs-number">5</span>):<br>                    img.putpixel([xx, yy], (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">for</span> xx <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x*<span class="hljs-number">5</span>, x*<span class="hljs-number">5</span>+<span class="hljs-number">5</span>):<br>                <span class="hljs-keyword">for</span> yy <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y*<span class="hljs-number">5</span>, y*<span class="hljs-number">5</span>+<span class="hljs-number">5</span>):<br>                    img.putpixel([xx, yy], (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>))<br><br><span class="hljs-comment"># 保存新图像</span><br>img.save(<span class="hljs-string">&#x27;flag.png&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>wav解开后得到flag</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">*ctf&#123;half_flag_<span class="hljs-meta">&amp;&amp;_the_rest&#125;</span><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
