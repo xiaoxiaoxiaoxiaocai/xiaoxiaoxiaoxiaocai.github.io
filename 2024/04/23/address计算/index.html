@@ -16,26 +16,22 @@
   <meta name="author" content="xiaocai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="强网拟态2023国际象棋与二维码 查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘 1234567891011121314151617from PIL import Imageimport numpy as npsize&#x3D;49grid_size&#x3D;10img&#x3D;Image.new(&amp;#x27;RGB&amp;#x27;,(size*grid_si">
+    <meta name="description" content="原理以太坊有两种类型的账户：普通账户和合约账户。合约是通过发送带有空字段的事务(空的 to)来创建的，并且包含一些被执行的数据（一个构造函数），并且希望返回一些放在区块链上的代码。 这些合同自然是与正常账户相同的地址空间的一部分; 由此确定合同的地址： 1address &#x3D; sha3(rlp_encode(creator_account, creator_account_nonce))[12:]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="题目">
-<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/20/%E9%A2%98%E7%9B%AE/index.html">
+<meta property="og:title" content="address计算">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2024/04/23/address%E8%AE%A1%E7%AE%97/index.html">
 <meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="强网拟态2023国际象棋与二维码 查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘 1234567891011121314151617from PIL import Imageimport numpy as npsize&#x3D;49grid_size&#x3D;10img&#x3D;Image.new(&amp;#x27;RGB&amp;#x27;,(size*grid_si">
+<meta property="og:description" content="原理以太坊有两种类型的账户：普通账户和合约账户。合约是通过发送带有空字段的事务(空的 to)来创建的，并且包含一些被执行的数据（一个构造函数），并且希望返回一些放在区块链上的代码。 这些合同自然是与正常账户相同的地址空间的一部分; 由此确定合同的地址： 1address &#x3D; sha3(rlp_encode(creator_account, creator_account_nonce))[12:]">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/attach-17004807344472.png">
-<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/1-17004809240705.png">
-<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/3-17004809615457.png">
-<meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-20%20194939.png">
-<meta property="article:published_time" content="2023-11-20T10:50:16.000Z">
-<meta property="article:modified_time" content="2024-04-22T13:49:23.910Z">
+<meta property="article:published_time" content="2024-04-23T09:42:30.000Z">
+<meta property="article:modified_time" content="2024-04-23T13:54:34.104Z">
 <meta property="article:author" content="xiaocai">
+<meta property="article:tag" content="Attack">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/attach-17004807344472.png">
   
   
   
-  <title>题目 - xiaocai</title>
+  <title>address计算 - xiaocai</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="题目"></span>
+            <span id="subtitle" data-typed-text="address计算"></span>
           
         </div>
 
@@ -212,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-20 18:50" pubdate>
-          November 20, 2023 pm
+        <time datetime="2024-04-23 17:42" pubdate>
+          April 23, 2024 pm
         </time>
       </span>
     
@@ -224,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          1.9k words
         
       </span>
     
@@ -235,7 +231,7 @@
         
         
         
-          9 mins
+          16 mins
         
       </span>
     
@@ -272,28 +268,48 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">题目</h1>
+            <h1 id="seo-header">address计算</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="强网拟态2023"><a href="#强网拟态2023" class="headerlink" title="强网拟态2023"></a>强网拟态2023</h3><h4 id="国际象棋与二维码"><a href="#国际象棋与二维码" class="headerlink" title="国际象棋与二维码"></a>国际象棋与二维码</h4><p><img src="/../images/attach-17004807344472.png" srcset="/img/loading.gif" lazyload alt="attach"></p>
-<p>查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>size=<span class="hljs-number">49</span><br>grid_size=<span class="hljs-number">10</span><br>img=Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>,(size*grid_size,size*grid_size),color= <span class="hljs-string">&#x27;white&#x27;</span>)<br><br>imag_arr= np.array(img)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,size,<span class="hljs-number">2</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, size,<span class="hljs-number">2</span>):<br>        imag_arr[i*grid_size:(i+<span class="hljs-number">1</span>)*grid_size, j*grid_size:(j+<span class="hljs-number">1</span>)*grid_size] = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>] <br>        imag_arr[(i+<span class="hljs-number">1</span>)*grid_size:(i+<span class="hljs-number">2</span>)*grid_size, (j+<span class="hljs-number">1</span>)*grid_size:(j+<span class="hljs-number">2</span>)*grid_size] = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br><br><br>final_img = Image.fromarray(imag_arr)<br>final_img.save(<span class="hljs-string">&#x27;1.png&#x27;</span>)<br></code></pre></td></tr></table></figure>
+                <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>以太坊有两种类型的账户：普通账户和合约账户。合约是通过发送带有空字段的事务(空的 to)来创建的，并且包含一些被执行的数据（一个构造函数），并且希望返回一些放在区块链上的代码。 这些合同自然是与正常账户相同的地址空间的一部分; 由此确定合同的地址：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">address</span> = <span class="hljs-built_in">sha3</span>(<span class="hljs-built_in">rlp_encode</span>(creator_account, creator_account_nonce))<span class="hljs-selector-attr">[12:]</span><br></code></pre></td></tr></table></figure>
+
+<p>合约地址是确定性的，由 keccack256(address,nonce) 计算。(其中 address 是合约的地址(或创建交易的以太坊地址)，而 nonce 是合约生产其它合约的一个数值(或者对于常规交易来说是交易的nonce))。</p>
+<p>从本质上讲，合约的地址就是账户与交易 nonce 串联的 keccak256 哈希值。合约的 nonce 是以 1 开始的，账户的交易 nonce 是以 0 开始的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs solidity">contract KeylessHiddenEthCreator &#123;<br>    uint public currentcontractNonce = 1; // keep track of this contract&#x27;s nonce publicly (it&#x27;s also found in the contract&#x27;s state<br><br>    // determine future addresses which can hide ether.<br>    function futureAddresses(uint8 nonce) public view returns (address) &#123;<br>        if (nonce == 0) &#123;<br>            return address(keccak256(0xd6, 0x94, this, 0x80));<br>        &#125; else &#123;<br>            return address(keccak256(0xd6, 0x94, this, nonce));<br>        &#125;<br>        // need to implement rlp encoding properly for a full range of nonces<br>        // increment the contract nonce or retrieve ether from a hidden/key-less account provided the nonce is correct<br>    &#125;<br><br>    function retrieveHiddenEther(address beneficiary) public returns (address) &#123;<br>        currentContractNonce += 1;<br>        return new RecoverContract(beneficiary);<br>    &#125;<br><br>    function payable &#123;&#125; // Allow ether transfers (helps for playing in remix)<br>&#125;<br><br>contract RecoverContract &#123;<br>    constructor(address beneficiary) &#123;<br>        selfdestruct(beneficiary); <br></code></pre></td></tr></table></figure>
 
 
 
-<p><img src="/../images/1-17004809240705.png" srcset="/img/loading.gif" lazyload alt="1"></p>
-<p>然后与该图片进行异或操作</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 读取两张图片</span><br>image1 = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;attach.png&quot;</span>)<br>image2 = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;1.png&quot;</span>)<br><br><span class="hljs-comment"># 调整图片尺寸使其保持一致</span><br>image1 = image1.resize(image2.size)<br><br><span class="hljs-comment"># 转换为 numpy 数组</span><br>array1 = np.array(image1)<br>array2 = np.array(image2)<br><br><span class="hljs-comment"># 对两个数组执行异或操作</span><br>xor_result = np.bitwise_xor(array1, array2)<br><br><span class="hljs-comment"># 将结果转换为图像并保存</span><br>result_image = Image.fromarray(xor_result)<br>result_image.save(<span class="hljs-string">&quot;3.png&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/../images/3-17004809615457.png" srcset="/img/loading.gif" lazyload alt="3"></p>
-<p>扫码得到flag</p>
-<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-20%20194939.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-20 194939"></p>
-<h3 id="帕鲁杯"><a href="#帕鲁杯" class="headerlink" title="帕鲁杯"></a>帕鲁杯</h3><h4 id="ez-misc"><a href="#ez-misc" class="headerlink" title="ez_misc"></a>ez_misc</h4><p>给了一个加密的rar文件以及一张图片。在图片最后有this is password的空白隐写</p>
-<p>snow解密得</p>
-<p>.\SNOW.EXE -C .\White.txt<br>Carefree and carefree</p>
-<p>修复rar文件，然后解密得到flag</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="地址计算脚本"><a href="#地址计算脚本" class="headerlink" title="地址计算脚本"></a>地址计算脚本</h3><h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> rlp<br><span class="hljs-keyword">from</span> ethereum <span class="hljs-keyword">import</span> utils<br>address = <span class="hljs-number">0xD8d6E16b2a224bB1Cd7e600c0b37603e341b4d93</span><br>nonce = <span class="hljs-number">1</span><br>rlp_res = rlp.encode([address,nonce])<br><span class="hljs-built_in">print</span>(rlp_res)<br>sha3_res = utils.mk_contract_address(address,nonce)<br><span class="hljs-built_in">print</span>(sha3_res)<br>sha3_res_de = utils.decode_addr(sha3_res)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;contract_address: &quot;</span> + sha3_res_de)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="solidity"><a href="#solidity" class="headerlink" title="solidity"></a>solidity</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract Hack &#123;<br>    function getdd(address target) public view returns (address) &#123;<br>        address data = address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xd6), bytes1(0x94), target, bytes1(0x01))))));<br>        return data;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -312,7 +328,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
   
   
 
@@ -324,6 +340,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Attack/" class="print-no-link">#Attack</a>
+      
+    </div>
+  
 </div>
 
 
@@ -332,8 +355,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>题目</div>
-      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/20/题目/</div>
+      <div>address计算</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2024/04/23/address计算/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +368,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 20, 2023</div>
+          <div>April 23, 2024</div>
         </div>
       
       
@@ -377,18 +400,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/21/CREATE2/" title="CREATE2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CREATE2</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/09/Function-Selector-and-Argument-Encoding/" title="Function Selector and Argument Encoding">
-                        <span class="hidden-mobile">Function Selector and Argument Encoding</span>
+                      <a href="/2024/04/15/Python-%E5%AD%A6%E4%B9%A0/" title="Python 学习">
+                        <span class="hidden-mobile">Python 学习</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

