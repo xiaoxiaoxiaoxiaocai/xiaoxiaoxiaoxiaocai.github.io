@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222116.png">
 <meta property="og:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-29%20222139.png">
 <meta property="article:published_time" content="2023-11-27T08:28:03.000Z">
-<meta property="article:modified_time" content="2024-04-23T06:20:49.251Z">
+<meta property="article:modified_time" content="2024-05-22T10:57:26.645Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://xiaoxiaoxiaoxiaocai.github.io.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-27%20175711.png">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          14k words
+          17k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          117 mins
+          143 mins
         
       </span>
     
@@ -391,6 +391,51 @@
 <h4 id="Attack-1"><a href="#Attack-1" class="headerlink" title="Attack"></a>Attack</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs solidity">pragma solidity ^0.8.0;<br><br>contract attack &#123;<br>    address payable target; //合约地址<br>    address payable myaddr; //player<br><br>    constructor(address payable _addr, address payable _myaddr) public &#123;<br>        target=_addr;<br>        myaddr=_myaddr;<br>    &#125;<br>    <br>    function exploit() public&#123;<br>        target.call(abi.encodeWithSignature(&quot;destroy(address)&quot;,myaddr));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>部署后运行 exploit函数就行。</p>
+<h3 id="MagicNumber"><a href="#MagicNumber" class="headerlink" title="MagicNumber"></a><strong>MagicNumber</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs solidity">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract MagicNum &#123;<br>    address public solver;<br><br>    constructor() &#123;&#125;<br><br>    function setSolver(address _solver) public &#123;<br>        solver = _solver;<br>    &#125;<br><br>    /*<br>    ____________/\\\_______/\\\\\\\\\_____        <br>     __________/\\\\\_____/\\\///////\\\___       <br>      ________/\\\/\\\____\///______\//\\\__      <br>       ______/\\\/\/\\\______________/\\\/___     <br>        ____/\\\/__\/\\\___________/\\\//_____    <br>         __/\\\\\\\\\\\\\\\\_____/\\\//________   <br>          _\///////////\\\//____/\\\/___________  <br>           ___________\/\\\_____/\\\\\\\\\\\\\\\_ <br>            ___________\///_____\///////////////__<br>    */<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">题目的意思就是部署一个合约 Solver ，要求在被调用 <span class="hljs-built_in">whatIsTheMeaningOfLife</span>() 函数时返回 <span class="hljs-number">42</span> 就可以了，但有一个限制是不能超过 <span class="hljs-number">10</span> 个 opcode<br></code></pre></td></tr></table></figure>
+
+<h4 id="合约创建"><a href="#合约创建" class="headerlink" title="合约创建"></a>合约创建</h4><p><a target="_blank" rel="noopener" href="https://medium.com/coinmonks/ethernaut-lvl-19-magicnumber-walkthrough-how-to-deploy-contracts-using-raw-assembly-opcodes-c50edb0f71a2">Ethernaut Lvl 19 MagicNumber Walkthrough: How to deploy contracts using raw assembly opcodes | by Nicole Zhu | Coinmonks | Medium</a></p>
+<ol>
+<li><p>首先，用户或合约想以太坊发送交易。包括数据但没有接受人的地址（没有 <code>to</code> 地址）。此格式向 EVM 指示是 ，而不是常规发送&#x2F;调用事务。<code>contract creation</code></p>
+</li>
+<li><p>然后,EVM将solidity中的代码翻译为字节码，可直接转为操作码，在单个调用栈堆中执行。需要注意的重要一点：字节码包含 1） 和 2） 合约的实际值，按顺序连接。<code>contract creation</code>：<code>initialization code``runtime code</code></p>
+</li>
+<li><p>在congtract creation期间，EVM仅仅执行initialzation code，知道到达栈堆中第一条stop或start令，在此期间，合约的contructor会执行，合约就有地址了。在运行 <code>initialization code</code> 后，只有 <code>runtime code</code> 在堆栈上，然后将这些 <strong>opcode</strong> <strong>拷贝</strong> 到 <code>memory</code> 并返回到 <code>EVM</code></p>
+</li>
+<li><p>最后，EVM将runtime code返回的opcode存储在state storage，并于新地址相关联，合约被调用时，这些runtime code将会执行。</p>
+</li>
+</ol>
+<h4 id="Analyse-4"><a href="#Analyse-4" class="headerlink" title="Analyse"></a>Analyse</h4><ul>
+<li><p>所以为了解决该题，我们需要</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">initialization</span> opcodes<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">runtime codes</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>initialization opcodes</code>: 由 <code>EVM</code> 运行创建合约并存储将来要用的 <code>runtime codes</code></li>
+<li><code>runtime codes</code>: 包含所需的实际执行逻辑。对于本题来说，这是应该返回的代码的主要部分，应该 <strong>return 42</strong> 并且 <strong>under 10 opcodes</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="runtime-codes"><a href="#runtime-codes" class="headerlink" title="runtime codes :"></a>runtime codes :</h5><p>返回值由 return(p,s)，在此之前，使用mstore（p，v）储存在内存中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">0x602a     ;PUSH1 0x2a                  v<br>0x6080     ;PUSH1 0x80                  p<br>0x52       ;MSTORE  #将0x2a移动到0x80<br><br>首先，使用 mstore(p, v) 将 42 存储在内存中，其中 p 是在内存中的存储位置， v 是十六进制值，42 的十六进制是 0x2a<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">0x6020     ;PUSH1 0x20                  s<br>0x6080     ;PUSH1 0x80                  p<br>0xf3       ;RETURN<br><br>使用 return(p, s) 返回 0x2a ，其中 p 是值 0x2a 存储的位置，s 是值 0x2a 存储所占的大小 0x20 ，占32字节<br></code></pre></td></tr></table></figure>
+
+<p>runtime codes ：302a60805260206080f3 正好10 opcodes</p>
+<h5 id="initialization-codes"><a href="#initialization-codes" class="headerlink" title="initialization codes"></a>initialization codes</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs solidity">;copy bytecode to memory<br>0x600a     ;PUSH1 0x0a                      S(runtime code size)<br>0x60??     ;PUSH1 0x??                      F(current position of runtime opcodes)<br>0x6000     ;PUSH1 0x00                      T(destination memory index 0)<br>0x39       ;CODECOPY<br>首先，initialization codes 需要先将 runtime codes 拷贝到内存，然后再将其返回到 EVM 。将代码从一个地方复制到另一个地方是 codecopy(t, f, s) 操作码。t 是代码的目标位置，f 是 runtime codes 的当前位置，s 是代码的大小，以字节为单位，对于 602a60805260206080f3 就是 10 bytes<br><br><br>第一步PUSH1 0x0a对应的是length变量，因为我们上面构造的opcode序列长度为10。第二步PUSH1 0x0c是因为，初始化代码的长度为0xB，也就是运行时代码的字节码是从0xc偏移开始的，因此offset为0xc。第三步PUSH1 0是指定将我们的代码复制到memory的slot 0处。前4条指令，完成了将0xC到0x16这10个字节复制到memory的0x00到0xA位置处的任务（，60 0c指令确实起到了指定源代码起始偏移量的作用。正如您所指出的，前面的6个字节（60 0a 60 0c 60 00 39）是用来配置这次复制操作的指令，分别指定了复制的长度、源代码的起始偏移以及目标内存的起始位置。因此，从第7个字节（偏移量0x0c）开始的数据才是实际需要被复制的代码内容。）<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity">;return code from memory to EVM<br>0x600a     ;PUSH1 0x0a                      S<br>0x6000     ;PUSH1 0x00                      P<br>0xf3       ;RETURN<br>需要将内存中的 runtime codes 返回到 EVM<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>initialization codes</code> 总共占了 <strong>0x0c</strong> 字节，这表示 <code>runtime codes</code> 从索引 <strong>0x0c</strong> 开始，所以 <strong>??</strong> 的地方是 <strong>0x0c</strong></li>
+<li>所以，<code>initialization codes</code> 最后的顺序是 <strong>600a600c600039600a6000f3</strong></li>
+</ul>
+<p>initialization codes：600a600c600039600a6000f3</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>opcodes  ：<strong>0x600a600c600039600a6000f3602a60805260206080f3</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs solidity"><br>var bytecode = &quot;0x600a600c600039600a6000f3602a60805260206080f3&quot;;<br>web3.eth.sendTransaction(&#123; from: player, data: bytecode &#125;, function(err,res)&#123;console.log(res)&#125;);<br>#查看交易记录 得到 to：0x820e93bfa60c20a9166e0955fd842d09f268b1ca<br>await contract.setSolver(&#x27;0x820e93bfa60c20a9166e0955fd842d09f268b1ca&#x27;);<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
