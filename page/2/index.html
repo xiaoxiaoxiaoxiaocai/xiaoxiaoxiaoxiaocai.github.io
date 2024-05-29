@@ -224,6 +224,154 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2023/11/21/CREATE2/" target="_self">
+          CREATE2
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/11/21/CREATE2/" target="_self">
+        <div>
+          EATE2 是以太坊在 “君士坦丁堡” 这次硬分叉升级中引入的一个新操作码，不同于 CREATE，它使用新的方式来计算合约地址，让生成的合约地址更具有可控性。通过 CREATE2 可以延伸出很多有意思的玩法，在 CTF 中最常见的就是利用这种可控性，在同一个地址先后部署字节码完全不同的合约。 原理CREATE如果利用外部账户或者使用 CREATE 操作码的合约账户创建一个合约，那么很容易就能确定被
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-21 16:13" pubdate>
+              2023-11-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Attack/">#Attack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/11/20/%E9%A2%98%E7%9B%AE/" target="_self">
+          题目
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/11/20/%E9%A2%98%E7%9B%AE/" target="_self">
+        <div>
+          强网拟态2023国际象棋与二维码 查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘 1234567891011121314151617from PIL import Imageimport numpy as npsize=49grid_size=10img=Image.new(&#x27;RGB&#x27;,(size*grid_si
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-20 18:50" pubdate>
+              2023-11-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/11/09/Function-Selector-and-Argument-Encoding/" target="_self">
+          Function Selector and Argument Encoding
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/11/09/Function-Selector-and-Argument-Encoding/" target="_self">
+        <div>
+          在 Ethereum 生态系统中，ABI (Application Binary Interface，应用二进制接口) 是从区块链外部与合约进行交互以及合约与合约间进行交互的一种标准方式。数据会根据其类型按照这份手册中说明的方法进行编码。 Function Selector原理某个函数签名的 Keccak (SHA-3) 哈希的前 4 字节，指定了要调用的函数，形如 bytes4(keccak25
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-09 16:57" pubdate>
+              2023-11-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2023/11/09/Uninitialized-Storage-Pointer/" target="_self">
           Uninitialized Storage Pointer
         </a>
@@ -619,182 +767,6 @@
               <a href="/tags/Python/">#Python</a>
             
           </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/10/26/Delegatecall/" target="_self">
-          Delegatecall
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/26/Delegatecall/" target="_self">
-        <div>
-          原理三种调用函数在 Solidity 中，call 函数簇可以实现跨合约的函数调用功能，其中包括 call、delegatecall 和 callcode 三种方式。 1234&lt;address&gt;.call(...) returns (bool)&lt;address&gt;.callcode(...) returns (bool)&lt;address&gt;.delegatecall
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-26 11:27" pubdate>
-              2023-10-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Attack/">#Attack</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/10/25/Pyjail%E4%B8%8A/" target="_self">
-          Pyjail（上）
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/25/Pyjail%E4%B8%8A/" target="_self">
-        <div>
-          参考链接[PyJail] python沙箱逃逸探究·总览（HNCTF题解） - 知乎 (zhihu.com) Python Jail 沙盒逃逸 合集 (xjx100.cn) Jail 【Python沙箱逃逸问题合集】 - Kicky_Mu - 博客园 (cnblogs.com) 魔术方法  __init__：构造函数。这个在实例化类的时候就会用到，一般是接受类初始化的参数，并且进行一系列初始化操作
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-25 12:31" pubdate>
-              2023-10-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/10/24/GETH-%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" target="_self">
-          GETH 搭建私链
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/24/GETH-%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/" target="_self">
-        <div>
-          1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&#123;  &quot;config&quot;: &#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-24 16:49" pubdate>
-              2023-10-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
         
       </div>
     </article>
