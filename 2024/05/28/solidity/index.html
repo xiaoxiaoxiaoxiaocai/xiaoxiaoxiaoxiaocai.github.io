@@ -24,7 +24,7 @@
 <meta property="og:description" content="错误处理及异常：Assert, Require, Revert用 assert 检查异常(Panic) 和 require 检查错误(Error)assert和require可用于检查条件并抛出异常assert函数会创建一个Painc（uint256）的错误，只用于测试内部错误，检查不变量。下列情况将会产生一个Panic异常： 错误数据会提供的错误码编号，用来指示Panic的类型： 0x00: 用">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-28T07:39:58.000Z">
-<meta property="article:modified_time" content="2024-05-29T02:49:47.893Z">
+<meta property="article:modified_time" content="2024-05-30T11:56:21.739Z">
 <meta property="article:author" content="xiaocai">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k words
+          3.5k words
         
       </span>
     
@@ -274,6 +274,7 @@
                 
                 <h3 id="错误处理及异常：Assert-Require-Revert"><a href="#错误处理及异常：Assert-Require-Revert" class="headerlink" title="错误处理及异常：Assert, Require, Revert"></a>错误处理及异常：Assert, Require, Revert</h3><h4 id="用-assert-检查异常-Panic-和-require-检查错误-Error"><a href="#用-assert-检查异常-Panic-和-require-检查错误-Error" class="headerlink" title="用 assert 检查异常(Panic) 和 require 检查错误(Error)"></a>用 assert 检查异常(Panic) 和 require 检查错误(Error)</h4><p>assert和require可用于检查条件并抛出异常<br>assert函数会创建一个Painc（uint256）的错误，只用于测试内部错误，检查不变量。<br>下列情况将会产生一个Panic异常： 错误数据会提供的错误码编号，用来指示Panic的类型：</p>
 <p>0x00: 用于常规编译器插入的Panic。<br>0x01: 如果你调用 assert 的参数（表达式）结果为 false 。<br>0x11: 在 unchecked { … } 外，如果算术运算结果向上或向下溢出。<br>0x12; 如果你用零当除数做除法或模运算（例如 5 &#x2F; 0 或 23 % 0 ）。<br>0x21: 如果你将一个太大的数或负数值转换为一个枚举类型。<br>0x22: 如果你访问一个没有正确编码的存储byte数组.<br>0x31: 如果在空数组上 .pop() 。<br>0x32: 如果你访问 bytesN 数组（或切片）的索引太大或为负数。(例如： x[i] 而 i &gt;&#x3D; x.length 或 i &lt; 0).<br>0x41: 如果你分配了太多的内内存或创建了太大的数组。<br>0x51: 如果你调用了零初始化内部函数类型变量。</p>
+<p>assert当参数是false时会抛出panic异常，立即停止执行剩余代码，回滚当前交易所有状态变更(即任何更改不会保存在链上)，交易失败所消耗的gas不会返还。</p>
 <p>require函数可以创建无错误提示的错误，也可创建一个 Error(string) 类型的错误。<br>下列情况将会产生一个 Error(string) （或无错误提示）的错误：</p>
 <p>如果你调用 require(x) ，而 x 结果为 false 。<br>如果你使用 revert() 或者 revert(“description”) 。<br>如果你在不包含代码的合约上执行外部函数调用。<br>如果你通过合约接收以太币，而又没有 payable 修饰符的公有函数（包括构造函数和 fallback 函数）。<br>如果你的合约通过公有 getter 函数接收 Ether 。</p>
 <h4 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h4><p>可以使用revert语句和函数来直接触发回退。<br>revert 语句将一个自定义的错误作为直接参数，没有括号：</p>
