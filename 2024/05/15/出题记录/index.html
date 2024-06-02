@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en" data-default-color-scheme="auto">
 
 
 
@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="xiaocai">
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
     <meta name="description" content="ez据曾经做过的一个题目，需要python像素旋转。 使用PIL库对图片每一行像素进行循环移位：备份每一行的像素值，计算一个随机的起始点，然后对这一行的像素进行循环移位，最后保存并显示处理后的图像。通过这种方式，图像的每一行都会有一个随机的循环移位效果。 123456789101112131415161718192021from PIL import Imagefrom random import">
 <meta property="og:type" content="article">
@@ -35,15 +35,15 @@
   
   <title>出题记录 - xiaocai</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+  <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
 
 
 
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
   
 
 
@@ -78,8 +78,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
   
 
 
@@ -100,9 +100,7 @@
       <strong>Xiaocai&#39;s blog</strong>
     </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -192,8 +190,7 @@
 
   
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+<div id="banner" class="banner" parallax="true" style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -279,9 +276,9 @@
 <p>使用PIL库对图片每一行像素进行循环移位：备份每一行的像素值，计算一个随机的起始点，然后对这一行的像素进行循环移位，最后保存并显示处理后的图像。通过这种方式，图像的每一行都会有一个随机的循环移位效果。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><br><br>f = <span class="hljs-string">&quot;C:\\Users\\86157\\Desktop\\新建文件夹4\\新建文件夹 (2)\\1123.png&quot;</span><br>img = Image.<span class="hljs-built_in">open</span>(f)<br><br><br>pixels = img.load()<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(img.size[<span class="hljs-number">0</span>]):<br>    back_row = []<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(img.size[<span class="hljs-number">1</span>]):<br>        back_row.append(pixels[i, j])<br><br>    start = randint(<span class="hljs-number">0</span>, img.size[<span class="hljs-number">1</span>])  <br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(img.size[<span class="hljs-number">1</span>]):<br>        pixels[i, (j + start) % img.size[<span class="hljs-number">1</span>]] = back_row[j]<br><br>img.show()<br>img.save(<span class="hljs-string">&quot;C:\\Users\\86157\\Desktop\\新建文件夹4\\新建文件夹 (2)\\f11.png&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<p>由<img src="/../images/imageq.png" srcset="/img/loading.gif" lazyload alt="imageq"></p>
+<p>由<img alt="imageq" data-original="/../images/imageq.png"></p>
 <p>得到</p>
-<p><img src="/../images/f1123.png" srcset="/img/loading.gif" lazyload alt="f1123"></p>
+<p><img alt="f1123" data-original="/../images/f1123.png"></p>
 <h4 id="wp："><a href="#wp：" class="headerlink" title="wp："></a>wp：</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image  <span class="hljs-comment"># 导入处理图片的库</span><br><br><span class="hljs-comment"># 定义一个函数，用于根据指定位置对像素行进行循环移位</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">rotate_pixels</span>(<span class="hljs-params">pixels, pivot</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;根据pivot点旋转像素&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> pixels[pivot:] + pixels[:pivot]<br><br><span class="hljs-comment"># 图片路径</span><br>image_path = <span class="hljs-string">&#x27;f1123.png&#x27;</span><br><br><span class="hljs-comment"># 打开图片并转换为RGB模式，获取图片的宽度和高度</span><br>p = Image.<span class="hljs-built_in">open</span>(image_path).convert(<span class="hljs-string">&#x27;RGB&#x27;</span>)<br>width, height = p.size<br><br><span class="hljs-comment"># 读取图片的所有像素到一个二维列表中</span><br>pixels = [[p.getpixel((x, y)) <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(height)] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(width)]<br><br><span class="hljs-comment"># 初始化一个列表，用于存储每行颜色变化的像素索引</span><br>change_indices = []<br><br><span class="hljs-comment"># 遍历每行像素，寻找首个红色像素后颜色变化的位置</span><br><span class="hljs-keyword">for</span> pixel_line <span class="hljs-keyword">in</span> pixels:<br>    found_red = <span class="hljs-literal">False</span>  <span class="hljs-comment"># 标记是否找到过红色像素</span><br>    <span class="hljs-comment"># 从第二像素开始遍历，避免初始的索引越界</span><br>    <span class="hljs-keyword">for</span> idx, pixel <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(pixel_line[<span class="hljs-number">1</span>:], start=<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> found_red <span class="hljs-keyword">and</span> pixel != pixel_line[idx - <span class="hljs-number">1</span>]:  <span class="hljs-comment"># 找到红后颜色变化</span><br>            change_indices.append(idx)  <span class="hljs-comment"># 记录变化位置</span><br>            <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">elif</span> pixel == (<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>):  <span class="hljs-comment"># 找到红色像素</span><br>            found_red = <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># 如果一行内没发现变化，记录None</span><br>        change_indices.append(<span class="hljs-literal">None</span>)<br><br><span class="hljs-comment"># 根据找到的索引进行像素行的旋转处理</span><br>rotated_pixels = []<br><span class="hljs-keyword">for</span> idx, pivot <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(change_indices):<br>    <span class="hljs-keyword">if</span> pivot <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:  <span class="hljs-comment"># 如果找到了旋转点</span><br>        rotated_pixels.append(rotate_pixels(pixels[idx], pivot))<br>    <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># 没有旋转点，保持原行</span><br>        rotated_pixels.append(pixels[idx])<br><br><span class="hljs-comment"># 创建新图片并放置处理后的像素</span><br>new_image = Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>, (width, height))<br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(width):<br>    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(height):<br>        new_image.putpixel((x, y), rotated_pixels[x][y])<br><br><span class="hljs-comment"># 保存处理后的新图片</span><br>new_image.save(<span class="hljs-string">&#x27;flag1123_processed.png&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 
@@ -297,7 +294,7 @@
                 
               </div>
             
-            <hr/>
+            <hr>
             <div>
               <div class="post-metas my-3">
   
@@ -439,8 +436,7 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -477,12 +473,27 @@
   
 </div>
 
+//引用了jquery百度的 cdn 源，也可替换其他的
+ <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+ //也可替换其他的lazyload源
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+      $(function() {  
+      //对所有 img 标签进行懒加载        
+          $("img").lazyload({
+          //设置占位图，我这里选用了一个 loading 的加载动画
+            placeholder:"/img/loading.gif",
+            //加载效果
+              effect:"fadeIn"
+            });
+          });
+    </script>
   </footer>
 
   <!-- Scripts -->
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+  <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css">
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -493,13 +504,13 @@
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/plugins.js"></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -518,7 +529,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script src="/js/img-lazyload.js"></script>
   
 
 
@@ -564,7 +575,7 @@
 </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+  <script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
@@ -617,7 +628,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -625,7 +636,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script src="/js/boot.js"></script>
 
 
   
