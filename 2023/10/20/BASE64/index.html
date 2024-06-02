@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme="auto">
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="xiaocai">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   
     <meta name="description" content="BASE64 12345678910ZG&#x3D;&#x3D;YY&#x3D;&#x3D;aW&#x3D;&#x3D;ZF&#x3D;&#x3D;cm&#x3D;&#x3D;aM&#x3D;&#x3D;b2&#x3D;&#x3D;dc&#x3D;&#x3D;c2&#x3D;&#x3D;Zf&#x3D;&#x3D;  解码得到 daidrhouse，然而编码得到 12345678910ZA&#x3D;&#x3D;YQ&#x3D;&#x3D;aQ&#x3D;&#x3D;ZA&#x3D;&#x3D;cg&#x3D;&#x3D;aA&#x3D;&#x3D;bw&#x3D;&#x3D;dQ&#x3D;&#x3D;cw&#x3D;&#x3D;ZQ&#x3D;&#x3D;  发现每一串的第二位都发生了改变，但是结果没变。 base64原理顾名思义，base64编码就是用64个ascii字符作为基础来编">
 <meta property="og:type" content="article">
@@ -36,15 +36,15 @@
   
   <title>BASE64 - xiaocai</title>
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link rel="stylesheet" href="/css/main.css">
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -101,7 +101,9 @@
       <strong>Xiaocai&#39;s blog</strong>
     </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -191,7 +193,8 @@
 
   
 
-<div id="banner" class="banner" parallax="true" style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -460,8 +463,8 @@
 </tbody></table>
 <p>有时为了防止混淆（比如链接），会使用 <code>.</code> <code>_</code> 来代替索引表中的 <code>+</code> <code>/</code> 。</p>
 <h4 id="隐写原理"><a href="#隐写原理" class="headerlink" title="隐写原理"></a>隐写原理</h4><p>base64在解码的时候，会按照字符串末尾的 <code>=</code> 数量来删除相应字节数。或许你已经发现了，当一组字符的数量为1字节或2字节的时候，会有4位或2位二进制在解码时被忽略</p>
-<p><img alt="NK23ZzryPj9YBpi" data-original="/../images/NK23ZzryPj9YBpi-16977914930905.png"></p>
-<p><img alt="ZBpPwsz5OeaH3FG" data-original="/../images/ZBpPwsz5OeaH3FG-16977914969667.png"></p>
+<p><img src="/../images/NK23ZzryPj9YBpi-16977914930905.png" srcset="/img/loading.gif" lazyload alt="NK23ZzryPj9YBpi"></p>
+<p><img src="/../images/ZBpPwsz5OeaH3FG-16977914969667.png" srcset="/img/loading.gif" lazyload alt="ZBpPwsz5OeaH3FG"></p>
 <p>即解码时：</p>
 <p>解密的时候首先把”&#x3D;”删去，然后写出二进制数串，然后从左往右每8位一组，剩余的不足8位丢掉，然后根据转换表获得相应字符</p>
 <p>然后每8位一组，剩余不足的丢弃，</p>
@@ -485,7 +488,7 @@
                 
               </div>
             
-            <hr>
+            <hr/>
             <div>
               <div class="post-metas my-3">
   
@@ -655,7 +658,8 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -691,28 +695,12 @@
   
   
 </div>
-
-//引用了jquery百度的 cdn 源，也可替换其他的
- <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
   </footer>
 
   <!-- Scripts -->
   
-  <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css">
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -723,13 +711,13 @@
   </script>
 
 
-<script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
-<script src="/js/events.js"></script>
-<script src="/js/plugins.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-  <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -748,7 +736,7 @@
 
 
   
-    <script src="/js/img-lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -794,7 +782,7 @@
 </script>
 
 
-  <script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
@@ -847,7 +835,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script src="/js/local-search.js"></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -855,7 +843,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script src="/js/boot.js"></script>
+<script  src="/js/boot.js" ></script>
 
 
   

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme="auto">
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="xiaocai">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   
     <meta name="description" content="第一章 概述信息安全三要素保密性： 使截获者在不知密钥条件下不能解读信息。完整性：保证信息从真实的发送者传送到真实的接收者手中，传送过程中没有非法用户添加删除和替换可用性：指保障信息资源随时可提供服务的能力特性&#x2F;保证经过授权的客户能及时准确地不间断的访问数据。认证性：使任何不知密钥的人不能构造一个密钥，使意定的接收者脱密成一个可理解的消息。Kerckhoff 原则： 系统的保密性不依赖与">
 <meta property="og:type" content="article">
@@ -59,15 +59,15 @@
   
   <title>现代密码学 - xiaocai</title>
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -81,12 +81,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link rel="stylesheet" href="/css/main.css">
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -102,8 +102,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -124,7 +124,9 @@
       <strong>Xiaocai&#39;s blog</strong>
     </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -214,7 +216,8 @@
 
   
 
-<div id="banner" class="banner" parallax="true" style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -297,23 +300,23 @@
               <div class="markdown-body">
                 
                 <h3 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h3><h4 id="信息安全三要素"><a href="#信息安全三要素" class="headerlink" title="信息安全三要素"></a>信息安全三要素</h4><p>保密性： 使截获者在不知密钥条件下不能解读信息。<br>完整性：保证信息从真实的发送者传送到真实的接收者手中，传送过程中没有非法用户添加删除和替换<br>可用性：指保障信息资源随时可提供服务的能力特性&#x2F;保证经过授权的客户能及时准确地不间断的访问数据。<br>认证性：使任何不知密钥的人不能构造一个密钥，使意定的接收者脱密成一个可理解的消息。<br>Kerckhoff 原则： 系统的保密性不依赖与对加密提示或算法的保密，而依赖于密钥。</p>
-<h4 id="密钥体制分类"><a href="#密钥体制分类" class="headerlink" title="密钥体制分类"></a>密钥体制分类</h4><p>单钥体制：加密和解密密钥相同，主要问题是密钥产生和密钥管理包括流密码和分组密码。<br>双钥体制：加密和解密密钥不同，安全性可实现对A所发消息的验证<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/image.png"></p>
+<h4 id="密钥体制分类"><a href="#密钥体制分类" class="headerlink" title="密钥体制分类"></a>密钥体制分类</h4><p>单钥体制：加密和解密密钥相同，主要问题是密钥产生和密钥管理包括流密码和分组密码。<br>双钥体制：加密和解密密钥不同，安全性可实现对A所发消息的验证<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/image.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <h3 id="第二章-流密码"><a href="#第二章-流密码" class="headerlink" title="第二章 流密码"></a>第二章 流密码</h3><h4 id="基本概念和分类"><a href="#基本概念和分类" class="headerlink" title="基本概念和分类"></a>基本概念和分类</h4><p>流密码是将明文划分为字符，或其编码的基本单元，每一字符分别与密钥流对应字符“作用”，从而进行加密，解密时以同步产生的同样的密钥流实现。<br>流密码强度完全依赖于密钥流生成器生成的密钥流的随机性和不可预测性<br>流密码有记忆性，分组密码则没有。</p>
 <ol>
 <li>同步流密码：密钥流产生算吗和明文（密文）无关</li>
 <li>自同步流密码：密钥流产生算法与明文（密文）有关</li>
 </ol>
-<h4 id="n级反馈移位寄存器"><a href="#n级反馈移位寄存器" class="headerlink" title="n级反馈移位寄存器"></a>n级反馈移位寄存器</h4><p>GF（2）上一个n级反馈移位寄存器有n个二元存储器与一个反馈函数f（a1，a2，…，an）组成<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1.png"></p>
-<h4 id="线性反馈移位寄存器（LFSR）"><a href="#线性反馈移位寄存器（LFSR）" class="headerlink" title="线性反馈移位寄存器（LFSR）"></a>线性反馈移位寄存器（LFSR）</h4><p>GF(2)上的n级线性反馈移位寄存器，f(a1,a2,…,an)&#x3D; cna1⊕cn−1a2⊕L⊕c1an<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214500630-306761.png"></p>
-<p>n级LFSR状态数：最多有2^n个<br>n级LFSR的状态周期：&lt;&#x3D;2^n-1。输出序列的周期&#x3D;状态周期。<br>周期达到最大值的序列称为m序列<br>LFSR的特征多项式：p(x)&#x3D;1+c1x+…＋cn-1xn-1＋cnxn<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214605564-2039452965.png"></p>
+<h4 id="n级反馈移位寄存器"><a href="#n级反馈移位寄存器" class="headerlink" title="n级反馈移位寄存器"></a>n级反馈移位寄存器</h4><p>GF（2）上一个n级反馈移位寄存器有n个二元存储器与一个反馈函数f（a1，a2，…，an）组成<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="线性反馈移位寄存器（LFSR）"><a href="#线性反馈移位寄存器（LFSR）" class="headerlink" title="线性反馈移位寄存器（LFSR）"></a>线性反馈移位寄存器（LFSR）</h4><p>GF(2)上的n级线性反馈移位寄存器，f(a1,a2,…,an)&#x3D; cna1⊕cn−1a2⊕L⊕c1an<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214500630-306761.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<p>n级LFSR状态数：最多有2^n个<br>n级LFSR的状态周期：&lt;&#x3D;2^n-1。输出序列的周期&#x3D;状态周期。<br>周期达到最大值的序列称为m序列<br>LFSR的特征多项式：p(x)&#x3D;1+c1x+…＋cn-1xn-1＋cnxn<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214605564-2039452965.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <h4 id="m序列"><a href="#m序列" class="headerlink" title="m序列"></a>m序列</h4><p>伪随机序列：密钥流不可能做到最忌，只能要求截获比周期短的一段序列时不会泄露更多的信息<br>游程：连续的0或1的个数</p>
-<p><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/31142730_61cea2d2cf86778468.png"></p>
+<p><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/31142730_61cea2d2cf86778468.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>三个有关伪随机序列的随机性公设：</p>
 <p>1.在一个周期内，0和1的个数相差最多为1<br>2.在序列某个周期内，长为1的游程占游程数的1&#x2F;2，长为2<br>的游程占游程总数的1&#x2F;2^2，长为i的游程占游程总数的1&#x2F;2^i,且0和1的游程数相等.<br>3.异相自相关函数为一个常数。<br>m序列满足如上的三个随机性公设。</p>
 <p>对于m序列，游程总数为2^(n-1)。</p>
 <p>GF(2)上周期为 T 的序列{ai }的自相关函数</p>
-<p>设序列{ai}满足线性递推关系：<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214635730-685149095.png"></p>
-<h4 id="m序列的破译"><a href="#m序列的破译" class="headerlink" title="m序列的破译"></a>m序列的破译</h4><p><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214700145-2135394747.png"><br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214705101-1255327708%20(1).png"><br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214710632-333283940.png"></p>
+<p>设序列{ai}满足线性递推关系：<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214635730-685149095.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h4 id="m序列的破译"><a href="#m序列的破译" class="headerlink" title="m序列的破译"></a>m序列的破译</h4><p><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214700145-2135394747.png" srcset="/img/loading.gif" lazyload alt="alt text"><br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214705101-1255327708%20(1).png" srcset="/img/loading.gif" lazyload alt="alt text"><br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/1857677-20231118214710632-333283940.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <h3 id="分组密码"><a href="#分组密码" class="headerlink" title="分组密码"></a>分组密码</h3><h4 id="基本概念和分类-1"><a href="#基本概念和分类-1" class="headerlink" title="基本概念和分类"></a>基本概念和分类</h4><p>分组密码：若明文流被分割成等长串，各串用相同的加密算法和相同的密钥进行加密，就是分组密码。</p>
 <p>优缺点：<br>分度密码加解密算法简洁快速，所占的计算资源小，易于软件和硬件实现。<br>参数固定，比流密码更易实现标准化。<br>由于明文流被分段加密，因此容易实现同步，且传输错误不会向后扩散。但是分组密码的安全性很难被证明，至多证明局部安全性。</p>
 <h4 id="分组密码的设计准则"><a href="#分组密码的设计准则" class="headerlink" title="分组密码的设计准则"></a>分组密码的设计准则</h4><p>安全性：从任何角度难以攻破<br>简洁性：分组密码吗算法在满足安全性的同时尽可能简单快速。<br>有效性：分组密码设计应使密钥最大限度起到安全性作用。</p>
@@ -323,9 +326,9 @@
 <p>F-函数：一个依赖于密钥的把输入串映射到输出串的映射，通常是非线性且不可逆的</p>
 <h6 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h6><p>(1)将明文分组分割成长度相同的两块（L0,R0);</p>
 <p>(2)对每一轮，i&#x3D;0,1,…,n,</p>
-<p><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/eq%20(1).png"></p>
-<h6 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h6><p>（1）对于密文的解密，每一轮，i&#x3D;n,n-1,…,0,<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/eq.png"></p>
-<h5 id="S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒"><a href="#S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒" class="headerlink" title="S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒"></a>S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒</h5><h5 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h5><h6 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h6><p>DES 是一个 对称密码体制。 加解密使用同一密钥，有效密钥长度为56位。分组长度位64位。明文和密文长度相等。<br>DES的初始密钥长度也为64位，但有效的密钥为56位，因为第8、16、24、40、48、56和64位都是奇校验位。<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/ce3ac6293aa94d4ebc50d3df358ce82f.jpeg"></p>
+<p><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/eq%20(1).png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h6 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h6><p>（1）对于密文的解密，每一轮，i&#x3D;n,n-1,…,0,<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/eq.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h5 id="S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒"><a href="#S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒" class="headerlink" title="S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒"></a>S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒</h5><h5 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h5><h6 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h6><p>DES 是一个 对称密码体制。 加解密使用同一密钥，有效密钥长度为56位。分组长度位64位。明文和密文长度相等。<br>DES的初始密钥长度也为64位，但有效的密钥为56位，因为第8、16、24、40、48、56和64位都是奇校验位。<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/ce3ac6293aa94d4ebc50d3df358ce82f.jpeg" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <p>加密过程主要有3个阶段</p>
 <ol>
 <li>64位的明文经过初始置换而被重新排列，并将其分为左右两组L0和 R0，各为32位。</li>
@@ -336,7 +339,7 @@
 <h6 id="初始置换和逆初始置换"><a href="#初始置换和逆初始置换" class="headerlink" title="初始置换和逆初始置换"></a>初始置换和逆初始置换</h6><p>初始置换（IP）是在第一轮迭代之前进行的，目的是将原明文块的位进行换位，其置换表是固定的。</p>
 <p>逆初始置换（IP−1）是初始置换的逆置换，数据块经过初始置换和逆初始置换后恢复到原来的位置</p>
 <h6 id="轮结构"><a href="#轮结构" class="headerlink" title="轮结构"></a>轮结构</h6><p>DES的轮函数F由四个部分组成：扩展置换、异或运算、s盒运算、p盒运算。</p>
-<p><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/7d8a1361c5d44b1eb7157647549f69c4.png"></p>
+<p><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/7d8a1361c5d44b1eb7157647549f69c4.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <h4 id="五个工作模式"><a href="#五个工作模式" class="headerlink" title="五个工作模式"></a>五个工作模式</h4><h5 id="ECB模式"><a href="#ECB模式" class="headerlink" title="ECB模式"></a>ECB模式</h5><p>每个明文分组独立加解密<br>优点：</p>
 <p>　　简单、高速</p>
 <p>　　无差错传播：单个密文分组出现错误只会影响该分组的解密，不会影响到其他分组</p>
@@ -350,13 +353,13 @@
 <h5 id="CFB模式"><a href="#CFB模式" class="headerlink" title="CFB模式"></a>CFB模式</h5><p>加密消息需按字符、字节或比特处理时，可采用CFB模式<br>实现简单（只要求加密算法）</p>
 <p>比 CBC 慢很多，每次只有少数比特完成加密</p>
 <p>单个密文分组出现一个比特错误，不仅影响该分组，还会最多影响后续[64&#x2F;j] 个密文分组的解密</p>
-<h5 id="OFB模式"><a href="#OFB模式" class="headerlink" title="OFB模式"></a>OFB模式</h5><p>OFB模式是将加密算法的输出反馈到移位寄存器，cfb则是将密文单元反馈到移位寄存器。<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/0b5ad1c5ee4c4a2aa1bcf2d8825c7e41.png"><br>优点</p>
+<h5 id="OFB模式"><a href="#OFB模式" class="headerlink" title="OFB模式"></a>OFB模式</h5><p>OFB模式是将加密算法的输出反馈到移位寄存器，cfb则是将密文单元反馈到移位寄存器。<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/0b5ad1c5ee4c4a2aa1bcf2d8825c7e41.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>优点</p>
 <p>隐藏了明文的模式；分组密码转化为流模式；无误差传送问题；可以及时加密传送小于分组的数据。</p>
 <p>缺点</p>
 <p>不利于并行计算；对明文的主动攻击是可能的，安全性较CFB差。</p>
 <h5 id="CTR模式"><a href="#CTR模式" class="headerlink" title="CTR模式"></a>CTR模式</h5><h5 id="三重-DES"><a href="#三重-DES" class="headerlink" title="三重 DES"></a>三重 DES</h5><p>三重 DES：  先加密后解密在加密</p>
 <h4 id="AES加密"><a href="#AES加密" class="headerlink" title="AES加密"></a>AES加密</h4><p>明文长度为固定的128位，密钥长度可以是128位、192位、256位<br>输入128位明文，为16字节的数据，16字节的数据组成一个4*4的矩阵</p>
-<h5 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h5><p><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/3004b2f55335661dc8f60be1e12a648e.png"><br>其中9轮循环运算时，执行1-4步骤，最后一轮（第十轮）只执行124步</p>
+<h5 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h5><p><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/3004b2f55335661dc8f60be1e12a648e.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>其中9轮循环运算时，执行1-4步骤，最后一轮（第十轮）只执行124步</p>
 <h6 id="初始变换"><a href="#初始变换" class="headerlink" title="初始变换"></a>初始变换</h6><p>16字节固定长度的明文和M字节的密钥分别形成4*4的矩阵，执行异或操作</p>
 <h6 id="循环运算"><a href="#循环运算" class="headerlink" title="循环运算"></a>循环运算</h6><ol>
 <li>字节代换：处理初始变换后的4*4矩阵</li>
@@ -365,7 +368,7 @@
 <li>轮密钥加：将前面所得的4*4矩阵与该轮对应的轮密钥进行异或操作<br>经过9轮循环和一个最终轮，得到了最终的密文</li>
 </ol>
 <h4 id="SM4"><a href="#SM4" class="headerlink" title="SM4"></a>SM4</h4><p>分组长度为128比特，密钥长度为128比特，字长度为32比特的字符串，因此分组和密钥长度为4字</p>
-<h5 id="32轮迭代"><a href="#32轮迭代" class="headerlink" title="32轮迭代"></a>32轮迭代</h5><p>已知明文输入X0、X1、X2、X3，依次计算出X4-X35的字（32轮运算）<br><img alt="alt text" data-original="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/a987f0dd7fae4bd0addacc51a9a6755f.png"></p>
+<h5 id="32轮迭代"><a href="#32轮迭代" class="headerlink" title="32轮迭代"></a>32轮迭代</h5><p>已知明文输入X0、X1、X2、X3，依次计算出X4-X35的字（32轮运算）<br><img src="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/a987f0dd7fae4bd0addacc51a9a6755f.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
 <h5 id="反序变换"><a href="#反序变换" class="headerlink" title="反序变换"></a>反序变换</h5><p>将计算出的结果X32-X35倒序</p>
 <h3 id="公钥密码"><a href="#公钥密码" class="headerlink" title="公钥密码"></a>公钥密码</h3><h4 id="公钥体制的基本原理是陷门单向函数"><a href="#公钥体制的基本原理是陷门单向函数" class="headerlink" title="公钥体制的基本原理是陷门单向函数"></a>公钥体制的基本原理是陷门单向函数</h4><p>陷门单向函数和单向函数不一样是这样的单向函数：在不知陷门信息下，由 f(x)求 x“极为困难” ， 当知道陷门信息后，由 f(x)求 x 是易于实现的<br>单向函数举例：（各自对应一种加密方法） </p>
 <p>离散对数<br>大整数分解<br>背包问题</p>
@@ -383,20 +386,20 @@
 <p>第二步：n&#x3D;p*q</p>
 <p>第三步：公钥 n，对外公布；私钥（p,q）则自己收着。</p>
 <p>Rabin 加密体制加密过程：</p>
-<p>明文 m 范围(0,n)计算密文方法：c&#x3D;m2(mod n)，c 是密文 B 在收到密文后，用私钥解密<br><img alt="1857677-20231118220942501-1377392678" data-original="/../images/1857677-20231118220942501-1377392678.png"></p>
-<h5 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h5><p><img alt="1857677-20231120212432608-633749296" data-original="/../images/1857677-20231120212432608-633749296.png"><br><img alt="594AC8F7C73D9D6CC5BB2989F2C26377" data-original="/../images/594AC8F7C73D9D6CC5BB2989F2C26377.png"></p>
-<h4 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h4><p><img alt="bcee9254b0894de481c4243aa153ddff" data-original="/../images/bcee9254b0894de481c4243aa153ddff.png"></p>
-<h5 id="椭圆曲线上的点数"><a href="#椭圆曲线上的点数" class="headerlink" title="椭圆曲线上的点数"></a>椭圆曲线上的点数</h5><p><img alt="0859d83777e24f3989ef123509e866a0" data-original="/../images/0859d83777e24f3989ef123509e866a0.png"><br><img alt="ae94fae8b9394b3ba75683eb976e98bc" data-original="/../images/ae94fae8b9394b3ba75683eb976e98bc.png"></p>
-<h5 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a>加法运算</h5><p><img alt="536494ce338a5c113ff72869182a8296" data-original="/../images/536494ce338a5c113ff72869182a8296.png"></p>
-<h5 id="加密过程-1"><a href="#加密过程-1" class="headerlink" title="加密过程"></a>加密过程</h5><p><img alt="0dd237dd301cc3ab736445fe94e0bf88" data-original="/../images/0dd237dd301cc3ab736445fe94e0bf88.png"></p>
+<p>明文 m 范围(0,n)计算密文方法：c&#x3D;m2(mod n)，c 是密文 B 在收到密文后，用私钥解密<br><img src="/../images/1857677-20231118220942501-1377392678.png" srcset="/img/loading.gif" lazyload alt="1857677-20231118220942501-1377392678"></p>
+<h5 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h5><p><img src="/../images/1857677-20231120212432608-633749296.png" srcset="/img/loading.gif" lazyload alt="1857677-20231120212432608-633749296"><br><img src="/../images/594AC8F7C73D9D6CC5BB2989F2C26377.png" srcset="/img/loading.gif" lazyload alt="594AC8F7C73D9D6CC5BB2989F2C26377"></p>
+<h4 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h4><p><img src="/../images/bcee9254b0894de481c4243aa153ddff.png" srcset="/img/loading.gif" lazyload alt="bcee9254b0894de481c4243aa153ddff"></p>
+<h5 id="椭圆曲线上的点数"><a href="#椭圆曲线上的点数" class="headerlink" title="椭圆曲线上的点数"></a>椭圆曲线上的点数</h5><p><img src="/../images/0859d83777e24f3989ef123509e866a0.png" srcset="/img/loading.gif" lazyload alt="0859d83777e24f3989ef123509e866a0"><br><img src="/../images/ae94fae8b9394b3ba75683eb976e98bc.png" srcset="/img/loading.gif" lazyload alt="ae94fae8b9394b3ba75683eb976e98bc"></p>
+<h5 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a>加法运算</h5><p><img src="/../images/536494ce338a5c113ff72869182a8296.png" srcset="/img/loading.gif" lazyload alt="536494ce338a5c113ff72869182a8296"></p>
+<h5 id="加密过程-1"><a href="#加密过程-1" class="headerlink" title="加密过程"></a>加密过程</h5><p><img src="/../images/0dd237dd301cc3ab736445fe94e0bf88.png" srcset="/img/loading.gif" lazyload alt="0dd237dd301cc3ab736445fe94e0bf88"></p>
 <h4 id="ElGamal"><a href="#ElGamal" class="headerlink" title="ElGamal"></a>ElGamal</h4><p>密钥产生过程： 选择一素数p以及小于p的随机数x， g是p的原根，计算y≡g^x mod p。</p>
-<h5 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h5><p><img alt="24eb9a75e71880e80521099d49a36784" data-original="/../images/24eb9a75e71880e80521099d49a36784.png"></p>
-<h5 id="解密-2"><a href="#解密-2" class="headerlink" title="解密"></a>解密</h5><p><img alt="fb88b02d280f3bf57baa92e682e83fd4" data-original="/../images/fb88b02d280f3bf57baa92e682e83fd4.png"></p>
+<h5 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h5><p><img src="/../images/24eb9a75e71880e80521099d49a36784.png" srcset="/img/loading.gif" lazyload alt="24eb9a75e71880e80521099d49a36784"></p>
+<h5 id="解密-2"><a href="#解密-2" class="headerlink" title="解密"></a>解密</h5><p><img src="/../images/fb88b02d280f3bf57baa92e682e83fd4.png" srcset="/img/loading.gif" lazyload alt="fb88b02d280f3bf57baa92e682e83fd4"></p>
 <h4 id="SM2"><a href="#SM2" class="headerlink" title="SM2"></a>SM2</h4>
                 
               </div>
             
-            <hr>
+            <hr/>
             <div>
               <div class="post-metas my-3">
   
@@ -559,7 +562,8 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -595,28 +599,12 @@
   
   
 </div>
-
-//引用了jquery百度的 cdn 源，也可替换其他的
- <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
   </footer>
 
   <!-- Scripts -->
   
-  <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css">
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -627,13 +615,13 @@
   </script>
 
 
-<script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
-<script src="/js/events.js"></script>
-<script src="/js/plugins.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-  <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -652,7 +640,7 @@
 
 
   
-    <script src="/js/img-lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -698,7 +686,7 @@
 </script>
 
 
-  <script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
@@ -751,7 +739,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script src="/js/local-search.js"></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -759,7 +747,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script src="/js/boot.js"></script>
+<script  src="/js/boot.js" ></script>
 
 
   

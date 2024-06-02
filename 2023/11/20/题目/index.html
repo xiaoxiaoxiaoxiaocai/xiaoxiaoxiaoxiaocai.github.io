@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme="auto">
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="xiaocai">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   
     <meta name="description" content="强网拟态2023国际象棋与二维码 查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘 1234567891011121314151617from PIL import Imageimport numpy as npsize&#x3D;49grid_size&#x3D;10img&#x3D;Image.new(&amp;#x27;RGB&amp;#x27;,(size*grid_si">
 <meta property="og:type" content="article">
@@ -37,15 +37,15 @@
   
   <title>题目 - xiaocai</title>
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -59,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link rel="stylesheet" href="/css/main.css">
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -80,8 +80,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -102,7 +102,9 @@
       <strong>Xiaocai&#39;s blog</strong>
     </a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
@@ -192,7 +194,8 @@
 
   
 
-<div id="banner" class="banner" parallax="true" style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -274,19 +277,19 @@
             
               <div class="markdown-body">
                 
-                <h3 id="强网拟态2023"><a href="#强网拟态2023" class="headerlink" title="强网拟态2023"></a>强网拟态2023</h3><h4 id="国际象棋与二维码"><a href="#国际象棋与二维码" class="headerlink" title="国际象棋与二维码"></a>国际象棋与二维码</h4><p><img alt="attach" data-original="/../images/attach-17004807344472.png"></p>
+                <h3 id="强网拟态2023"><a href="#强网拟态2023" class="headerlink" title="强网拟态2023"></a>强网拟态2023</h3><h4 id="国际象棋与二维码"><a href="#国际象棋与二维码" class="headerlink" title="国际象棋与二维码"></a>国际象棋与二维码</h4><p><img src="/../images/attach-17004807344472.png" srcset="/img/loading.gif" lazyload alt="attach"></p>
 <p>查看像素以及方格的个数。然后根据给出的题目为国际象棋棋盘。先生成一个500*500像素，行列为49的国际象棋棋盘</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>size=<span class="hljs-number">49</span><br>grid_size=<span class="hljs-number">10</span><br>img=Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>,(size*grid_size,size*grid_size),color= <span class="hljs-string">&#x27;white&#x27;</span>)<br><br>imag_arr= np.array(img)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,size,<span class="hljs-number">2</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, size,<span class="hljs-number">2</span>):<br>        imag_arr[i*grid_size:(i+<span class="hljs-number">1</span>)*grid_size, j*grid_size:(j+<span class="hljs-number">1</span>)*grid_size] = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>] <br>        imag_arr[(i+<span class="hljs-number">1</span>)*grid_size:(i+<span class="hljs-number">2</span>)*grid_size, (j+<span class="hljs-number">1</span>)*grid_size:(j+<span class="hljs-number">2</span>)*grid_size] = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br><br><br>final_img = Image.fromarray(imag_arr)<br>final_img.save(<span class="hljs-string">&#x27;1.png&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 
 
-<p><img alt="1" data-original="/../images/1-17004809240705.png"></p>
+<p><img src="/../images/1-17004809240705.png" srcset="/img/loading.gif" lazyload alt="1"></p>
 <p>然后与该图片进行异或操作</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 读取两张图片</span><br>image1 = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;attach.png&quot;</span>)<br>image2 = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;1.png&quot;</span>)<br><br><span class="hljs-comment"># 调整图片尺寸使其保持一致</span><br>image1 = image1.resize(image2.size)<br><br><span class="hljs-comment"># 转换为 numpy 数组</span><br>array1 = np.array(image1)<br>array2 = np.array(image2)<br><br><span class="hljs-comment"># 对两个数组执行异或操作</span><br>xor_result = np.bitwise_xor(array1, array2)<br><br><span class="hljs-comment"># 将结果转换为图像并保存</span><br>result_image = Image.fromarray(xor_result)<br>result_image.save(<span class="hljs-string">&quot;3.png&quot;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img alt="3" data-original="/../images/3-17004809615457.png"></p>
+<p><img src="/../images/3-17004809615457.png" srcset="/img/loading.gif" lazyload alt="3"></p>
 <p>扫码得到flag</p>
-<p><img alt="屏幕截图 2023-11-20 194939" data-original="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-20%20194939.png"></p>
+<p><img src="/../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-11-20%20194939.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2023-11-20 194939"></p>
 <h3 id="帕鲁杯"><a href="#帕鲁杯" class="headerlink" title="帕鲁杯"></a>帕鲁杯</h3><h4 id="ez-misc"><a href="#ez-misc" class="headerlink" title="ez_misc"></a>ez_misc</h4><p>给了一个加密的rar文件以及一张图片。在图片最后有this is password的空白隐写</p>
 <p>snow解密得</p>
 <p>.\SNOW.EXE -C .\White.txt<br>Carefree and carefree</p>
@@ -295,7 +298,7 @@
                 
               </div>
             
-            <hr>
+            <hr/>
             <div>
               <div class="post-metas my-3">
   
@@ -458,7 +461,8 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -494,28 +498,12 @@
   
   
 </div>
-
-//引用了jquery百度的 cdn 源，也可替换其他的
- <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
- //也可替换其他的lazyload源
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.min.js"></script>
-    <script type="text/javascript">
-      $(function() {  
-      //对所有 img 标签进行懒加载        
-          $("img").lazyload({
-          //设置占位图，我这里选用了一个 loading 的加载动画
-            placeholder:"/img/loading.gif",
-            //加载效果
-              effect:"fadeIn"
-            });
-          });
-    </script>
   </footer>
 
   <!-- Scripts -->
   
-  <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css">
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -526,13 +514,13 @@
   </script>
 
 
-<script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
-<script src="/js/events.js"></script>
-<script src="/js/plugins.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-  <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -551,7 +539,7 @@
 
 
   
-    <script src="/js/img-lazyload.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -597,7 +585,7 @@
 </script>
 
 
-  <script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
@@ -650,7 +638,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script src="/js/local-search.js"></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -658,7 +646,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script src="/js/boot.js"></script>
+<script  src="/js/boot.js" ></script>
 
 
   
