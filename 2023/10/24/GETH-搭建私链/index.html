@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="xiaocai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GETH 搭建私链">
+<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-%E6%90%AD%E5%BB%BA%E7%A7%81%E9%93%BE/index.html">
+<meta property="og:site_name" content="xiaocai">
+<meta property="og:description" content="1.下载客户端在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。 这里是11.6版本。 2.准备创世块的配置文件123456789101112131415161718192021&amp;#123;  &quot;config&quot;: &amp;#123;        &quot;chainId&quot;: 10,        &quot;homesteadBlock&quot;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-24T08:49:14.000Z">
+<meta property="article:modified_time" content="2024-04-09T09:24:57.194Z">
+<meta property="article:author" content="xiaocai">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>GETH 搭建私链 - xiaocai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Xiaocai&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="GETH 搭建私链"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-24 16:49" pubdate>
+          October 24, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">GETH 搭建私链</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="1-下载客户端"><a href="#1-下载客户端" class="headerlink" title="1.下载客户端"></a>1.下载客户端</h3><p>在下载geth时，要注意版本不要太高，最新版本的geth不支持搭建私链。</p>
+<p>这里是11.6版本。</p>
+<h3 id="2-准备创世块的配置文件"><a href="#2-准备创世块的配置文件" class="headerlink" title="2.准备创世块的配置文件"></a>2.准备创世块的配置文件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;config&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;chainId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;homesteadBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;byzantiumBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    	<span class="hljs-attr">&quot;constantinopleBlock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip155Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;eip158Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;eip150Block&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  		<span class="hljs-attr">&quot;eip150Hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;coinbase&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;difficulty&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x20000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;extraData&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;gasLimit&quot;</span>   <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0xffffffff&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;nonce&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000042&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;mixhash&quot;</span>    <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;parentHash&quot;</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;timestamp&quot;</span>  <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0x00&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;alloc&quot;</span>      <span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-初始化写入创世区块"><a href="#3-初始化写入创世区块" class="headerlink" title="3.初始化写入创世区块"></a>3.初始化写入创世区块</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs geth">geth init --datadir data1 genesis.json<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-启动geth"><a href="#4-启动geth" class="headerlink" title="4.启动geth"></a>4.启动geth</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">geth --datadir data1 --networkid <span class="hljs-number">10</span> --http --http.<span class="hljs-property">addr</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> --http.<span class="hljs-property">port</span> <span class="hljs-number">8545</span> --http.<span class="hljs-property">corsdomain</span> <span class="hljs-string">&quot;*&quot;</span> --http.<span class="hljs-property">api</span> <span class="hljs-string">&quot;db,eth,net,web3,personal,web3&quot;</span> --port <span class="hljs-number">30305</span> -allow-insecure-unlock <span class="hljs-variable language_">console</span> <span class="hljs-number">2</span>&gt;&gt;geth.<span class="hljs-property">log</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>.&#x2F;geth</strong>：这是执行 Geth 客户端的命令。</li>
+<li><strong>–datadir data1</strong>：这个选项指定了数据目录的路径，Geth 将在这个目录中存储区块链数据和相关文件。</li>
+<li><strong>–networkid 10</strong>：指定私有链的网络标识符，这个值用于在不同私有链之间进行区分。</li>
+<li><strong>–http</strong>：启用 HTTP-RPC 通信接口，允许通过 HTTP 请求与 Geth 进行交互。</li>
+<li><strong>–http.addr 0.0.0.0</strong>：设置 HTTP-RPC 服务监听的地址，0.0.0.0 表示允许来自任何 IP 地址的连接。</li>
+<li><strong>–http.port 8545</strong>：指定 HTTP-RPC 服务的端口号，一般是 8545。</li>
+<li>**–http.corsdomain “*“*<em>：配置允许跨域请求的域名，设置为 “</em>“ 表示允许任何域名进行跨域请求。</li>
+<li>**–http.api “db,eth,net,web3,personal,web3”**：指定启用的 HTTP-RPC 接口，这里列出了一些常用的接口，包括数据库、以太坊操作、网络信息、Web3 功能和个人账户操作。</li>
+<li><strong>–port 30305</strong>：设置 Geth 节点的 P2P 网络端口，用于节点间的通信。</li>
+<li><strong>-allow-insecure-unlock</strong>：允许以不安全的方式解锁账户。这在测试环境中使用，允许在 HTTP-RPC 上发送解锁账户的请求，但在生产环境中不建议使用</li>
+</ol>
+<p>web3.fromWei(eth.getBalance(eth.coinbase), “ether”);</p>
+<h3 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv25915543/">一步步教程：使用Geth在本地搭建私有以太坊区块链 - 哔哩哔哩 (bilibili.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shuhai165/p/16623128.html#autoid-0-0-0">Win10使用Geth客户端搭建以太坊私有链、连接可视化钱包 - 樹海 - 博客园 (cnblogs.com)</a></p>
+<h3 id="web3的异常"><a href="#web3的异常" class="headerlink" title="web3的异常"></a>web3的异常</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> web3 <span class="hljs-keyword">import</span> Web3<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\web3\__init__.py&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_account <span class="hljs-keyword">import</span> Account  <span class="hljs-comment"># noqa: E402,</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_account\__init__.py&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_account.account <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_account\account.py&quot;</span>, line <span class="hljs-number">20</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keyfile <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keyfile\__init__.py&quot;</span>, line <span class="hljs-number">7</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keyfile.keyfile <span class="hljs-keyword">import</span> (  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keyfile\keyfile.py&quot;</span>, line <span class="hljs-number">11</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_keys <span class="hljs-keyword">import</span> keys<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keys\__init__.py&quot;</span>, line <span class="hljs-number">15</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> .main <span class="hljs-keyword">import</span> (  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_keys\main.py&quot;</span>, line <span class="hljs-number">3</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> eth_utils <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\__init__.py&quot;</span>, line <span class="hljs-number">86</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">from</span> .network <span class="hljs-keyword">import</span> (<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\network.py&quot;</span>, line <span class="hljs-number">49</span>, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    networks = initialize_network_objects()<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\site-packages\eth_utils\network.py&quot;</span>, line <span class="hljs-number">27</span>, <span class="hljs-keyword">in</span> initialize_network_objects<br>    network_data = json.load(open_file)<br>  File <span class="hljs-string">&quot;D:\python\Python310\lib\json\__init__.py&quot;</span>, line <span class="hljs-number">293</span>, <span class="hljs-keyword">in</span> load<br>    <span class="hljs-keyword">return</span> loads(fp.read(),<br>UnicodeDecodeError: <span class="hljs-string">&#x27;gbk&#x27;</span> codec can<span class="hljs-string">&#x27;t decode byte 0x88 in position 247555: illegal multibyte sequence</span><br></code></pre></td></tr></table></figure>
+
+<p>解决方案</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44322508/article/details/134130583">https://blog.csdn.net/weixin_44322508/article/details/134130583</a></p>
+<h3 id="在线挖矿"><a href="#在线挖矿" class="headerlink" title="在线挖矿"></a>在线挖矿</h3><p><a target="_blank" rel="noopener" href="http://www.snowywar.top/?golink=aHR0cHM6Ly9zZXBvbGlhLWZhdWNldC5wazkxMC5kZS8=">Sepolia PoW Faucet (pk910.de)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.snowywar.top/?golink=aHR0cHM6Ly9nb2VybGktZmF1Y2V0LnBrOTEwLmRlLw==">Goerli PoW Faucet (pk910.de)</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Blockchain/" class="category-chain-item">Blockchain</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>GETH 搭建私链</div>
+      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/10/24/GETH-搭建私链/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>xiaocai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 24, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/25/Pyjail%E4%B8%8A/" title="Pyjail（上）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pyjail（上）</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/24/Airdrop-Hunting/" title="Airdrop Hunting">
+                        <span class="hidden-mobile">Airdrop Hunting</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
