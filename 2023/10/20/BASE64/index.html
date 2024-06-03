@@ -314,8 +314,8 @@
 </tbody></table>
 <p>有时为了防止混淆（比如链接），会使用 <code>.</code> <code>_</code> 来代替索引表中的 <code>+</code> <code>/</code> 。</p>
 <h4 id="隐写原理"><a href="#隐写原理" class="headerlink" title="隐写原理"></a>隐写原理</h4><p>base64在解码的时候，会按照字符串末尾的 <code>=</code> 数量来删除相应字节数。或许你已经发现了，当一组字符的数量为1字节或2字节的时候，会有4位或2位二进制在解码时被忽略</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030924270.png" alt="NK23ZzryPj9YBpi"></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030924272.png" alt="ZBpPwsz5OeaH3FG"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030924270.png"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030924272.png"></p>
 <p>即解码时：</p>
 <p>解密的时候首先把”&#x3D;”删去，然后写出二进制数串，然后从左往右每8位一组，剩余的不足8位丢掉，然后根据转换表获得相应字符</p>
 <p>然后每8位一组，剩余不足的丢弃，</p>
