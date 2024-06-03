@@ -1,279 +1,133 @@
-
-
-<!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" href="/img/avatar.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="xiaocai">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="osos.getcwd() 查看当前路径。 os.listdir(path) 返回指定目录下包含的文件和目录名列表。 os.path.abspath(path) 返回路径 path 的绝对路径。 os.path.split(path) 将路径 path 拆分为目录和文件两部分，返回结果为元组类型。 os.path.join(path, *paths) 将一个或多个 path（文件或目录） 进行拼接">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python 学习">
-<meta property="og:url" content="http://xiaoxiaoxiaoxiaocai.github.io.com/2024/04/15/Python-%E5%AD%A6%E4%B9%A0/index.html">
-<meta property="og:site_name" content="xiaocai">
-<meta property="og:description" content="osos.getcwd() 查看当前路径。 os.listdir(path) 返回指定目录下包含的文件和目录名列表。 os.path.abspath(path) 返回路径 path 的绝对路径。 os.path.split(path) 将路径 path 拆分为目录和文件两部分，返回结果为元组类型。 os.path.join(path, *paths) 将一个或多个 path（文件或目录） 进行拼接">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-04-15T13:29:34.000Z">
-<meta property="article:modified_time" content="2024-04-16T10:26:19.820Z">
-<meta property="article:author" content="xiaocai">
-<meta property="article:tag" content="Python">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>Python 学习 - xiaocai</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"xiaoxiaoxiaoxiaocai.github.io.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 5.4.2"></head>
-
-
-<body>
-  
-
-  <header>
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 学习 | xiaocai</title><noscript>Please enable JavaScript to view the site</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.11.3"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><!-- Open Graph--><meta name="description" content="osos.getcwd() 查看当前路径。 os.listdir(path) 返回指定目录下包含的文件和目录名列表。 os.path.abspath(path) 返回路径 path 的绝对路径。 os.path.split(path) 将路径 path 拆分为目录和文件两部分，返回结果为元组类型。"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="xiaocai"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
+    "%c Program: Hexo %c Theme: Solitude %c Version: v1.11.3",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "padding: 5px 10px;color:white;background:#0084ff;border-radius:0 5px 5px 0",
+)
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
     
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Xiaocai&#39;s blog</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>Home</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>About</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/wallhaven-d6v3jo_1920x1080.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Python 学习"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
     
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
     
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-15 21:29" pubdate>
-          April 15, 2024 pm
-        </time>
-      </span>
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
     
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
         
-          3.1k words
+                if (name && keyObj[name]) return
         
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          27 mins
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">Python 学习</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h3 id="os"><a href="#os" class="headerlink" title="os"></a>os</h3><p>os.getcwd()</p>
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.webp'
+    },
+    copyright: {"limit":50,"author":"Author: xiaocai","link":"Link: ","source":"Source: xiaocai","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."},
+    highlight: {
+        enable: true,
+        limit: 200,
+        expand: true,
+        copy: true,
+        syntax: 'highlight.js'
+    },
+    randomlink: false,
+    lang: {"theme":{"dark":"Dark","light":"Light"},"copy":{"success":"Copied","error":"Copy failed"},"backtop":"Back to top","time":{"day":" days ago","hour":" hours ago","just":"just","min":" minutes ago","month":" months ago"},"day":" days","f12":"Developer mode is turned on, please follow the GPL.","totalk":"You don't need to delete blank lines, just type in your comments."},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: [],
+        sayhello3: {
+            prefix: 'Long time no see,',
+            back: 'Welcome back again,',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'fancybox',
+    post_ai: false,
+    right_menu: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: false,
+    ai_text: false
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="Day and night switching"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="Sidebar display control"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Archives</div><div class="length-num">29</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a></div></div></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>Display mode</span></span></div><span class="sidebar-menu-item-title">Tags</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Attack/">Attack<sup>8</sup></a><a href="/tags/Python/">Python<sup>8</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="Back to home"><span class="title">Solitude</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Python 学习</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/default.png" alt="Python 学习"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="This article is a Original article, pay attention to the copyright.">Original</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/Misc/">Misc</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/"><span class="tags-name tags-punctuation">Python</span></a></div></div></div></div><h1 class="post-title">Python 学习</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="os"><a href="#os" class="headerlink" title="os"></a>os</h3><p>os.getcwd()</p>
 <p>查看当前路径。</p>
 <p>os.listdir(path)</p>
 <p>返回指定目录下包含的文件和目录名列表。</p>
@@ -290,10 +144,10 @@
 <p>os.makedirs()</p>
 <p>创建多级目录。</p>
 <h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><h4 id="struct-time"><a href="#struct-time" class="headerlink" title="struct_time"></a>struct_time</h4><p>代表一个时间对象，可以通过索引以及属性名来访问。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs py"><br>索引	属性	值<br><span class="hljs-number">0</span>	tm_year（年）	如：<span class="hljs-number">1945</span><br><span class="hljs-number">1</span>	tm_mon（月）	<span class="hljs-number">1</span> ~ <span class="hljs-number">12</span><br><span class="hljs-number">2</span>	tm_mday（日）	<span class="hljs-number">1</span> ~ <span class="hljs-number">31</span><br><span class="hljs-number">3</span>	tm_hour（时）	<span class="hljs-number">0</span> ~ <span class="hljs-number">23</span><br><span class="hljs-number">4</span>	tm_min（分）	<span class="hljs-number">0</span> ~ <span class="hljs-number">59</span><br><span class="hljs-number">5</span>	tm_sec（秒）	<span class="hljs-number">0</span> ~ <span class="hljs-number">61</span><br><span class="hljs-number">6</span>	tm_wday（周）	<span class="hljs-number">0</span> ~ <span class="hljs-number">6</span><br><span class="hljs-number">7</span>	tm_yday（一年内第几天）	<span class="hljs-number">1</span> ~ <span class="hljs-number">366</span><br><span class="hljs-number">8</span>	tm_isdst（夏时令）	-<span class="hljs-number">1</span>、<span class="hljs-number">0</span>、<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">索引	属性	值</span><br><span class="line"><span class="number">0</span>	tm_year（年）	如：<span class="number">1945</span></span><br><span class="line"><span class="number">1</span>	tm_mon（月）	<span class="number">1</span> ~ <span class="number">12</span></span><br><span class="line"><span class="number">2</span>	tm_mday（日）	<span class="number">1</span> ~ <span class="number">31</span></span><br><span class="line"><span class="number">3</span>	tm_hour（时）	<span class="number">0</span> ~ <span class="number">23</span></span><br><span class="line"><span class="number">4</span>	tm_min（分）	<span class="number">0</span> ~ <span class="number">59</span></span><br><span class="line"><span class="number">5</span>	tm_sec（秒）	<span class="number">0</span> ~ <span class="number">61</span></span><br><span class="line"><span class="number">6</span>	tm_wday（周）	<span class="number">0</span> ~ <span class="number">6</span></span><br><span class="line"><span class="number">7</span>	tm_yday（一年内第几天）	<span class="number">1</span> ~ <span class="number">366</span></span><br><span class="line"><span class="number">8</span>	tm_isdst（夏时令）	-<span class="number">1</span>、<span class="number">0</span>、<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>localtime()表示当前时间，返回类型为 struct_time对象</p>
-<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs py"><br>函数（常量）	说明<br>time()	返回当前时间的时间戳<br>gmtime([secs])	将时间戳转换为格林威治天文时间下的 struct_time，可选参数 secs 表示从 epoch 到现在的秒数，默认为当前时间<br>localtime([secs])	与 gmtime() 相似，返回当地时间下的 struct_time<br>mktime(t)	localtime() 的反函数<br>asctime([t])	接收一个 struct_time 表示的时间，返回形式为：Mon Dec  <span class="hljs-number">2</span> 08:<span class="hljs-number">53</span>:<span class="hljs-number">47</span> <span class="hljs-number">2019</span> 的字符串<br>ctime([secs])	ctime(secs) 相当于 asctime(localtime(secs))<br>strftime(<span class="hljs-built_in">format</span>[, t])	格式化日期，接收一个 struct_time 表示的时间，并返回以可读字符串表示的当地时间<br>sleep(secs)	暂停执行调用线程指定的秒数<br>altzone	本地 DST 时区的偏移量，以 UTC 为单位的秒数<br>timezone	本地（非 DST）时区的偏移量，UTC 以西的秒数（西欧大部分地区为负，美国为正，英国为零）<br>tzname	两个字符串的元组：第一个是本地非 DST 时区的名称，第二个是本地 DST 时区的名称<br><br></code></pre></td></tr></table></figure>
+<h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">函数（常量）	说明</span><br><span class="line">time()	返回当前时间的时间戳</span><br><span class="line">gmtime([secs])	将时间戳转换为格林威治天文时间下的 struct_time，可选参数 secs 表示从 epoch 到现在的秒数，默认为当前时间</span><br><span class="line">localtime([secs])	与 gmtime() 相似，返回当地时间下的 struct_time</span><br><span class="line">mktime(t)	localtime() 的反函数</span><br><span class="line">asctime([t])	接收一个 struct_time 表示的时间，返回形式为：Mon Dec  <span class="number">2</span> 08:<span class="number">53</span>:<span class="number">47</span> <span class="number">2019</span> 的字符串</span><br><span class="line">ctime([secs])	ctime(secs) 相当于 asctime(localtime(secs))</span><br><span class="line">strftime(<span class="built_in">format</span>[, t])	格式化日期，接收一个 struct_time 表示的时间，并返回以可读字符串表示的当地时间</span><br><span class="line">sleep(secs)	暂停执行调用线程指定的秒数</span><br><span class="line">altzone	本地 DST 时区的偏移量，以 UTC 为单位的秒数</span><br><span class="line">timezone	本地（非 DST）时区的偏移量，UTC 以西的秒数（西欧大部分地区为负，美国为正，英国为零）</span><br><span class="line">tzname	两个字符串的元组：第一个是本地非 DST 时区的名称，第二个是本地 DST 时区的名称</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -308,12 +162,12 @@
 <p>~name：为线程起这个名字。默认是Tread-x，x是序号，由1开始，第一个创建的线程名字就是Tread-1。</p>
 <p>~args：为目标函数传递关键字参数，字典。</p>
 <p>~daemon：用来设置线程是否随主线程退出而退出。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>(<span class="hljs-params">x,y</span>):<br>   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x,y):<br>       <span class="hljs-built_in">print</span>(i)<br>t1 = threadingTthread(name=<span class="hljs-string">&#x27;t1&#x27;</span>,target= test,args= (<span class="hljs-number">1</span>,<span class="hljs-number">10</span>))<br>t2 = threading.Thread(name=<span class="hljs-string">&#x27;t2&#x27;</span>,target= test,args= (<span class="hljs-number">11</span>,<span class="hljs-number">20</span>))<br>t1.start()<br>t2.start()<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">x,y</span>):</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x,y):</span><br><span class="line">       <span class="built_in">print</span>(i)</span><br><span class="line">t1 = threadingTthread(name=<span class="string">&#x27;t1&#x27;</span>,target= test,args= (<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">t2 = threading.Thread(name=<span class="string">&#x27;t2&#x27;</span>,target= test,args= (<span class="number">11</span>,<span class="number">20</span>))</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>两个程序是并发运行，所以顺序可能不</p>
 <ol start="2">
 <li><p>treading.Thread类的继承</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">mythread</span>(threading.Thread):<br>   <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>     <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>):<br>       <span class="hljs-built_in">print</span>(i)<br>t1=mythread();<br>t2=mythread();<br>t1.start()<br>t2.start()<br><br><br><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">mythread</span>(threading.Thread):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">     <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">       <span class="built_in">print</span>(i)</span><br><span class="line">t1=mythread();</span><br><span class="line">t2=mythread();</span><br><span class="line">t1.start()</span><br><span class="line">t2.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h4 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h4><p>第一个启动的线程就是主线程</p>
 <p>父线程： 启动A线程中启动了线程B，A就是B的父线程</p>
@@ -321,12 +175,12 @@
 <p>创建线程时有一个damon属性，用它来判断主线程。当daemon设置False时，线程不会随主线程退出而退出，主线程会一直等着子线程执行完;。当daemon设置True时，线程会随主线程退出而退出，主线程结束其他的子线程会强制退出。</p>
 <h4 id="阻塞线程"><a href="#阻塞线程" class="headerlink" title="阻塞线程"></a>阻塞线程</h4><p>在一个线程中调用另一个线程的join方法，调用者被阻塞，知道调用线程被终止。</p>
 <p>语法形式：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">join</span><span class="hljs-params">(timeout -= None)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">join</span><span class="params">(timeout -= None)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>不设置时，就一直等待被调用线程结束。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">mythread</span>(threading.Thread):<br>   <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>     <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>):<br>       <span class="hljs-built_in">print</span>(i)<br>t1=mythread()<br>t1.start()<br>t1.join()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">mythread</span>(threading.Thread):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">     <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">       <span class="built_in">print</span>(i)</span><br><span class="line">t1=mythread()</span><br><span class="line">t1.start()</span><br><span class="line">t1.join()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hello</span>将会在输出玩<span class="hljs-number">0</span>-<span class="hljs-number">9</span>后再输出<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hello</span>将会在输出玩<span class="number">0</span>-<span class="number">9</span>后再输出</span><br></pre></td></tr></table></figure>
 
 
 
@@ -337,7 +191,7 @@
 <p>getAame() ：返回线程名称</p>
 <p>setName() ：设置线程名称</p>
 <h4 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h4><h5 id="python的锁就解决这一问题，锁住线程，只允许一个线程操作，其他线程排队等待，待当前线程操作完毕后，再按顺序一个一个来运行。"><a href="#python的锁就解决这一问题，锁住线程，只允许一个线程操作，其他线程排队等待，待当前线程操作完毕后，再按顺序一个一个来运行。" class="headerlink" title="python的锁就解决这一问题，锁住线程，只允许一个线程操作，其他线程排队等待，待当前线程操作完毕后，再按顺序一个一个来运行。"></a>python的锁就解决这一问题，锁住线程，只允许一个线程操作，其他线程排队等待，待当前线程操作完毕后，再按顺序一个一个来运行。</h5><h5 id="python中的锁："><a href="#python中的锁：" class="headerlink" title="python中的锁："></a>python中的锁：</h5><p>python的threading模块提供了RLock锁解决方法。在某一时间只能让一个线程操作的语句放到RLock的acquire方法和release方法之间，即acquire相当于给RLack上锁，而release相当于解锁</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">mythread</span>(threading.Thread):<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>  <span class="hljs-keyword">global</span> x                   <span class="hljs-comment">#声明一个全局变量</span><br>  lock.acquire()             <span class="hljs-comment">#上锁</span><br>  x +=<span class="hljs-number">10</span><br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%s:%d&#x27;</span>%(self.name,x))<br>  lock.release()             <span class="hljs-comment">#解锁</span><br>x = <span class="hljs-number">0</span>                        <span class="hljs-comment">#设置全局变量初始值</span><br>lock = threading.RLock()     <span class="hljs-comment">#创建可重入锁</span><br>list1 = []                   <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):   <br> list1.append(mythread())    <span class="hljs-comment">#创建五个线程，放到同一列表中</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> list1:<br> i.start()                   <span class="hljs-comment">#开启列表线程</span><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">mythread</span>(threading.Thread):</span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">  <span class="keyword">global</span> x                   <span class="comment">#声明一个全局变量</span></span><br><span class="line">  lock.acquire()             <span class="comment">#上锁</span></span><br><span class="line">  x +=<span class="number">10</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;%s:%d&#x27;</span>%(self.name,x))</span><br><span class="line">  lock.release()             <span class="comment">#解锁</span></span><br><span class="line">x = <span class="number">0</span>                        <span class="comment">#设置全局变量初始值</span></span><br><span class="line">lock = threading.RLock()     <span class="comment">#创建可重入锁</span></span><br><span class="line">list1 = []                   </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):   </span><br><span class="line"> list1.append(mythread())    <span class="comment">#创建五个线程，放到同一列表中</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line"> i.start()                   <span class="comment">#开启列表线程</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h5 id="python中的条件锁"><a href="#python中的条件锁" class="headerlink" title="python中的条件锁"></a>python中的条件锁</h5><h6 id="threading-Condition-lock-None"><a href="#threading-Condition-lock-None" class="headerlink" title="threading.Condition(lock&#x3D;None)"></a>threading.Condition(lock&#x3D;None)</h6><p>实现条件对象的类。它具有如下方法：</p>
 <ul>
@@ -347,372 +201,52 @@
 <li>wait_for(predicate, timeout&#x3D;None)：等待直到条件计算为 True，predicate 是一个可调用对象且它的返回值可被解释为一个布尔值。</li>
 <li>notify(n&#x3D;1)：默认唤醒一个等待该条件的线程。</li>
 </ul>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src= "/img/loading.gif" data-lazy-src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">xiaocai</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">This piece of writing is an original article, utilizing the<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>Agreement. For complete reproduction, please acknowledge the source as Courtesy of<a href="/">xiaocai</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/"><span class="tags-punctuation"></span>Python<span class="tagsPageCount">8</span></a></div></div><div class="social-share"></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/23/address%E8%AE%A1%E7%AE%97/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">address计算</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/12/Python%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python沙箱逃逸</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="Avatar" src= "/img/loading.gif" data-lazy-src="/img/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src= "/img/loading.gif" data-lazy-src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="Mood sticker"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">xiaocai</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>Table of contents</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#os"><span class="toc-text">os</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time"><span class="toc-text">time</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#struct-time"><span class="toc-text">struct_time</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">常用函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">创建多线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B"><span class="toc-text">主线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E7%BA%BF%E7%A8%8B"><span class="toc-text">阻塞线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E6%B4%BB%E5%8A%A8"><span class="toc-text">判断主线程是否活动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-text">线程同步</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#python%E7%9A%84%E9%94%81%E5%B0%B1%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%80%E9%97%AE%E9%A2%98%EF%BC%8C%E9%94%81%E4%BD%8F%E7%BA%BF%E7%A8%8B%EF%BC%8C%E5%8F%AA%E5%85%81%E8%AE%B8%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%85%B6%E4%BB%96%E7%BA%BF%E7%A8%8B%E6%8E%92%E9%98%9F%E7%AD%89%E5%BE%85%EF%BC%8C%E5%BE%85%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%AF%95%E5%90%8E%EF%BC%8C%E5%86%8D%E6%8C%89%E9%A1%BA%E5%BA%8F%E4%B8%80%E4%B8%AA%E4%B8%80%E4%B8%AA%E6%9D%A5%E8%BF%90%E8%A1%8C%E3%80%82"><span class="toc-text">python的锁就解决这一问题，锁住线程，只允许一个线程操作，其他线程排队等待，待当前线程操作完毕后，再按顺序一个一个来运行。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#python%E4%B8%AD%E7%9A%84%E9%94%81%EF%BC%9A"><span class="toc-text">python中的锁：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#python%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E9%94%81"><span class="toc-text">python中的条件锁</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#threading-Condition-lock-None"><span class="toc-text">threading.Condition(lock&#x3D;None)</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>New posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界"><img alt="攻防世界" src= "/img/loading.gif" data-lazy-src="/img/default.png"></a><div class="content"><a class="title" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界">攻防世界</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理"><img alt="计算机组成原理" src= "/img/loading.gif" data-lazy-src="/img/default.png"></a><div class="content"><a class="title" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理">计算机组成原理</a><a class="article-recent_post_categories" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">学习</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学"><img alt="现代密码学" src= "/img/loading.gif" data-lazy-src="/img/default.png"></a><div class="content"><a class="title" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学">现代密码学</a><a class="article-recent_post_categories" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/">学习</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/28/solidity/" title="solidity"><img alt="solidity" src= "/img/loading.gif" data-lazy-src="/img/default.png"></a><div class="content"><a class="title" href="/2024/05/28/solidity/" title="solidity">solidity</a><a class="article-recent_post_categories" href="/2024/05/28/solidity/">Blockchain</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/27/ciscn-2024/" title="ciscn 2024"><img alt="ciscn 2024" src= "/img/loading.gif" data-lazy-src="/img/default.png"></a><div class="content"><a class="title" href="/2024/05/27/ciscn-2024/" title="ciscn 2024">ciscn 2024</a><a class="article-recent_post_categories" href="/2024/05/27/ciscn-2024/">Misc</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>Solitude</span></div><div class="footer-bar-description">来自 Efu 的文章</div><a class="footer-bar-link" href="/about/">了解更多</a></div><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">xiaocai</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/valor-x/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.11.3"></script><script src="/js/main.js?v=1.11.3"></script><script src="/js/third_party/waterfall.min.js?v=1.11.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.11.3"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/19.1.3/lazyload.iife.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- newest comment--><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
 
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Misc/" class="category-chain-item">Misc</a>
-  
-  
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
 
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Python 学习</div>
-      <div>http://xiaoxiaoxiaoxiaocai.github.io.com/2024/04/15/Python-学习/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>Author</div>
-          <div>xiaocai</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>April 15, 2024</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>Licensed under</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/04/23/address%E8%AE%A1%E7%AE%97/" title="address计算">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">address计算</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/03/12/Python%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/" title="Python沙箱逃逸">
-                        <span class="hidden-mobile">Python沙箱逃逸</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>Table of Contents</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
     })
-  </script>
 
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+})
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
     }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
     }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
-</body>
-</html>
+    is_rm && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["2024/05/31/攻防世界/","2024/05/29/计算机组成原理/","2024/05/29/现代密码学/","2024/05/28/solidity/","2024/05/27/ciscn-2024/","2024/05/15/出题记录/","2024/04/23/address计算/","2024/04/15/Python-学习/","2024/03/12/Python沙箱逃逸/","2024/03/04/Pyjail下/","2023/11/27/Ethernaut/","2023/11/21/CREATE2/","2023/11/20/题目/","2023/11/09/Function-Selector-and-Argument-Encoding/","2023/11/09/Uninitialized-Storage-Pointer/","2023/11/06/NSSCTF-刷题/","2023/11/06/BUUCTF刷题/","2023/10/31/Ethereum-Storage/","2023/10/31/Python-语法知识/","2023/10/31/Python-zip/","2023/10/30/Python-图像处理/","2023/10/26/Delegatecall/","2023/10/25/Pyjail上/","2023/10/24/GETH-搭建私链/","2023/10/24/Airdrop-Hunting/","2023/10/22/Randomness/","2023/10/21/Integer-Overflow-and-Underflow/","2023/10/20/BASE64/","2023/10/19/Re-Entrancy/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); }</script>
