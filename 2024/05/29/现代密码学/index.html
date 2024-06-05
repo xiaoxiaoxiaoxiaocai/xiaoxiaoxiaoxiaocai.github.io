@@ -142,13 +142,13 @@
 <p>一般说来，加密算法很难达到“无条件安全”。因此在实际上只需满足两条准则即可，试给出这两条准则。<br>实际上需满足计算上安全：<br>1、破译密文的代价超过被加密信息的价值<br>2、破译密文多花的时间超过信息的有用期</p>
 <h3 id="第二章-流密码"><a href="#第二章-流密码" class="headerlink" title="第二章 流密码"></a>第二章 流密码</h3><h4 id="基本概念和分类"><a href="#基本概念和分类" class="headerlink" title="基本概念和分类"></a>基本概念和分类</h4><p>流密码是将明文划分为字符，或其编码的基本单元，每一字符分别与密钥流对应字符“作用”，从而进行加密，解密时以同步产生的同样的密钥流实现。<br>流密码强度完全依赖于密钥流生成器生成的密钥流的随机性和不可预测性<br>流密码有记忆性，分组密码则没有。</p>
 <ol>
-<li>同步流密码：密钥流产生算吗和明文（密文）无关</li>
+<li>同步流密码：密钥流产生算法和明文（密文）无关</li>
 <li>自同步流密码：密钥流产生算法与明文（密文）有关</li>
 </ol>
 <h4 id="n级反馈移位寄存器"><a href="#n级反馈移位寄存器" class="headerlink" title="n级反馈移位寄存器"></a>n级反馈移位寄存器</h4><p>GF（2）上一个n级反馈移位寄存器有n个二元存储器与一个反馈函数f（a1，a2，…，an）组成<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921238.png"></p>
 <h4 id="线性反馈移位寄存器（LFSR）"><a href="#线性反馈移位寄存器（LFSR）" class="headerlink" title="线性反馈移位寄存器（LFSR）"></a>线性反馈移位寄存器（LFSR）</h4><p>GF(2)上的n级线性反馈移位寄存器，f(a1,a2,…,an)&#x3D; cna1⊕cn−1a2⊕L⊕c1an<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921239.png"></p>
 <p>n级LFSR状态数：最多有2^n个<br>n级LFSR的状态周期：&lt;&#x3D;2^n-1。输出序列的周期&#x3D;状态周期。<br>周期达到最大值的序列称为m序列<br>LFSR的特征多项式：p(x)&#x3D;1+c1x+…＋cn-1xn-1＋cnxn<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921240.png"></p>
-<h4 id="m序列"><a href="#m序列" class="headerlink" title="m序列"></a>m序列</h4><p>伪随机序列：密钥流不可能做到最忌，只能要求截获比周期短的一段序列时不会泄露更多的信息<br>游程：连续的0或1的个数</p>
+<h4 id="m序列"><a href="#m序列" class="headerlink" title="m序列"></a>m序列</h4><p>伪随机序列：密钥流不可能完全做到随机性，只能要求截获比周期短的一段序列时不会泄露更多的信息<br>游程：连续的0或1的个数</p>
 <p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921241.png"></p>
 <p>三个有关伪随机序列的随机性公设：</p>
 <p>1.在一个周期内，0和1的个数相差最多为1<br>2.在序列某个周期内，长为1的游程占游程数的1&#x2F;2，长为2<br>的游程占游程总数的1&#x2F;2^2，长为i的游程占游程总数的1&#x2F;2^i,且0和1的游程数相等.<br>3.异相自相关函数为一个常数。<br>m序列满足如上的三个随机性公设。</p>
@@ -167,7 +167,7 @@
 <p>(2)对每一轮，i&#x3D;0,1,…,n,</p>
 <p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921246.png"></p>
 <h6 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h6><p>（1）对于密文的解密，每一轮，i&#x3D;n,n-1,…,0,<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921247.png"></p>
-<h5 id="S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒"><a href="#S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒" class="headerlink" title="S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒"></a>S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒</h5><h5 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h5><h6 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h6><p>DES 是一个 对称密码体制。 加解密使用同一密钥，有效密钥长度为56位。分组长度位64位。明文和密文长度相等。<br>DES的初始密钥长度也为64位，但有效的密钥为56位，因为第8、16、24、40、48、56和64位都是奇校验位。<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921248.jpeg"></p>
+<h5 id="S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒"><a href="#S-盒：输入-输出长度比较小的，用输入-输出真值表来-计算的，仅仅实现高度非线性功能的计算部件称为-S-盒" class="headerlink" title="S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒"></a>S 盒：输入&#x2F;输出长度比较小的，用输入&#x2F;输出真值表来 计算的，仅仅实现高度非线性功能的计算部件称为 S 盒</h5><h5 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h5><h6 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h6><p>DES 是一个 对称密码体制。 加解密使用同一密钥，有效密钥长度为56位。分组长度为64位。明文和密文长度相等。<br>DES的初始密钥长度也为64位，但有效的密钥为56位，因为第8、16、24、40、48、56和64位都是奇校验位。<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921248.jpeg"></p>
 <p>加密过程主要有3个阶段</p>
 <ol>
 <li>64位的明文经过初始置换而被重新排列，并将其分为左右两组L0和 R0，各为32位。</li>
@@ -188,7 +188,7 @@
 <p>　　无差错传播：单个密文分组出现错误只会影响该分组的解密，不会影响到其他分组</p>
 <p>缺点：</p>
 <p>（1） 相同明文分组对应相同密文分组</p>
-<p>（2） 不能隐蔽明文分组的统计规律和结构规律,不能抵抗替换攻击应用：</p>
+<p>（2） 不能隐蔽明文分组的统计规律和结构规律,不能抵抗替换攻击应用：<br>用法：</p>
 <p>（1） 用于随机数的加密保护</p>
 <p>（2） 用于单分组明文的加密</p>
 <h5 id="CBC模式（密码分组链接模式）"><a href="#CBC模式（密码分组链接模式）" class="headerlink" title="CBC模式（密码分组链接模式）"></a>CBC模式（密码分组链接模式）</h5><p>每个明文分组先于前一密文分组异或，再进行加密<br>明文块的统计特性得到了隐蔽</p>
@@ -209,16 +209,15 @@
 <h6 id="循环运算"><a href="#循环运算" class="headerlink" title="循环运算"></a>循环运算</h6><ol>
 <li>字节代换：处理初始变换后的4*4矩阵</li>
 <li>行移位：第一行不变，第二三四行行分别向左移动1、2、3个字节</li>
-<li>列混合：将输入的4<em>4矩阵左乘一个给定的4</em>4矩阵</li>
+<li>列混合：将输入的4* 4 矩阵左乘一个给定的4*4矩阵</li>
 <li>轮密钥加：将前面所得的4*4矩阵与该轮对应的轮密钥进行异或操作<br>经过9轮循环和一个最终轮，得到了最终的密文</li>
 </ol>
 <h4 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h4><p>明文分组是64位，密钥为128位。<br>明文块分组：输入的64位数据块被分为4个16位分组：x1，x2，x3，x4，这4个分组成为算法的8轮计算第一轮的输入。在每一轮中，这4个分组互相异或，相加，相乘，且与6个16位子密钥相异或，相加，相乘。轮与轮间，第二和第三个分组交换，最后在输出变换中4个子分组与4个子密钥进行运算。</p>
-<h5 id="子密钥的生成"><a href="#子密钥的生成" class="headerlink" title="子密钥的生成"></a>子密钥的生成</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604202659.png"><br>8轮迭代操作，每轮需要6个子密钥，另外还需要4个额外子密钥用于输出变换，所以共需要52个子密钥，这个53子密钥都是从 128位密钥中扩展出来的。</p>
-<pre><code> 首先把输入的Key分成8个16位的子密钥， 1~6号子密钥供第一轮加密使用，7~8号子密钥供第二轮使用；然后把这个128位密钥循环左移25位，这样Key = k26k27k28…k24k25，把新生成的Key在分成8个16位的子密钥，1~4号子密钥供第二轮加密使用(前面已经提供了两个)5~8号子密钥在第三轮加密使用；到此我们已经得到了16个子密钥，如此继续，当循环左移了5次之后已经生成了48个子密钥,还有四个额外的子密钥需要生成，再次把Key循环左移25位,选取划分出来的8个16位子密钥的前4个作为那4个额外的加密密钥，至此，加密使用的52个子密钥生成完毕。
-</code></pre>
+<h5 id="子密钥的生成"><a href="#子密钥的生成" class="headerlink" title="子密钥的生成"></a>子密钥的生成</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604202659.png"><br>8轮迭代操作，每轮需要6个子密钥，另外还需要4个额外子密钥用于输出变换，所以共需要52个子密钥，这个52子密钥都是从 128位密钥中扩展出来的。</p>
+<p>首先把输入的Key分成8个16位的子密钥， 1<del>6号子密钥供第一轮加密使用，7</del>8号子密钥供第二轮使用；然后把这个128位密钥循环左移25位，这样Key &#x3D; k26k27k28…k24k25，把新生成的Key在分成8个16位的子密钥，1<del>4号子密钥供第二轮加密使用(前面已经提供了两个)5</del>8号子密钥在第三轮加密使用；到此我们已经得到了16个子密钥，如此继续，当循环左移了5次之后已经生成了48个子密钥,还有四个额外的子密钥需要生成，再次把Key循环左移25位,选取划分出来的8个16位子密钥的前4个作为那4个额外的加密密钥，至此，加密使用的52个子密钥生成完毕。</p>
 <h5 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h5><h6 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h6><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604203026.png"></p>
 <ol>
-<li><p>8轮迭代操作（每轮6个子密钥-&gt;K1<del>K6、… 、K43</del>K48）<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604203105.png"></p>
+<li><p>8轮迭代操作（每轮6个子密钥-&gt;K1-K6、… 、K43-K48）<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604203105.png"></p>
 </li>
 <li><p>输出变换（4个子密钥-&gt;K49~K52）<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604203159.png"></p>
 </li>
@@ -246,7 +245,7 @@
 <p>第二步：n&#x3D;p*q</p>
 <p>第三步：公钥 n，对外公布；私钥（p,q）则自己收着。</p>
 <p>Rabin 加密体制加密过程：</p>
-<p>明文 m 范围(0,n)计算密文方法：c&#x3D;m2(mod n)，c 是密文 B 在收到密文后，用私钥解密<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921253.png"></p>
+<p>明文 m 范围(0,n)计算密文方法：c&#x3D;m^2(mod n)，c 是密文 B 在收到密文后，用私钥解密<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921253.png"></p>
 <h5 id="解密-2"><a href="#解密-2" class="headerlink" title="解密"></a>解密</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921254.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921255.png"></p>
 <h4 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h4><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921256.png"></p>
 <h5 id="椭圆曲线上的点数"><a href="#椭圆曲线上的点数" class="headerlink" title="椭圆曲线上的点数"></a>椭圆曲线上的点数</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921257.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921258.png"></p>
@@ -267,12 +266,12 @@
 <h5 id="秘密分割"><a href="#秘密分割" class="headerlink" title="秘密分割"></a>秘密分割</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604171254.png"></p>
 <h6 id="Shamir门限方案"><a href="#Shamir门限方案" class="headerlink" title="Shamir门限方案"></a>Shamir门限方案</h6><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604171602.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604171628.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604171654.png"></p>
 <h6 id="基于中国剩余定理的门限方案"><a href="#基于中国剩余定理的门限方案" class="headerlink" title="基于中国剩余定理的门限方案"></a>基于中国剩余定理的门限方案</h6><p>分解秘密<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604173918.png"><br>恢复秘密<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604173954.png"></p>
-<h3 id="第六章-消息认证和哈希函数"><a href="#第六章-消息认证和哈希函数" class="headerlink" title="第六章 消息认证和哈希函数"></a>第六章 消息认证和哈希函数</h3><h4 id="消息认证"><a href="#消息认证" class="headerlink" title="消息认证"></a>消息认证</h4><p>信息安全一方面要实现消息的保密传送，可抵抗被动攻击，入窃听攻击等；另一方面还要防止攻击者对系统的主动攻击，如伪造或纂改消息。<br>认证是对抗主动攻击的主要方法，分为实体认证，和消息认证。<br>实体认证：验证实体的身份<br>消息认证：验证消息的真实性<br>  验证消息来源的真实性，称之为信息源认证。<br>  验证消息的完整性，即验证消息在传输和存储过程中没有被纂改、伪造。</p>
+<h3 id="第六章-消息认证和哈希函数"><a href="#第六章-消息认证和哈希函数" class="headerlink" title="第六章 消息认证和哈希函数"></a>第六章 消息认证和哈希函数</h3><h4 id="消息认证"><a href="#消息认证" class="headerlink" title="消息认证"></a>消息认证</h4><p>信息安全一方面要实现消息的保密传送，可抵抗被动攻击，如窃听攻击等；另一方面还要防止攻击者对系统的主动攻击，如伪造或纂改消息。<br>认证是对抗主动攻击的主要方法，分为实体认证，和消息认证。<br>实体认证：验证实体的身份<br>消息认证：验证消息的真实性<br>  验证消息来源的真实性，称之为信息源认证。<br>  验证消息的完整性，即验证消息在传输和存储过程中没有被纂改、伪造。</p>
 <p>消息认证的基础是生成消息认证码(MAC，Message Authentication Code)，用来检查消息是否被恶意修改。</p>
 <p>认证码与通信学中的检错码不同:</p>
 <p>检错码是用来检测由于通信的缺陷而导致消息发生错误的特殊代码<br>认证码是用来防止攻击者恶意篡改或伪造消息<br>消息认证码利用消息和双方共享的密钥通过认证函数来生成一个固定长度的短数据块，并将该数据块附加在消息后。</p>
 <h4 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h4><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604213351.png"></p>
-<p>K表示密钥，密钥长度可以是任意长度,最小推荐长度nbit，因为小于nbit会显著降低函数的安全性，大nbit也不会增加安全性<br>M 表示HMAC的消息输入<br>L 表示消息M中的分组数<br>Yi 表示消息M的第i 个分组<br>b 表示每个分组包含的比特数<br>n 表示嵌入的散列函数产生的散列码长度<br>IV I表示初始链接变量<br>ipad表示字节0x36重复 b&#x2F;8次后的结果<br>opad表示字节0x5C重复 b&#x2F;8次后的结果<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604213606.png"><br>操作流程：<br>（1）密钥K 的左边填充0 ，以产生一个b 比特长的+<br> (例如K 的长为160 比特，b &#x3D; 512 ，则需填充44 个零字节0x00)。<br>（2）K+ 与ipad逐比特异或产生b比特的分组Si<br>（3）将消息M 附加到Si 后<br>（4）将Hash函数H 作用于步骤（3）的结果，生成消息摘要<br>（5）K+ 与opad逐比特异或产生b比特的分组S0<br>（6）将步骤(4)生成的消息摘要链接在S0 后<br>（7）将Hash函数H 作用于步骤(6)的结果，生成消息摘要，并输出最终结果<br>实现HMAC的有效方式：<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604213703.png"></p>
+<p>K表示密钥，密钥长度可以是任意长度,最小推荐长度nbit，因为小于nbit会显著降低函数的安全性，大nbit也不会增加安全性<br>M 表示HMAC的消息输入<br>L 表示消息M中的分组数<br>Yi 表示消息M的第i 个分组<br>b 表示每个分组包含的比特数<br>n 表示嵌入的散列函数产生的散列码长度<br>IV 表示初始链接变量<br>ipad表示字节0x36重复 b&#x2F;8次后的结果<br>opad表示字节0x5C重复 b&#x2F;8次后的结果<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604213606.png"><br>操作流程：<br>（1）密钥K 的左边填充0 ，以产生一个b 比特长<br> (例如K 的长为160 比特，b &#x3D; 512 ，则需填充44 个零字节0x00)。<br>（2）K+ 与ipad逐比特异或产生b比特的分组Si<br>（3）将消息M 附加到Si 后<br>（4）将Hash函数H 作用于步骤（3）的结果，生成消息摘要<br>（5）K+ 与opad逐比特异或产生b比特的分组S0<br>（6）将步骤(4)生成的消息摘要链接在S0 后<br>（7）将Hash函数H 作用于步骤(6)的结果，生成消息摘要，并输出最终结果<br>实现HMAC的有效方式：<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604213703.png"></p>
 <h4 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h4><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p>Hask 函数也称散列函数、杂凑函数，是一个从消息空间到像空间的不可逆映射。hash函数能将任意长度的消息经过hash变换为固定长度的像。所以是一种具有压缩性质的单向函数。通常称其为数字指纹、消息摘要或散列值。<br>散列值的生成过程为： h&#x3D;H(M)<br>H可用于任意长度的消息。<br>H产生定长的输出<br>对任意消息x,计算H(x)很容易，易于软硬件实现。<br>单向性：又称抗原像性，即给定任意H(x)，要找出x在计算上是不可行的。<br>抗强碰撞性：找到任意满足H(x)&#x3D;H(y)的偶对x&#x3D;y,在计算上是不可行的<br>抗弱碰撞性：又称抗第二原像性，给定任意消息x ,找到满足y!&#x3D;x且H(y)&#x3D;H(x)的消息在计算上是不可行的。</p>
 <h5 id="函数结构"><a href="#函数结构" class="headerlink" title="函数结构"></a>函数结构</h5><p>MD结构：将输入的消息分为L个固定长度的的分组，每组长度为b位，若最后一个分组长度不为b位则需要填充。<br>迭代结构包含一个压缩函数f。函数f有两个输入，一个是前一次迭代的n为输出，一个是消息的b位分组，并产生一个n位的输出。因为一般情况来说消息分组长度b大于输出长度n，所以称为压缩函数<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604111951.png"></p>
 <h5 id="生日攻击"><a href="#生日攻击" class="headerlink" title="生日攻击"></a>生日攻击</h5><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604112847.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240604113238.png"><br>从而当k&#x3D;100时，这100人中至少有两人生日相同近乎必然事件，然而这个结果似乎不合实际。这就是生日悖论。<br>要找到一个与特定非消息具有相同的散列值的另一个消息的改路很小。如果不指定散列值，只是在两组消息中找到具有相同散列值的两个消息，问题就容易很多。<br>所以攻击者就会利用hash空间不够大易制造碰撞来进行攻击。<br>生日攻击告诉我们：为了能达到 n-bit 的安全性，你所选择的 Hash 函数的散列值长度应该是 2n。</p>
