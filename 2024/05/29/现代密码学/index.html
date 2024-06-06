@@ -154,7 +154,7 @@
 <p>1.在一个周期内，0和1的个数相差最多为1<br>2.在序列某个周期内，长为1的游程占游程数的1&#x2F;2，长为2<br>的游程占游程总数的1&#x2F;2^2，长为i的游程占游程总数的1&#x2F;2^i,且0和1的游程数相等.<br>3.异相自相关函数为一个常数。<br>m序列满足如上的三个随机性公设。</p>
 <p>对于m序列，游程总数为2^(n-1)。</p>
 <p>GF(2)上周期为 T 的序列{ai }的自相关函数</p>
-<p>设序列{ai}满足线性递推关系：<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921242.png" alt="alt text"></p>
+<p>设序列{ai}满足线性递推关系：<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921242.png"></p>
 <h4 id="m序列的破译"><a href="#m序列的破译" class="headerlink" title="m序列的破译"></a>m序列的破译</h4><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921243.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921244.png"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406030921245.png"></p>
 <h3 id="第三章-分组密码"><a href="#第三章-分组密码" class="headerlink" title="第三章 分组密码"></a>第三章 分组密码</h3><h4 id="基本概念和分类-1"><a href="#基本概念和分类-1" class="headerlink" title="基本概念和分类"></a>基本概念和分类</h4><p>分组密码：若明文流被分割成等长串，各串用相同的加密算法和相同的密钥进行加密，就是分组密码。</p>
 <p>优缺点：<br>分度密码加解密算法简洁快速，所占的计算资源小，易于软件和硬件实现。<br>参数固定，比流密码更易实现标准化。<br>由于明文流被分段加密，因此容易实现同步，且传输错误不会向后扩散。但是分组密码的安全性很难被证明，至多证明局部安全性。</p>
@@ -278,7 +278,7 @@
 <p>第一类生日攻击（课本定义）：已知一个哈希函数有n个可能的输出，随机取k个输入，至少有一个输入y使得H(y)&#x3D;H(x)的概率为0.5时，k&#x3D;n&#x2F;2<br>特别地，如果H的输出为m比特长，即可能的输出个数n&#x3D;2m，则k&#x3D;n&#x2F;2&#x3D;2^(m-1)</p>
 <p>第二类生日攻击（课本定义）：Hash函数有2^m个可能输出，如果k个输入至少有两个产生相同输出的概率大于0.5，则k≈2^(m&#x2F;2)</p>
 <h5 id="MD5哈希算法"><a href="#MD5哈希算法" class="headerlink" title="MD5哈希算法"></a>MD5哈希算法</h5><h6 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h6><p>输入长度小于2^64字节的消息，输出长度为128位的消息摘要，输入的消息以512比特分组位单位处理。</p>
-<h6 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h6><p>1.对消息填充。 使其比特长在模512下位448<br>，留出64比特。<br>填充方式是固定的：第一位为1，其后各位皆为0.<br>2.附加消息的长度。用留出的64比特，以小端的方式来表示消息被填充前的长度。如果消息大于2^64，就以2^64为模数取余。<br>前两步执行完以后，分组长为512的分组又可以表示为16个32比特长的字<br>3.对MD缓冲区初始化。算法采用128比特长的缓冲区以存储中间结果和最终哈希值。MD5使用四个32位的寄存器A、B、C、D。最开始存放4个固定的32位参数，即初始链接变量。<br>4.以分组为单位对消息进行处理。迭代压缩处理。<br>5.输出哈希值。将最后一个Hmd5的输出即为产生的消息摘要。（第四轮完成后，做如下运算：A&#x3D;（A+AA）mod 232,B&#x3D;（B+BB）mod 232,C&#x3D;（C+CC）mod 232,D&#x3D;（D+DD）mod 232.最后将四个寄存器的值做下一次迭代压缩时 的输入变量，知道最后一个消息分组输出128位的散列值。）</p>
+<h6 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h6><p>1.对消息填充。 使其比特长在模512下位448<br>，留出64比特。<br>填充方式是固定的：第一位为1，其后各位皆为0.<br>2.附加消息的长度。用留出的64比特，以小端的方式来表示消息被填充前的长度。如果消息大于2^64， 就以2^64为模数取余。<br>前两步执行完以后，分组长为512的分组又可以表示为16个32比特长的字<br>3.对MD缓冲区初始化。算法采用128比特长的缓冲区以存储中间结果和最终哈希值。MD5使用四个32位的寄存器A、B、C、D。最开始存放4个固定的32位参数，即初始链接变量。<br>4.以分组为单位对消息进行处理。迭代压缩处理。<br>5.输出哈希值。将最后一个Hmd5的输出即为产生的消息摘要。（第四轮完成后，做如下运算：A&#x3D;（A+AA）mod 232,B&#x3D;（B+BB）mod 232,C&#x3D;（C+CC）mod 232,D&#x3D;（D+DD）mod 232.最后将四个寄存器的值做下一次迭代压缩时 的输入变量，知道最后一个消息分组输出128位的散列值。）</p>
 <h6 id="压缩函数"><a href="#压缩函数" class="headerlink" title="压缩函数"></a>压缩函数</h6><p>Hmd5压缩函数有4轮处理过程，每轮对缓冲区ABCD进行16步迭代运算。<br>MD5的步函数，即压缩函数，先取向量( A , B , C , D ) 中的后3个作一次非线性函数运算，然后将所得的结果依次加上第1个变量、M [ j ] 、T[i]，再将所得结果循环左移s 位，并加上( A , B , C , D ) 中的第2个变量B ，最后把新值赋给向量中的第1个变量。</p>
 <p>详细过程如下所示，其中 M[j]为消息分组M的第j （ 0 ≤ j ≤ 15 ）个32bit子分组</p>
 <p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/202406041614319.png"></p>
