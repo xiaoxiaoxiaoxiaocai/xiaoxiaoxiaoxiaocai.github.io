@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/27/Ethernaut/</loc>
+    <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/2024/03/12/Python%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/</loc>
     
-    <lastmod>2024-06-17</lastmod>
+    <lastmod>2024-06-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/2024/03/12/Python%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8/</loc>
+    <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/2023/11/27/Ethernaut/</loc>
     
-    <lastmod>2024-06-13</lastmod>
+    <lastmod>2024-06-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -334,13 +334,6 @@
   
   <url>
     <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/tags/Python/</loc>
-    <lastmod>2024-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiaoxiaoxiaoxiaocai.github.io.com/tags/encrypt/</loc>
     <lastmod>2024-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
