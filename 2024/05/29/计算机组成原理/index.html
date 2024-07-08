@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>计算机组成原理 | xiaocai</title><noscript>Please enable JavaScript to view the site</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.11.3"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><!-- Open Graph--><meta name="description" content="第一章 计算机组成原理概述 计算机发展历程 计算机硬件的发展 计算机系统&amp;#x3D;硬件+软件 硬件的发展： 第一代：使用电子管 第二代：使用晶体管 第三代：使用较小规模的集成电路 第四代：使用较大规模的集成电路 计算机软件的发展 计算机系统层次结构 计算机系统组成 计算机系统由硬件系统和软件系统共同构建"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="xiaocai"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>计算机组成原理 | xiaocai</title><noscript>Please enable JavaScript to view the site</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.11.3"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><!-- Open Graph--><meta name="description" content="第一章 计算机组成原理概述 计算机发展历程 计算机硬件的发展 计算机系统&amp;#x3D;硬件+软件 硬件的发展： 第一代：使用电子管 第二代：使用晶体管 第三代：使用较小规模的集成电路 第四代：使用较大规模的集成电路 计算机软件的发展 计算机系统层次结构 计算机系统组成 计算机系统由硬件系统和软件"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="xiaocai"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
     "%c Program: Hexo %c Theme: Solitude %c Version: v1.11.3",
     "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
     "padding: 5px 10px;color:white;background:#3e9f50;",
@@ -131,9 +131,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="Day and night switching"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="Sidebar display control"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Archives</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a></div></div></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>Display mode</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="solitude  st-film-fill"></i><span>番剧</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">Tags</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Attack/">Attack<sup>8</sup></a><a href="/tags/Python/">Python<sup>8</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="Back to home"><span class="title">Home</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">计算机组成原理</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="solitude  st-film-fill"></i><span>番剧</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="Random post" href="javascript:void(0);"><i class="solitude st-dice-line"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="Search"><i class="solitude st-search-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="Console" href="javascript:void(0);"><i class="solitude st-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113927.png" alt="计算机组成原理"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="This article is a Original article, pay attention to the copyright.">Original</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/Education/">Education</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">计算机组成原理</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="Posted on 2024-05-29 17:27:06"><i class="post-meta-icon solitude st-calendar-todo-fill"></i><time datetime="2024-05-29T09:27:06.000Z">2024-05-29T09:27:06.000Z</time></span><span class="post-meta-date" title="Last updated on 2024-07-02 20:01:38"><i class="post-meta-icon solitude st-refresh-line"></i><time datetime="2024-07-02T12:01:38.446Z">2024-07-02T12:01:38.446Z</time></span><span class="post-meta-wordcount"><i class="post-meta-icon solitude st-word-fill" title="Word count"></i><span class="word-count">7.8k</span><span class="post-meta-separator"></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="第一章-计算机组成原理概述"><a class="headerlink" href="#第一章-计算机组成原理概述"></a>第一章 计算机组成原理概述</h2>
-<h3 id="计算机发展历程"><a class="headerlink" href="#计算机发展历程"></a>计算机发展历程</h3>
-<h4 id="计算机硬件的发展"><a class="headerlink" href="#计算机硬件的发展"></a>计算机硬件的发展</h4>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="Day and night switching"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="Sidebar display control"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Archives</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a></div></div></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>Display mode</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="solitude  st-film-fill"></i><span>番剧</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">Tags</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/Attack/">Attack<sup>8</sup></a><a href="/tags/Python/">Python<sup>8</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="Back to home"><span class="title">Home</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">计算机组成原理</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/bangumis/"><i class="solitude  st-film-fill"></i><span>番剧</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="Random post" href="javascript:void(0);"><i class="solitude st-dice-line"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="Search"><i class="solitude st-search-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="Console" href="javascript:void(0);"><i class="solitude st-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113927.png" alt="计算机组成原理"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="This article is a Original article, pay attention to the copyright.">Original</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/Education/">Education</a></span><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">计算机组成原理</h1><div id="post-meta"><div class="meta-secondline"><span class="post-meta-date" title="Posted on 2024-05-29 17:27:06"><i class="post-meta-icon solitude st-calendar-todo-fill"></i><time datetime="2024-05-29T09:27:06.000Z">2024-05-29T09:27:06.000Z</time></span><span class="post-meta-date" title="Last updated on 2024-07-08 22:08:47"><i class="post-meta-icon solitude st-refresh-line"></i><time datetime="2024-07-08T14:08:47.827Z">2024-07-08T14:08:47.827Z</time></span><span class="post-meta-wordcount"><i class="post-meta-icon solitude st-word-fill" title="Word count"></i><span class="word-count">9.2k</span><span class="post-meta-separator"></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="第一章-计算机组成原理概述"><a class="markdownIt-Anchor" href="#第一章-计算机组成原理概述"></a> 第一章 计算机组成原理概述</h2>
+<h3 id="计算机发展历程"><a class="markdownIt-Anchor" href="#计算机发展历程"></a> 计算机发展历程</h3>
+<h4 id="计算机硬件的发展"><a class="markdownIt-Anchor" href="#计算机硬件的发展"></a> 计算机硬件的发展</h4>
 <p>计算机系统=硬件+软件<br>
 硬件的发展：</p>
 <ol>
@@ -142,14 +142,14 @@
 <li>第三代：使用较小规模的集成电路</li>
 <li>第四代：使用较大规模的集成电路</li>
 </ol>
-<h4 id="计算机软件的发展"><a class="headerlink" href="#计算机软件的发展"></a>计算机软件的发展</h4>
-<h3 id="计算机系统层次结构"><a class="headerlink" href="#计算机系统层次结构"></a>计算机系统层次结构</h3>
-<h4 id="计算机系统组成"><a class="headerlink" href="#计算机系统组成"></a>计算机系统组成</h4>
+<h4 id="计算机软件的发展"><a class="markdownIt-Anchor" href="#计算机软件的发展"></a> 计算机软件的发展</h4>
+<h3 id="计算机系统层次结构"><a class="markdownIt-Anchor" href="#计算机系统层次结构"></a> 计算机系统层次结构</h3>
+<h4 id="计算机系统组成"><a class="markdownIt-Anchor" href="#计算机系统组成"></a> 计算机系统组成</h4>
 <p>计算机系统由硬件系统和软件系统共同构建起来</p>
-<h4 id="计算机硬件的基本组成"><a class="headerlink" href="#计算机硬件的基本组成"></a>计算机硬件的基本组成</h4>
+<h4 id="计算机硬件的基本组成"><a class="markdownIt-Anchor" href="#计算机硬件的基本组成"></a> 计算机硬件的基本组成</h4>
 <p>程序存储：指令以代码的形式事先输入到计算机的主存储器中，然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直至程序执行结束。即按地址访问并顺序执行指令。<br>
 计算机按此原理应有五大功能：数据传送功能、数据存储功能、操作控制功能、操作判断功能</p>
-<h5 id="冯诺漫体系结构特点："><a class="headerlink" href="#冯诺漫体系结构特点："></a>冯诺漫体系结构特点：</h5>
+<h5 id="冯诺漫体系结构特点"><a class="markdownIt-Anchor" href="#冯诺漫体系结构特点"></a> 冯诺漫体系结构特点：</h5>
 <ol>
 <li>计算机硬件由五大部分组成（存储器、运算器、控制器、输出设备、输入设备）</li>
 <li>指令和数据以同等地位存于存储器，可按地址寻访</li>
@@ -159,12 +159,12 @@
 <li>以运算器为中心</li>
 </ol>
 <p>早期的冯·诺依曼机以运算器为中心，且是单处理机，最根本的特征是采用“存储程序”原理，基本工作方式是控制流驱动方式！<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612162828.png" alt loading="lazy"></p>
-<h5 id="现代计算机的组织结构"><a class="headerlink" href="#现代计算机的组织结构"></a>现代计算机的组织结构</h5>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612162919.png" alt loading="lazy"></p>
-<h5 id="计算机的功能部件"><a class="headerlink" href="#计算机的功能部件"></a>计算机的功能部件</h5>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612162828.png" alt></p>
+<h5 id="现代计算机的组织结构"><a class="markdownIt-Anchor" href="#现代计算机的组织结构"></a> 现代计算机的组织结构</h5>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612162919.png" alt></p>
+<h5 id="计算机的功能部件"><a class="markdownIt-Anchor" href="#计算机的功能部件"></a> 计算机的功能部件</h5>
 <p>主机：主存、运算器、控制器<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612163244.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612163244.png" alt><br>
 &lt;1&gt; 输入设备，是指将外部信息以计算机能读懂的方式输入进来，如键盘，鼠标等</p>
 <p>&lt;2&gt; 输出设备，就是将计算机处理的信息以人所能接受的方式输出出来，比如显示屏，打印机。</p>
 <p>&lt;3&gt; 存储器，存储器分为 主存储器(内存储器，CPU能直接访问)和 辅助存储器(外存储器，协助主存储器记忆更多的信息，辅助存储器的信息需要导入到主存储器中，才可以被CPU访问)。</p>
@@ -174,12 +174,12 @@
 运算器的核心单元是算术逻辑单元(ALU)<br>
 &lt;5&gt; 控制器，控制器是计算机的指挥中心，有其指挥各部件自动协调第进行工作，现代计算机将运算器和控制器集成到一个芯片上，合成为中央处理器，简称CPU。有程序计数器(PC)、指令寄存器(IR)和控制单元(CU)。<br>
 一般将运算器和控制器集成到同一个芯片上，称为中央处理器(CPU)。CPU和主存储器共同构成主机，而除主机外的其他硬件装置(外存、I/O设备等)统称为外部设备，简称外设。</p>
-<h4 id="计算机软件的分类"><a class="headerlink" href="#计算机软件的分类"></a>计算机软件的分类</h4>
-<h5 id="系统软件和应用软件"><a class="headerlink" href="#系统软件和应用软件"></a>系统软件和应用软件</h5>
+<h4 id="计算机软件的分类"><a class="markdownIt-Anchor" href="#计算机软件的分类"></a> 计算机软件的分类</h4>
+<h5 id="系统软件和应用软件"><a class="markdownIt-Anchor" href="#系统软件和应用软件"></a> 系统软件和应用软件</h5>
 <p>计算机软件，一般分为系统软件和应用软件<br>
 系统软件包括 操作系统，数据库管理系统，语言处理系统(比如编译器)，分布式软件系统，网络软件系统，标准库系统，服务性系统(比如连接程序)。</p>
 <p>应用软件包括各种科学计算类程序，工程设计类程序，数据统计与处理程序</p>
-<h5 id="三个级别的语言"><a class="headerlink" href="#三个级别的语言"></a>三个级别的语言</h5>
+<h5 id="三个级别的语言"><a class="markdownIt-Anchor" href="#三个级别的语言"></a> 三个级别的语言</h5>
 <ol>
 <li>机器语言。又称二进制代码语言，需要编程人员记忆每条指令的二进制编码。机器语言是计算机唯一可以直接识别和执行的语言。</li>
 <li>汇编语言。汇编语言用英文单词或其缩写代替二进制的指令代码，更容易为人们记忆和理解。使用汇编语言编辑的程序，必须经过一个称为汇编程序的系统软件的翻译，将其转换为计算机的机器语言后，才能在计算机的硬件系统上执行。</li>
@@ -188,8 +188,8 @@
 <p>由高级语言转换到汇编语言的过程叫做编译，由汇编语言转换到机器语言的过程叫做汇编，边翻译边执行的叫做解析。</p>
 <p>机器语言是计算机唯一可以直接执行的语言，汇编语言用助记符编写，以便记忆。而正则语言是编译原理中符合正则文法的语言。</p>
 <p>解释程序的特点是翻译一句执行一句，边翻译边执行：由高级语言转化为汇编语言的过程称为编译，把汇编语言源程序翻译成机器语言程序的过程称为汇编。</p>
-<h3 id="计算机性能指标"><a class="headerlink" href="#计算机性能指标"></a>计算机性能指标</h3>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612180015.png" alt loading="lazy"></p>
+<h3 id="计算机性能指标"><a class="markdownIt-Anchor" href="#计算机性能指标"></a> 计算机性能指标</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240612180015.png" alt></p>
 <ol>
 <li>机器字长：<br>
 计算机的位数，表示计算机进行一次整数运算所能处理的二进制数据的位数。计算机字长通常选为字节（8位）的整数倍，通常2，4，8倍。不同的计算机，字节可能不同。</li>
@@ -223,7 +223,7 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 <p>MFLOPS(Mega Floating-point Operations Per Second)=浮点操作次数/(执行时间x106),即每秒执行多少百万次浮点运算。</p>
 <p>GFLOPS(Giga Floating-point Operations Per Second)=浮点操作次数/(执行时间x109)，即每秒执行多少十亿次浮点运算。</p>
 <p>TFLOPS(Tera Floating-point Operations Per Second)=浮点操作次数/(执行时间x1012)，即每秒执行多少万亿次浮点运算。</p>
-<h3 id="常见问题"><a class="headerlink" href="#常见问题"></a>常见问题</h3>
+<h3 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h3>
 <p>1.同一个功能既可以由软件实现又可以由硬件实现吗？</p>
 <p>软件和硬件是两种完全不同的形态，硬件是实体，是物质基础；软件是一种信息，看不见、摸不到。但在逻辑功能上，软件和硬件是等效的。因此，在计算机系统中，许多功能既可以由硬件直接实现，又可以在硬件的配合下由软件实现。<br>
 一个最大的区别就是，硬件实现比软件实现的速度快很多，但是成本也高！所以，芯片在流片之后，如果发现bug可以用软件修复就用软件修复！</p>
@@ -263,16 +263,16 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 #### 校验码
 
 ### -->
-<h2 id="第三章-系统总线"><a class="headerlink" href="#第三章-系统总线"></a>第三章 系统总线</h2>
-<h3 id="总线的基本概念"><a class="headerlink" href="#总线的基本概念"></a>总线的基本概念</h3>
+<h2 id="第三章-系统总线"><a class="markdownIt-Anchor" href="#第三章-系统总线"></a> 第三章 系统总线</h2>
+<h3 id="总线的基本概念"><a class="markdownIt-Anchor" href="#总线的基本概念"></a> 总线的基本概念</h3>
 <p>计算机系统的五大部件之间的互联方式有两种，一种是各部件之间使用的单独连线，称为分散连接；一种使将各部件连到一组公共信息传输线上，称为总线连接。<br>
 （在某一时刻，只允许一个部件向总线发送信息，多个部件可以同时从总线上接受相同的信息。）<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618103743.png" alt loading="lazy"></p>
-<h3 id="总线的分类"><a class="headerlink" href="#总线的分类"></a>总线的分类</h3>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104224.png" alt loading="lazy"></p>
-<h4 id="连接部件"><a class="headerlink" href="#连接部件"></a>连接部件</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104453.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104435.png" alt loading="lazy"></p>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618103743.png" alt></p>
+<h3 id="总线的分类"><a class="markdownIt-Anchor" href="#总线的分类"></a> 总线的分类</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104224.png" alt></p>
+<h4 id="连接部件"><a class="markdownIt-Anchor" href="#连接部件"></a> 连接部件</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104453.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618104435.png" alt></p>
 <ol>
 <li>片内总线：指芯片内部的总线，如在CPU芯片内部，寄存器与寄存器之间、寄存器与算逻单<br>
 元ALU之间都由片内总线连接。</li>
@@ -281,11 +281,11 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 按系统总线传输信息的不同，又可分为三类：数据总线、地址总线和控制总线。</li>
 <li>通信总线：用于计算机系统之间或计算机系统与替他系统之间的通信。由于这类联系涉及许多方面，如外部连接、距离远近、速度快慢、工作方式等，差别极大，因此通信总线的类别很多。但按传输方式可分为两种：串行通信和并行通信。</li>
 </ol>
-<h3 id="总线特性及性能指标"><a class="headerlink" href="#总线特性及性能指标"></a>总线特性及性能指标</h3>
-<h4 id="总线特性"><a class="headerlink" href="#总线特性"></a>总线特性</h4>
+<h3 id="总线特性及性能指标"><a class="markdownIt-Anchor" href="#总线特性及性能指标"></a> 总线特性及性能指标</h3>
+<h4 id="总线特性"><a class="markdownIt-Anchor" href="#总线特性"></a> 总线特性</h4>
 <p>机械特性、电气特性、功能特性、时间特性。<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/23.png" alt loading="lazy"></p>
-<h4 id="总线的性能指标"><a class="headerlink" href="#总线的性能指标"></a>总线的性能指标</h4>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/23.png" alt></p>
+<h4 id="总线的性能指标"><a class="markdownIt-Anchor" href="#总线的性能指标"></a> 总线的性能指标</h4>
 <p>①总线宽度：通常是指数据总线的根数，用bit（位）表示，如8位、16位、32位、64位（即8根、16根、32根、64根）。<br>
 ②总线带宽：总线带宽可理解为总线的数据传输速率，即单位时间内总线上传输数据的位数，通常用每秒传输信息的学节数来衡量，单位可用MBpS（兆节每秒）表示。例如，总线工作频率为33MHz，总线宽度为32位（4B），则总线带宽为33×（32/8）=132MBps。<br>
 ③时钟同步/异步：总线上的数据与时钟同步工作的总线称为同步总线，与时钟不同步工作<br>
@@ -297,32 +297,32 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 ⑦其他指标：如负载能力、电源电压（是采用5V还是3.3V）、总线宽度能否扩展等。<br>
 总线的负载能力即驱动能力，是指当总线接上负载后，总线输人输出的逻辑电平是否能保持<br>
 在正常的额定范围内。</p>
-<h4 id="总线标准"><a class="headerlink" href="#总线标准"></a>总线标准</h4>
-<h3 id="总线结构"><a class="headerlink" href="#总线结构"></a>总线结构</h3>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105404.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105409.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105426.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105449.png" alt loading="lazy"></p>
-<h3 id="总线控制"><a class="headerlink" href="#总线控制"></a>总线控制</h3>
+<h4 id="总线标准"><a class="markdownIt-Anchor" href="#总线标准"></a> 总线标准</h4>
+<h3 id="总线结构"><a class="markdownIt-Anchor" href="#总线结构"></a> 总线结构</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105404.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105409.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105426.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618105449.png" alt></p>
+<h3 id="总线控制"><a class="markdownIt-Anchor" href="#总线控制"></a> 总线控制</h3>
 <p>包括判优控制和通信控制</p>
-<h4 id="总线判优控制"><a class="headerlink" href="#总线判优控制"></a>总线判优控制</h4>
+<h4 id="总线判优控制"><a class="markdownIt-Anchor" href="#总线判优控制"></a> 总线判优控制</h4>
 <p>总线上所连接的各类设备，按其对总线有无控制功能可分为主设备（模块）和从设备（模块）两种。主设备对总线有控制权，从设备只能响应丛主设备发来的总线命令，对总线没有控制权。<br>
 总线判优控制可分集中式和分布式两种，前者将控制逻辑集中在一一处（如在CPU中），后者将控制逻辑分散在与总线连接的各个部件或设备上。<br>
 常见的几种优先权仲裁方式</p>
 <ol>
 <li>链式查询<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110139.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110139.png" alt><br>
 离总线控制部件最近的设备具有最高的优先级。<br>
 特点：只需很少几根线就能按一定的优先次序实现总线控制，并很容易扩充设备，但是对电路故障很敏感，且优先级别低的设备可能很难获得请求。</li>
 <li>计数器定时查询<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110503.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110503.png" alt><br>
 计数也以从上一次计数的终点开始。<br>
 这种方式对电路故障不如链式查询方式敏感。伯增加了控制线（设备地址）数，控制也较复杂。</li>
 <li>独立请求方式<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110553.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240618110553.png" alt><br>
 这种方式的特点是：响应速度快，优先次序控制灵活（通过程序改变），但控制线数量多，总线控制更复杂。</li>
 </ol>
-<h4 id="总线通信控制"><a class="headerlink" href="#总线通信控制"></a>总线通信控制</h4>
+<h4 id="总线通信控制"><a class="markdownIt-Anchor" href="#总线通信控制"></a> 总线通信控制</h4>
 <p>总线通信控制主要解决通信双方如伺获知传输升始和传输结束，以及通信双方如伺协调如<br>
 何配合。<br>
 总线传输周期</p>
@@ -331,7 +331,7 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 <p>③传数阶段：主模块和从模块交换数据</p>
 <p>④结束阶段：主模块撤销有关信息<br>
 通常用四种方式：同步通信、异步通信、半同步通信和分离式通信。</p>
-<h3 id="问题"><a class="headerlink" href="#问题"></a>问题</h3>
+<h3 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h3>
 <ol>
 <li>引入总线会导致什么问题？如何解决？</li>
 </ol>
@@ -346,9 +346,9 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 ④便于系统的扩充、更新与灵活配置，易于实现系统的模块化<br>
 ⑤便于设备的软件设计，所有接口的软件对不同的接口地址进行操作。<br>
 ⑥便于故障诊断和维修，同时也能降低成本。</p>
-<h2 id="第四章-存储器"><a class="headerlink" href="#第四章-存储器"></a>第四章 存储器</h2>
-<h3 id="概述"><a class="headerlink" href="#概述"></a>概述</h3>
-<h4 id="存储器分类"><a class="headerlink" href="#存储器分类"></a>存储器分类</h4>
+<h2 id="第四章-存储器"><a class="markdownIt-Anchor" href="#第四章-存储器"></a> 第四章 存储器</h2>
+<h3 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h3>
+<h4 id="存储器分类"><a class="markdownIt-Anchor" href="#存储器分类"></a> 存储器分类</h4>
 <p>按在计算机中的作用：</p>
 <ol>
 <li>主存储器，简称主存。CPU可直接随机地对其进行访问，也可以和高速缓存器及辅助存储器交换数据。</li>
@@ -362,84 +362,84 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 <li>随机存取存储器（RAM）。存储器的任何一个存储单元的内容都可以随机存取，而且存取时间与存取单元的物理位置无关，主要用作主存或高速缓冲存储器。</li>
 <li>只读存储器（ROM）存储器的内容只能随机读出而不能写入。即使断电，内容也不会丢失。</li>
 <li>串行访问存储器。对存储单元进行读/写操作时，需按其物理位置的先后顺序寻址，包括顺序存取存储器（如磁带）与直接存取存储器（如磁盘）。<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154156.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154204.png" alt loading="lazy"></li>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154156.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154204.png" alt></li>
 </ol>
-<h4 id="存储器的性能指标"><a class="headerlink" href="#存储器的性能指标"></a>存储器的性能指标</h4>
+<h4 id="存储器的性能指标"><a class="markdownIt-Anchor" href="#存储器的性能指标"></a> 存储器的性能指标</h4>
 <p>&lt;1&gt; 存储容量：存储字数*字长</p>
 <p>&lt;2&gt; 单位成本：每位价格=总成本/总容量</p>
 <p>&lt;3&gt; 存储速度：数据传输率=数据的宽度/存储周期<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154624.png" alt loading="lazy"></p>
-<h4 id="存储器的层次结构"><a class="headerlink" href="#存储器的层次结构"></a>存储器的层次结构</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619155055.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/2.png" alt loading="lazy"></p>
-<h3 id="主存储器"><a class="headerlink" href="#主存储器"></a>主存储器</h3>
-<h4 id="半导体随机存储器"><a class="headerlink" href="#半导体随机存储器"></a>半导体随机存储器</h4>
-<h5 id="SRAM-和-DRAM"><a class="headerlink" href="#SRAM-和-DRAM"></a>SRAM 和 DRAM</h5>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161159.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161435.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161504.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161514.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161526.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161543.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161559.png" alt loading="lazy"></p>
-<h5 id="只读存储器"><a class="headerlink" href="#只读存储器"></a>只读存储器</h5>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163124.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163128.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163141.png" alt loading="lazy"></p>
-<h5 id="主存储器与CPU的连接"><a class="headerlink" href="#主存储器与CPU的连接"></a>主存储器与CPU的连接</h5>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619154624.png" alt></p>
+<h4 id="存储器的层次结构"><a class="markdownIt-Anchor" href="#存储器的层次结构"></a> 存储器的层次结构</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619155055.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/2.png" alt></p>
+<h3 id="主存储器"><a class="markdownIt-Anchor" href="#主存储器"></a> 主存储器</h3>
+<h4 id="半导体随机存储器"><a class="markdownIt-Anchor" href="#半导体随机存储器"></a> 半导体随机存储器</h4>
+<h5 id="sram-和-dram"><a class="markdownIt-Anchor" href="#sram-和-dram"></a> SRAM 和 DRAM</h5>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161159.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161435.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161504.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161514.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161526.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161543.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619161559.png" alt></p>
+<h5 id="只读存储器"><a class="markdownIt-Anchor" href="#只读存储器"></a> 只读存储器</h5>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163124.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163128.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163141.png" alt></p>
+<h5 id="主存储器与cpu的连接"><a class="markdownIt-Anchor" href="#主存储器与cpu的连接"></a> 主存储器与CPU的连接</h5>
 <p>主存容量的扩展：</p>
 <ol>
 <li>位扩展<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163333.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163345.png" alt loading="lazy"></li>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163333.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163345.png" alt></li>
 <li>字扩展<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163441.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163446.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163451.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163457.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163502.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163508.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163513.png" alt loading="lazy"></li>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163441.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163446.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163451.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163457.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163502.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163508.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163513.png" alt></li>
 <li>字位同时扩展<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163553.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163613.png" alt loading="lazy"></li>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163553.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240619163613.png" alt></li>
 </ol>
-<h4 id="存储器的校验"><a class="headerlink" href="#存储器的校验"></a>存储器的校验</h4>
+<h4 id="存储器的校验"><a class="markdownIt-Anchor" href="#存储器的校验"></a> 存储器的校验</h4>
 <p>汉明码的组成、汉明码的纠错过程</p>
-<h4 id="提高访存速度的措施"><a class="headerlink" href="#提高访存速度的措施"></a>提高访存速度的措施</h4>
+<h4 id="提高访存速度的措施"><a class="markdownIt-Anchor" href="#提高访存速度的措施"></a> 提高访存速度的措施</h4>
 <p>单体多字系统、多体并行系统、高性能存储芯片</p>
-<h3 id="高速缓冲器"><a class="headerlink" href="#高速缓冲器"></a>高速缓冲器</h3>
-<h4 id="程序访问的局部性原理"><a class="headerlink" href="#程序访问的局部性原理"></a>程序访问的局部性原理</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092550.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092600.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/2312.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092612.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092617.png" alt loading="lazy"></p>
-<h4 id="Cache的基本工作原理"><a class="headerlink" href="#Cache的基本工作原理"></a>Cache的基本工作原理</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092745.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103713.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103722.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103728.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103734.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103739.png" alt loading="lazy"></p>
-<h4 id="替换策略"><a class="headerlink" href="#替换策略"></a>替换策略</h4>
+<h3 id="高速缓冲器"><a class="markdownIt-Anchor" href="#高速缓冲器"></a> 高速缓冲器</h3>
+<h4 id="程序访问的局部性原理"><a class="markdownIt-Anchor" href="#程序访问的局部性原理"></a> 程序访问的局部性原理</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092550.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092600.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/2312.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092612.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092617.png" alt></p>
+<h4 id="cache的基本工作原理"><a class="markdownIt-Anchor" href="#cache的基本工作原理"></a> Cache的基本工作原理</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240622092745.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103713.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103722.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103728.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103734.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240623103739.png" alt></p>
+<h4 id="替换策略"><a class="markdownIt-Anchor" href="#替换策略"></a> 替换策略</h4>
 <p>当新的主存块需要调入Cache并且它的可用空间位置又被占满时，需要替换掉Cache的数<br>
 据,这就产生了替换策略（算法）问题。在直接映射的 Cache 中,由于某个主存块只与一个Cache字块有映射关系，因此替换策略很简单。而在组相联和全相联映射的Cache中，主存块可以写入Cache 中若干位置,这就有一个选择替换掉哪一个 Cache 字块的问题,即所谓替换算法问题。理想的替换方法是把未来很少用到的或者很久才用到的数据块替换出来，但实际上很难做到。常用的替换算法有先进先出算法、近期最少使用算法和随机法。</p>
 <p>1.先进先出（First-In-First-Out,FIFO）算法:最先被调用的可能是被频繁访问的。<br>
 2.近期最少使用（Least RecentlyUsed,LRU）算法：基于局部性原理，实际运行效果优秀，chche命中率高。<br>
 3.随机法：随机法是直接从Cache中随机选择一个Cache字块进行替换。<br>
 4.LFU算法：LFU算法是使用访问次数作为替换依据，即访问次数越少，被替换的概率越大。<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/234weq.png" alt loading="lazy"></p>
-<h4 id="写策略"><a class="headerlink" href="#写策略"></a>写策略</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/weqwe.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/qwrqw.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sadad.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/234weq.png" alt></p>
+<h4 id="写策略"><a class="markdownIt-Anchor" href="#写策略"></a> 写策略</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/weqwe.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/qwrqw.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sadad.png" alt><br>
 操作频繁可能因为写缓冲饱和而发生阻塞。<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/weqedas.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/adqwawd.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/3124234342.png" alt loading="lazy"></p>
-<h3 id="辅助存储器"><a class="headerlink" href="#辅助存储器"></a>辅助存储器</h3>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/weqedas.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/adqwawd.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/3124234342.png" alt></p>
+<h3 id="辅助存储器"><a class="markdownIt-Anchor" href="#辅助存储器"></a> 辅助存储器</h3>
 <ol>
 <li>辅助存储器的特点<br>
 辅助存储器作为主存的后援设备文称为外部存储器，简称外存，它与主存起组成厂存储器<br>
@@ -454,7 +454,7 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 （4）数据传输率<br>
 （5）误码率</li>
 </ol>
-<h3 id="问题-2"><a class="headerlink" href="#问题-2"></a>问题</h3>
+<h3 id="问题-2"><a class="markdownIt-Anchor" href="#问题-2"></a> 问题</h3>
 <ol>
 <li>存取时间Ta就是存储周期Tm吗？</li>
 </ol>
@@ -476,64 +476,207 @@ CPU的性能取决于三个要素:主频、CPI 、指令条数</p>
 </ol>
 <p>(1)多级 Cache。现代计算机系统中，一般采用多级的 Cache系统。CPU执行指令时，先到速度最快的一级 Cache( LI Cache)中寻找指令或数据，找不到时，再到速度次快的二级Cache(L2 Cache)中找…最后到主存中找。<br>
 (2)指令 Cache和数据 Cache。指令和数据可以分别存储在不同的 Cache中（ LI Cache一般会这么做），这种结构也称哈佛 Cache,其特点是允许CPU在同一个 Cache存储周期内同时提取指令和数据，由于指令执行过程取指和取数据都有可能访问 Cache,因此这一特性可以保证不同的指令同时访存。</p>
-<h2 id="第五章-输入输出系统"><a class="headerlink" href="#第五章-输入输出系统"></a>第五章 输入输出系统</h2>
-<h3 id="概述-2"><a class="headerlink" href="#概述-2"></a>概述</h3>
+<h2 id="第五章-输入输出系统"><a class="markdownIt-Anchor" href="#第五章-输入输出系统"></a> 第五章 输入输出系统</h2>
+<h3 id="概述-2"><a class="markdownIt-Anchor" href="#概述-2"></a> 概述</h3>
 <p>输入输出是以主机位中心谈论的！属于外部设备<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103039.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103103.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103120.png" alt loading="lazy"><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103039.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103103.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103120.png" alt><br>
 I/O设备不可能直接与主板总线相连，它总是通过设备控制器来相连的<br>
 I/O指令是指令系统的一部分，是机器指令的一类，但其为了反映与I/O设备交互的特点，格式和其他通用指令相比有所不同。<br>
 通道程序存放在主存而非通道中，由通道从主存中取出并执行。通道程序由通道执行，且只能在具有通道的I/O系统中执行</p>
-<h4 id="I-O控制方式"><a class="headerlink" href="#I-O控制方式"></a>I/O控制方式</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103626.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624184106.png" alt loading="lazy"></p>
-<h3 id="I-O接口"><a class="headerlink" href="#I-O接口"></a>I/O接口</h3>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185706.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240625171450.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185830.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185846.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185910.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185920.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185929.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185952.png" alt loading="lazy"></p>
-<h3 id="I-O方式"><a class="headerlink" href="#I-O方式"></a>I/O方式</h3>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190208.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190229.png" alt loading="lazy"></p>
-<h4 id="程序查询方式"><a class="headerlink" href="#程序查询方式"></a>程序查询方式</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190724.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190730.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190835.png" alt loading="lazy"></p>
-<h4 id="程序中断方式"><a class="headerlink" href="#程序中断方式"></a>程序中断方式</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190859.png" alt loading="lazy"><br>
+<h4 id="io控制方式"><a class="markdownIt-Anchor" href="#io控制方式"></a> I/O控制方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624103626.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624184106.png" alt></p>
+<h3 id="io接口"><a class="markdownIt-Anchor" href="#io接口"></a> I/O接口</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185706.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240625171450.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185830.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185846.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185910.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185920.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185929.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624185952.png" alt></p>
+<h3 id="io方式"><a class="markdownIt-Anchor" href="#io方式"></a> I/O方式</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190208.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190229.png" alt></p>
+<h4 id="程序查询方式"><a class="markdownIt-Anchor" href="#程序查询方式"></a> 程序查询方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190724.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190730.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190835.png" alt></p>
+<h4 id="程序中断方式"><a class="markdownIt-Anchor" href="#程序中断方式"></a> 程序中断方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190859.png" alt><br>
 计算机在执行程序的过程中，当出现异常情况或特殊请求时,计算机停止现行程序的运行，转向对这些异常情况或特殊请求的处理，处理结束后再返回到现行程序的间断处，继续执行原程序,这就是“中断”。中断是现代计算机能有效合理地发挥效能和提高效率的一个十分重要的功能。通常又把实现这种功能所需的软硬件技术统称为中断技术。<br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190934.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190939.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191132.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191137.png" alt loading="lazy"></p>
-<h4 id="DMA方式"><a class="headerlink" href="#DMA方式"></a>DMA方式</h4>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191214.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191221.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191229.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191335.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191340.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191349.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191355.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191425.png" alt loading="lazy"></p>
-<h2 id="第六章-计算机的运算方法"><a class="headerlink" href="#第六章-计算机的运算方法"></a>第六章 计算机的运算方法</h2>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/123321.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/122222.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/123123123.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sadsad.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asdadasda.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sdadasdasdasdas.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asd456.png" alt loading="lazy"><br>
-<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asd1a231a2.png" alt loading="lazy"></p>
-<h2 id="参考链接"><a class="headerlink" href="#参考链接"></a>参考链接</h2>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190934.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624190939.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191132.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191137.png" alt></p>
+<h4 id="dma方式"><a class="markdownIt-Anchor" href="#dma方式"></a> DMA方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191214.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191221.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191229.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191335.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191340.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191349.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191355.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240624191425.png" alt></p>
+<h2 id="第六章-计算机的运算方法"><a class="markdownIt-Anchor" href="#第六章-计算机的运算方法"></a> 第六章 计算机的运算方法</h2>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/123321.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/122222.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/123123123.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sadsad.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asdadasda.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/sdadasdasdasdas.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asd456.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/asd1a231a2.png" alt></p>
+<h2 id="第七章-指令系统"><a class="markdownIt-Anchor" href="#第七章-指令系统"></a> 第七章 指令系统</h2>
+<h3 id="机器指令"><a class="markdownIt-Anchor" href="#机器指令"></a> 机器指令</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708161907.png" alt></p>
+<h4 id="指令的基本格式"><a class="markdownIt-Anchor" href="#指令的基本格式"></a> 指令的基本格式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708162013.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708162028.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708162034.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708162046.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708162054.png" alt></p>
+<h5 id="指令字长"><a class="markdownIt-Anchor" href="#指令字长"></a> 指令字长</h5>
+<p>一条指令字长（可能会变）</p>
+<h5 id="扩展操作码"><a class="markdownIt-Anchor" href="#扩展操作码"></a> 扩展操作码</h5>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708163324.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708163332.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708163343.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708163351.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708163400.png" alt></p>
+<h3 id="操作数类型和操作类型"><a class="markdownIt-Anchor" href="#操作数类型和操作类型"></a> 操作数类型和操作类型</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164612.png" alt></p>
+<h3 id="寻址方式"><a class="markdownIt-Anchor" href="#寻址方式"></a> 寻址方式</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164638.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164645.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164653.png" alt></p>
+<h4 id="指令的寻址方式"><a class="markdownIt-Anchor" href="#指令的寻址方式"></a> 指令的寻址方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164808.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164816.png" alt></p>
+<h4 id="常见的数据寻址方式"><a class="markdownIt-Anchor" href="#常见的数据寻址方式"></a> 常见的数据寻址方式</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708164905.png" alt><br>
+（1）立即寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165020.png" alt><br>
+（2）直接寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165027.png" alt><br>
+（3）隐含寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165118.png" alt><br>
+（4）间接寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165034.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708171137.png" alt><br>
+（5）寄存器寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165048.png" alt><br>
+（6）寄存器间接寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165059.png" alt><br>
+（7）基址寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165153.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165202.png" alt><br>
+（8）变址寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165210.png" alt><br>
+（9）相对寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165218.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165226.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165238.png" alt><br>
+（10）堆栈寻址<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165245.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708165252.png" alt></p>
+<h3 id="risc技术"><a class="markdownIt-Anchor" href="#risc技术"></a> RISC技术</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708202607.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708202613.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708202624.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708202649.png" alt></p>
+<h3 id="问题-3"><a class="markdownIt-Anchor" href="#问题-3"></a> 问题</h3>
+<p>1.什么是指令？什么是指令系统？为什么要引入指令系统？</p>
+<p>指令就是要计算机执行某种操作的命令，一台计算机中所有机器指令的集合，称为这台计算机的指令系统。引入指令系统后，避免了用户与二进制代码直接接触，使得用户编写程序更为方便。另外，指令系统是表征一台计算机性能的重要因素，它的格式与功能不仅直接影响到机器的硬件结构，而且也直接影响到系统软件，影响到机器的适用范围。<br>
+2.一般来说，指令分为哪些部分？每部分有什么用处？</p>
+<p>一条指令通常包括操作码字段和地址码字段两部分。其中，操作码指出指令中该指令应该执行什么性质的操作和具有何种功能，它是识别指令、了解指令功能与区分操作数地址内容的组成和使用方法等的关键信息。地址码用于给出被操作的信息（指令或数据）的地址，包括参加运算的一个或多个操作数所在的地址、运算结果的保存地址、程序的转移地址、被调用子程序的入口地址等。</p>
+<p>3.对于一个指令系统来说，寻址方式多和少有什么影响？</p>
+<p>寻址方式的多样化能让用户编程更为方便，但多重寻址方式会造成CPU结构的复杂化（详见下章），也不利于指令流水线的运行。而寻址方式太少虽然能够提高CPU的效率，但对于用户而言，少数几种寻址方式会使编程变得复杂，很难满足用户的需求。<br>
+4…简述各常见指令寻址方式的特点和适用情况</p>
+<p>立即寻址操作数获取便捷，通常用于给寄存器赋初值。<br>
+直接寻址相对于立即寻址，缩短了指令长度<br>
+间接寻址扩大了寻址范围，便于编制程序，易于完成子程序返回。<br>
+寄存器寻址的指令字较短，指令执行速度较快<br>
+寄存器间接寻址扩大了寻址范围。<br>
+基址寻址扩大了操作数寻址范围，适用于多道程序设计，常用于为程序或数据分配存储空间。<br>
+变址寻址主要用于处理数组问题，适合编制循环程序。<br>
+相对寻址用于控制程序的执行顺序、转移等。<br>
+基址寻址和变址寻址的区别：两种方式有效地址的形成都是寄存器内容+偏移地址，但是在基址寻址中，程序员操作的是偏移地址，基址寄存器的内容由操作系统控制，在执行过程中是动态调整的；而在变址寻址中，程序员操作的是变址寄存器，偏移地址是固定不变的。</p>
+<h2 id="第八章-cpu的结构和功能"><a class="markdownIt-Anchor" href="#第八章-cpu的结构和功能"></a> 第八章 CPU的结构和功能</h2>
+<h3 id="cpu的结构"><a class="markdownIt-Anchor" href="#cpu的结构"></a> CPU的结构</h3>
+<h4 id="cpu的功能"><a class="markdownIt-Anchor" href="#cpu的功能"></a> CPU的功能</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213017.png" alt><br>
+CPU的功能:</p>
+<p>指令控制：完成取指令、分析指令和执行指令的操作，即程序的顺序控制。<br>
+操作控制：一条指令的功能往往是由若干操作信号的组合来实现的。CPU管理并产生由内存取出的每条指令的操作信号，把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行动作。<br>
+时间控制：对各种操作加以时间上的控制。时间控制要为每条指令按时间顺序提供应有的控制信号。<br>
+数据加工：对数据进行算术和逻辑运算。<br>
+中断处理：对计算机运行过程中出现的异常情况和特殊请求进行处理。<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213051.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213059.png" alt></p>
+<h4 id="cpu-结构框图"><a class="markdownIt-Anchor" href="#cpu-结构框图"></a> CPU 结构框图</h4>
+<p>运算器<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213141.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213150.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213158.png" alt><br>
+控制器<br>
+程序计数器PC:存放下一条指令在主存中的地址，具有自增功能。<br>
+指令寄存器IR：存放当前正在执行的指令。<br>
+指令译码器<br>
+存储器地址寄存器MAR<br>
+存储器数据寄存器MDR<br>
+时序系统<br>
+微操作信号发生器<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213303.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213315.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213322.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213335.png" alt></p>
+<h4 id="cpu的寄存器"><a class="markdownIt-Anchor" href="#cpu的寄存器"></a> CPU的寄存器</h4>
+<h4 id="控制单元和中断系统"><a class="markdownIt-Anchor" href="#控制单元和中断系统"></a> 控制单元和中断系统</h4>
+<h3 id="指令周期"><a class="markdownIt-Anchor" href="#指令周期"></a> 指令周期</h3>
+<h4 id="指令周期的基本概念"><a class="markdownIt-Anchor" href="#指令周期的基本概念"></a> 指令周期的基本概念</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213411.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213418.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213427.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213447.png" alt></p>
+<h4 id="指令周期的数据流"><a class="markdownIt-Anchor" href="#指令周期的数据流"></a> 指令周期的数据流</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213523.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213612.png" alt><br>
+执行周期<br>
+根据IR中的指令字的操作码和操作数通过ALU操作产生执行结果。不同指令的执行操作不同，因此没有统一的数据流向。<br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213630.png" alt></p>
+<h3 id="指令流水"><a class="markdownIt-Anchor" href="#指令流水"></a> 指令流水</h3>
+<h4 id="指令流水原理"><a class="markdownIt-Anchor" href="#指令流水原理"></a> 指令流水原理</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213727.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213736.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213749.png" alt></p>
+<h4 id="影响性能的因素"><a class="markdownIt-Anchor" href="#影响性能的因素"></a> 影响性能的因素</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213846.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213852.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213900.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213906.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213911.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213916.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213921.png" alt></p>
+<h4 id="流水线性能"><a class="markdownIt-Anchor" href="#流水线性能"></a> 流水线性能</h4>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213813.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213818.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213824.png" alt><br>
+<img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240708213829.png" alt></p>
+<h4 id="流水线中的多发技术"><a class="markdownIt-Anchor" href="#流水线中的多发技术"></a> 流水线中的多发技术</h4>
+<h4 id="流水线结构"><a class="markdownIt-Anchor" href="#流水线结构"></a> 流水线结构</h4>
+<h3 id="中断系统"><a class="markdownIt-Anchor" href="#中断系统"></a> 中断系统</h3>
+<h4 id="概述-3"><a class="markdownIt-Anchor" href="#概述-3"></a> 概述</h4>
+<h4 id="中断请求标记和中断判优逻辑"><a class="markdownIt-Anchor" href="#中断请求标记和中断判优逻辑"></a> 中断请求标记和中断判优逻辑</h4>
+<h4 id="中断服务程序入口地址的寻找"><a class="markdownIt-Anchor" href="#中断服务程序入口地址的寻找"></a> 中断服务程序入口地址的寻找</h4>
+<h4 id="中断响应"><a class="markdownIt-Anchor" href="#中断响应"></a> 中断响应</h4>
+<h2 id="参考链接"><a class="markdownIt-Anchor" href="#参考链接"></a> 参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/haojie_duan/article/details/112739522">https://blog.csdn.net/haojie_duan/article/details/112739522</a><br>
 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_65520839/article/details/134017151">https://blog.csdn.net/weixin_65520839/article/details/134017151</a><br>
 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45735391/category_12040862.html">https://blog.csdn.net/weixin_45735391/category_12040862.html</a></p>
-</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src= "/img/loading.gif" data-lazy-src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">xiaocai</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">This piece of writing is an original article, utilizing the<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>Agreement. For complete reproduction, please acknowledge the source as Courtesy of<a href="/">xiaocai</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"></div></div><div class="social-share"></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">攻防世界</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">现代密码学</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="Avatar" src= "/img/loading.gif" data-lazy-src="/img/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src= "/img/loading.gif" data-lazy-src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="Mood sticker"></div></div><div class="author-info__description_group"><div class="author-info__description">繁华落尽依旧<b>真</b>,生活琐碎皆可颂。 感悟<b>人生百态</b>事，记录心灵轨迹</b>。</div><div class="author-info__description2">人生<b>得意</b>须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">xiaocai</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/xiaoxiaoxiaoxiaocai" title="Github"><i class="solitude  st-github-line"></i></a><a class="social-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/438040292" title="Bilibili"><i class="solitude  st-bilibili-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>Table of contents</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章 计算机组成原理概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-text">计算机发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机硬件的发展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机软件的发展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text">计算机系统层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90"><span class="toc-text">计算机系统组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text">计算机硬件的基本组成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E6%BC%AB%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-text">冯诺漫体系结构特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="toc-text">现代计算机的组织结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8A%9F%E8%83%BD%E9%83%A8%E4%BB%B6"><span class="toc-text">计算机的功能部件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">计算机软件的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%92%8C%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text">系统软件和应用软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E7%BA%A7%E5%88%AB%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-text">三个级别的语言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">计算机性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF"><span class="toc-text">第三章 系统总线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">总线的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">总线的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E9%83%A8%E4%BB%B6"><span class="toc-text">连接部件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%89%B9%E6%80%A7%E5%8F%8A%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">总线特性及性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%89%B9%E6%80%A7"><span class="toc-text">总线特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">总线的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86"><span class="toc-text">总线标准</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text">总线结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E6%8E%A7%E5%88%B6"><span class="toc-text">总线控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%88%A4%E4%BC%98%E6%8E%A7%E5%88%B6"><span class="toc-text">总线判优控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E9%80%9A%E4%BF%A1%E6%8E%A7%E5%88%B6"><span class="toc-text">总线通信控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">第四章 存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-text">存储器分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">存储器的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text">存储器的层次结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">主存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">半导体随机存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#SRAM-%E5%92%8C-DRAM"><span class="toc-text">SRAM 和 DRAM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">只读存储器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-text">主存储器与CPU的连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="toc-text">存储器的校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%AE%BF%E5%AD%98%E9%80%9F%E5%BA%A6%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="toc-text">提高访存速度的措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%99%A8"><span class="toc-text">高速缓冲器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-text">程序访问的局部性原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">Cache的基本工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">替换策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E7%AD%96%E7%95%A5"><span class="toc-text">写策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">辅助存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2"><span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">第五章 输入输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-text">I&#x2F;O控制方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O%E6%8E%A5%E5%8F%A3"><span class="toc-text">I&#x2F;O接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O%E6%96%B9%E5%BC%8F"><span class="toc-text">I&#x2F;O方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F"><span class="toc-text">程序查询方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F"><span class="toc-text">程序中断方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%96%B9%E5%BC%8F"><span class="toc-text">DMA方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-text">第六章 计算机的运算方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>New posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/11/ERC20/" title="ERC20"><img alt="ERC20" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240611102527.png"></a><div class="content"><a class="title" href="/2024/06/11/ERC20/" title="ERC20">ERC20</a><a class="article-recent_post_categories" href="/2024/06/11/ERC20/">Blockchain</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界"><img alt="攻防世界" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607114059.png"></a><div class="content"><a class="title" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界">攻防世界</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理"><img alt="计算机组成原理" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113927.png"></a><div class="content"><a class="title" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理">计算机组成原理</a><a class="article-recent_post_categories" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">Education</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学"><img alt="现代密码学" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240611102621.png"></a><div class="content"><a class="title" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学">现代密码学</a><a class="article-recent_post_categories" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/">Education</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/28/solidity/" title="solidity"><img alt="solidity" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240611102813.png"></a><div class="content"><a class="title" href="/2024/05/28/solidity/" title="solidity">solidity</a><a class="article-recent_post_categories" href="/2024/05/28/solidity/">Blockchain</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>Home</span></div><div class="footer-bar-description">来自 Xiaocai 的文章</div><a class="footer-bar-link" href="/about/">了解更多</a></div><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">xiaocai</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/valor-x/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.11.3"></script><script src="/js/main.js?v=1.11.3"></script><script src="/js/third_party/waterfall.min.js?v=1.11.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.11.3"></script><script>dark()
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src= "/img/loading.gif" data-lazy-src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">xiaocai</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">This piece of writing is an original article, utilizing the<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>Agreement. For complete reproduction, please acknowledge the source as Courtesy of<a href="/">xiaocai</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"></div></div><div class="social-share"></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">攻防世界</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">现代密码学</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="Avatar" src= "/img/loading.gif" data-lazy-src="/img/avatar.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src= "/img/loading.gif" data-lazy-src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="Mood sticker"></div></div><div class="author-info__description_group"><div class="author-info__description">繁华落尽依旧<b>真</b>,生活琐碎皆可颂。 感悟<b>人生百态</b>事，记录心灵轨迹</b>。</div><div class="author-info__description2">人生<b>得意</b>须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">xiaocai</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/xiaoxiaoxiaoxiaocai" title="Github"><i class="solitude  st-github-line"></i></a><a class="social-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/438040292" title="Bilibili"><i class="solitude  st-bilibili-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>Table of contents</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0"><span class="toc-text"> 第一章 计算机组成原理概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-text"> 计算机发展历程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text"> 计算机硬件的发展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text"> 计算机软件的发展</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text"> 计算机系统层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90"><span class="toc-text"> 计算机系统组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text"> 计算机硬件的基本组成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E6%BC%AB%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9"><span class="toc-text"> 冯诺漫体系结构特点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="toc-text"> 现代计算机的组织结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8A%9F%E8%83%BD%E9%83%A8%E4%BB%B6"><span class="toc-text"> 计算机的功能部件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text"> 计算机软件的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%92%8C%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text"> 系统软件和应用软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E7%BA%A7%E5%88%AB%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-text"> 三个级别的语言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text"> 计算机性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text"> 常见问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF"><span class="toc-text"> 第三章 系统总线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text"> 总线的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text"> 总线的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E9%83%A8%E4%BB%B6"><span class="toc-text"> 连接部件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%89%B9%E6%80%A7%E5%8F%8A%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text"> 总线特性及性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%89%B9%E6%80%A7"><span class="toc-text"> 总线特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text"> 总线的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E6%A0%87%E5%87%86"><span class="toc-text"> 总线标准</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text"> 总线结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E6%8E%A7%E5%88%B6"><span class="toc-text"> 总线控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%88%A4%E4%BC%98%E6%8E%A7%E5%88%B6"><span class="toc-text"> 总线判优控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E9%80%9A%E4%BF%A1%E6%8E%A7%E5%88%B6"><span class="toc-text"> 总线通信控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text"> 第四章 存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text"> 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E7%B1%BB"><span class="toc-text"> 存储器分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text"> 存储器的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-text"> 存储器的层次结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text"> 主存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E5%AF%BC%E4%BD%93%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text"> 半导体随机存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sram-%E5%92%8C-dram"><span class="toc-text"> SRAM 和 DRAM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text"> 只读存储器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8Ecpu%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-text"> 主存储器与CPU的连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="toc-text"> 存储器的校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%AE%BF%E5%AD%98%E9%80%9F%E5%BA%A6%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="toc-text"> 提高访存速度的措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%99%A8"><span class="toc-text"> 高速缓冲器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-text"> 程序访问的局部性原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cache%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text"> Cache的基本工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text"> 替换策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E7%AD%96%E7%95%A5"><span class="toc-text"> 写策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text"> 辅助存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-2"><span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 第五章 输入输出系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-2"><span class="toc-text"> 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#io%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-text"> I&#x2F;O控制方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#io%E6%8E%A5%E5%8F%A3"><span class="toc-text"> I&#x2F;O接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#io%E6%96%B9%E5%BC%8F"><span class="toc-text"> I&#x2F;O方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F"><span class="toc-text"> 程序查询方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD%E6%96%B9%E5%BC%8F"><span class="toc-text"> 程序中断方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dma%E6%96%B9%E5%BC%8F"><span class="toc-text"> DMA方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-text"> 第六章 计算机的运算方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 第七章 指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-text"> 机器指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-text"> 指令的基本格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%AD%97%E9%95%BF"><span class="toc-text"> 指令字长</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81"><span class="toc-text"> 扩展操作码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B"><span class="toc-text"> 操作数类型和操作类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-text"> 寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-text"> 指令的寻址方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-text"> 常见的数据寻址方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#risc%E6%8A%80%E6%9C%AF"><span class="toc-text"> RISC技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-3"><span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-cpu%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E5%8A%9F%E8%83%BD"><span class="toc-text"> 第八章 CPU的结构和功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cpu%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text"> CPU的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cpu%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text"> CPU的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cpu-%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE"><span class="toc-text"> CPU 结构框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cpu%E7%9A%84%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text"> CPU的寄存器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E5%92%8C%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 控制单元和中断系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-text"> 指令周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text"> 指令周期的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-text"> 指令周期的数据流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4"><span class="toc-text"> 指令流水</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E5%8E%9F%E7%90%86"><span class="toc-text"> 指令流水原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%B1%E5%93%8D%E6%80%A7%E8%83%BD%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="toc-text"> 影响性能的因素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%80%A7%E8%83%BD"><span class="toc-text"> 流水线性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%B8%AD%E7%9A%84%E5%A4%9A%E5%8F%91%E6%8A%80%E6%9C%AF"><span class="toc-text"> 流水线中的多发技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-text"> 流水线结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 中断系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-text"> 概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E8%AF%B7%E6%B1%82%E6%A0%87%E8%AE%B0%E5%92%8C%E4%B8%AD%E6%96%AD%E5%88%A4%E4%BC%98%E9%80%BB%E8%BE%91"><span class="toc-text"> 中断请求标记和中断判优逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E5%9C%B0%E5%9D%80%E7%9A%84%E5%AF%BB%E6%89%BE"><span class="toc-text"> 中断服务程序入口地址的寻找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94"><span class="toc-text"> 中断响应</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text"> 参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>New posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/11/ERC20/" title="ERC20"><img alt="ERC20" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113311.png"></a><div class="content"><a class="title" href="/2024/06/11/ERC20/" title="ERC20">ERC20</a><a class="article-recent_post_categories" href="/2024/06/11/ERC20/">Blockchain</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界"><img alt="攻防世界" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607180203.png"></a><div class="content"><a class="title" href="/2024/05/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" title="攻防世界">攻防世界</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理"><img alt="计算机组成原理" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113927.png"></a><div class="content"><a class="title" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" title="计算机组成原理">计算机组成原理</a><a class="article-recent_post_categories" href="/2024/05/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">Education</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学"><img alt="现代密码学" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607113714.png"></a><div class="content"><a class="title" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/" title="现代密码学">现代密码学</a><a class="article-recent_post_categories" href="/2024/05/29/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/">Education</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/28/solidity/" title="solidity"><img alt="solidity" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaoxiaoxiaoxiaocai/Drawing-bed/draw-bed/20240607180031.png"></a><div class="content"><a class="title" href="/2024/05/28/solidity/" title="solidity">solidity</a><a class="article-recent_post_categories" href="/2024/05/28/solidity/">Blockchain</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>Home</span></div><div class="footer-bar-description">来自 Xiaocai 的文章</div><a class="footer-bar-link" href="/about/">了解更多</a></div><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">xiaocai</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/valor-x/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.11.3"></script><script src="/js/main.js?v=1.11.3"></script><script src="/js/third_party/waterfall.min.js?v=1.11.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.11.3"></script><script>dark()
 </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"><script>(() => {
     document.querySelectorAll('#article-container span.katex-display').forEach(item => {
         utils.wrap(item, 'div', {class: 'katex-wrap'})
