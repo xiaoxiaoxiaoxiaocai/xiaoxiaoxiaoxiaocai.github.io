@@ -1,8 +1,4 @@
-/**
- * Music Player
- * @description Initialize the music player and add event listeners to control the player
- */
-class ScoMusicPlayer {
+class MusicPlayer {
     constructor() {
         this.init();
     }
@@ -45,6 +41,7 @@ class ScoMusicPlayer {
         img.onload = () => {
             element.style.backgroundImage = musicCover.style.backgroundImage;
         };
+        element.className = 'show'
     }
 
     setLoadingScreen(loadingElement, backgroundElement) {
@@ -53,7 +50,7 @@ class ScoMusicPlayer {
             if (musicCover) {
                 loadingElement.style.display = "none";
                 clearInterval(timer);
-                document.querySelector('meting-js').aplayer.volume(0.8, true);
+                document.querySelector('meting-js');
                 this.addEventListenerChangeMusicBg();
                 backgroundElement.style.display = "block";
             }
@@ -112,11 +109,8 @@ class ScoMusicPlayer {
     }
 }
 
-/**
- * Initialize the music player
- */
 function initializeMusicPlayer() {
     let exitingMusic = window.scoMusic;
     if (exitingMusic) exitingMusic.destroy();
-    window.scoMusic = new ScoMusicPlayer();
+    window.scoMusic = new MusicPlayer();
 }
